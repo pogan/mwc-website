@@ -1,0 +1,58 @@
+<%- include('../partials/page-hero', {
+  heroImage: '/images/wedding-rustic.jpg',
+  heroKicker: 'Przejrzyste zasady',
+  heroTitle: 'Cennik',
+  heroSubtitle: 'Wybierzcie pakiet, który najlepiej pasuje do Waszej wizji. Każdą wycenę przygotowuję indywidualnie.'
+}) %>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="text-center mb-5" data-reveal>
+      <p class="kicker">Pakiety ceremonii ślubnych</p>
+      <h2 class="section-title">Wybierzcie to, co dla Was</h2>
+    </div>
+    <div class="row g-4 align-items-stretch">
+      <% site.pricing.forEach(function (p, i) { %>
+        <div class="col-md-6 col-lg-3" data-reveal data-reveal-delay="<%= (i % 3) + 1 %>">
+          <div class="price-card <%= p.highlight ? 'is-featured' : '' %>">
+            <% if (p.badge) { %><span class="price-card__badge"><%= p.badge %></span><% } %>
+            <h3 class="price-card__name"><%= p.name %></h3>
+            <div class="price-card__price"><%= p.price %></div>
+            <ul class="feature-list">
+              <% p.features.forEach(function (f) { %>
+                <li><%= f %></li>
+              <% }); %>
+            </ul>
+            <a href="/kontakt" class="btn <%= p.highlight ? 'btn-primary' : 'btn-outline-clay' %> mt-auto">Zapytaj o termin</a>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-10" data-reveal>
+        <div class="price-note">
+          <h3 style="font-size: 1.35rem;" class="mb-3">Dobrze wiedzieć</h3>
+          <ul>
+            <% site.pricingNotes.forEach(function (note) { %>
+              <li><%= note %></li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5" data-reveal>
+      <p class="text-muted-soft mb-3">
+        Ceremonie funeralne oraz przywitania dziecka wyceniam indywidualnie – zależnie od
+        charakteru i miejsca uroczystości.
+      </p>
+      <a href="/kontakt" class="btn btn-primary btn-lg">Poproś o indywidualną wycenę</a>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/cta', {
+  ctaTitle: 'Nie wiecie, co wybrać?',
+  ctaText: 'Napiszcie do mnie – wspólnie dobierzemy pakiet i elementy, które najlepiej oddadzą Waszą historię i zmieszczą się w Waszym budżecie.'
+}) %>

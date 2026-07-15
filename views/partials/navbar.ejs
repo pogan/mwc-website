@@ -1,0 +1,41 @@
+<header class="site-header">
+  <nav class="navbar navbar-expand-xl" aria-label="Nawigacja główna">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <span class="brand-name">Milena Wolak</span>
+        <span class="brand-role">Ceremonie humanistyczne</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Rozwiń menu"
+      >
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-xl-center">
+          <% nav.forEach(function (item) { %>
+            <li class="nav-item">
+              <a
+                class="nav-link <%= currentPath === item.path ? 'active' : '' %>"
+                href="<%= item.path %>"
+                <%= currentPath === item.path ? 'aria-current="page"' : '' %>
+              ><%= item.label %></a>
+            </li>
+          <% }); %>
+          <li class="nav-item ms-xl-3 mt-2 mt-xl-0">
+            <a class="btn btn-primary btn-sm px-3" href="/kontakt">Zapytaj o termin</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,176 @@
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="container">
+    <div class="hero__inner" data-reveal>
+      <p class="kicker kicker--light">Celebrantka ceremonii humanistycznych</p>
+      <h1 class="hero__title">Wasza historia,<br /><em>opowiedziana pięknie</em></h1>
+      <p class="hero__subtitle">
+        Jestem Milena Wolak. Tworzę ceremonie szyte na miarę – naturalne, lekkie i pełne
+        wzruszeń. Takie, w których naprawdę odnajdziecie siebie.
+      </p>
+      <div class="hero__actions">
+        <a href="/kontakt" class="btn btn-primary btn-lg">Zaplanujmy Waszą ceremonię</a>
+        <a href="/ceremonie-slubne" class="btn btn-outline-light btn-lg">Poznaj ofertę</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll">Przewiń<span></span></div>
+</section>
+
+<!-- ============================== INTRO ============================== -->
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-reveal>
+        <div class="split-figure frame-accent">
+          <img src="/images/milena-portrait.jpg" alt="Milena Wolak – celebrantka ceremonii humanistycznych" loading="lazy" />
+        </div>
+      </div>
+      <div class="col-lg-6" data-reveal data-reveal-delay="1">
+        <p class="kicker">Miło Was poznać</p>
+        <h2 class="section-title">Ceremonia „Wasza w 100%”</h2>
+        <p class="lead-soft">
+          W branży ślubnej działam od 2017 roku. Doświadczenie sceniczne, znajomość retoryki,
+          emisji głosu i pracy z emocjami sprawiają, że prowadzone przeze mnie ceremonie
+          są nie tylko pięknie opowiedziane, ale też naturalne i pełne wzruszeń.
+        </p>
+        <p>
+          Kocham poznawać ludzi i ich historie. To właśnie z rozmów, wspólnych żartów
+          i Waszych wspomnień tworzę ceremonię, w której naprawdę odnajdziecie siebie –
+          od tonu przysięgi po wybrane rytuały.
+        </p>
+        <a href="/o-mnie" class="btn btn-outline-clay mt-2">Więcej o mnie</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== USŁUGI ============================== -->
+<section class="section-pad bg-cream-2">
+  <div class="container">
+    <div class="text-center mb-5" data-reveal>
+      <p class="kicker">Ceremonie</p>
+      <h2 class="section-title">Każda uroczystość szyta na miarę</h2>
+      <p class="lead-soft mx-auto" style="max-width: 640px;">
+        Niezależnie od okazji – tworzę osobiste, wzruszające wydarzenia dopasowane
+        do Waszej historii, relacji i osobowości.
+      </p>
+    </div>
+    <div class="row g-4">
+      <% site.services.forEach(function (s, i) { %>
+        <div class="col-md-6 col-lg-3" data-reveal data-reveal-delay="<%= (i % 3) + 1 %>">
+          <a href="<%= s.path %>" class="service-card">
+            <div class="service-card__img" style="background-image: url('<%= s.image %>')"></div>
+            <div class="service-card__body">
+              <h3 class="service-card__title"><%= s.title %></h3>
+              <p class="service-card__excerpt"><%= s.excerpt %></p>
+              <span class="service-card__link">Zobacz więcej</span>
+            </div>
+          </a>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== STATY ============================== -->
+<section class="section-pad-sm bg-cream">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6 col-md-3" data-reveal>
+        <div class="stat">
+          <div class="stat__num"><span data-count="2017">2017</span></div>
+          <div class="stat__label">Od tego roku w branży</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-reveal data-reveal-delay="1">
+        <div class="stat">
+          <div class="stat__num"><span data-count="500" data-suffix="+">500+</span></div>
+          <div class="stat__label">Wesel i uroczystości</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-reveal data-reveal-delay="2">
+        <div class="stat">
+          <div class="stat__num"><span data-count="100" data-suffix="%">100%</span></div>
+          <div class="stat__label">Autorskich scenariuszy</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-reveal data-reveal-delay="3">
+        <div class="stat">
+          <div class="stat__num">2</div>
+          <div class="stat__label">Języki ceremonii</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PROCES ============================== -->
+<section class="section-pad bg-sand">
+  <div class="container">
+    <div class="text-center mb-5" data-reveal>
+      <p class="kicker">Jak pracujemy</p>
+      <h2 class="section-title">Droga do Waszej ceremonii</h2>
+    </div>
+    <div class="row g-4">
+      <% site.process.forEach(function (p, i) { %>
+        <div class="col-md-6 col-lg-3" data-reveal data-reveal-delay="<%= (i % 3) + 1 %>">
+          <div class="process-step">
+            <span class="process-step__num"><%= p.step %></span>
+            <h3 class="process-step__title"><%= p.title %></h3>
+            <p><%= p.text %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== OPINIE ============================== -->
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="quote-block mb-5" data-reveal>
+      <span class="quote-block__mark">&ldquo;</span>
+      <p>
+        Moją misją jest sprawić, aby Wasz dzień był niepowtarzalny, intymny
+        i „Wasz w 100%”.
+      </p>
+      <p class="mt-3" style="font-size: 0.85rem; letter-spacing: 0.16em; text-transform: uppercase; font-style: normal; color: var(--clay);">
+        — Milena Wolak
+      </p>
+    </div>
+    <div class="row g-4">
+      <% site.testimonials.forEach(function (t, i) { %>
+        <div class="col-md-4" data-reveal data-reveal-delay="<%= (i % 3) + 1 %>">
+          <div class="testimonial-card">
+            <p><%= t.quote %></p>
+            <span class="author"><%= t.author %></span>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== GALERIA ============================== -->
+<section class="section-pad bg-cream-2">
+  <div class="container">
+    <div class="text-center mb-5" data-reveal>
+      <p class="kicker">Chwile</p>
+      <h2 class="section-title">Momenty pełne emocji</h2>
+    </div>
+    <div class="gallery-grid" data-reveal>
+      <a class="wide" href="/ceremonie-slubne"><img src="/images/wedding-beach.jpg" alt="Ceremonia ślubna nad morzem" loading="lazy" /></a>
+      <a href="/ceremonie-slubne"><img src="/images/wedding-vows.jpg" alt="Wzruszające czytanie przysięgi" loading="lazy" /></a>
+      <a href="/pary-jednoplciowe"><img src="/images/couple-samesex.jpg" alt="Ceremonia pary jednopłciowej" loading="lazy" /></a>
+      <a href="/przywitanie-dziecka"><img src="/images/family-children.jpg" alt="Ceremonia rodzinna z dziećmi" loading="lazy" /></a>
+      <a href="/ceremonie-slubne"><img src="/images/wedding-rustic.jpg" alt="Ślub w plenerze" loading="lazy" /></a>
+      <a class="wide" href="/ceremonie-slubne"><img src="/images/wedding-candles.jpg" alt="Elegancka ceremonia przy świecach" loading="lazy" /></a>
+      <a href="/ceremonie-slubne"><img src="/images/ceremony-inclusive.jpg" alt="Ceremonia na pomoście nad wodą" loading="lazy" /></a>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/cta') %>

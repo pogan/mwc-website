@@ -1,0 +1,27 @@
+{
+  "name": "mwc-website",
+  "version": "1.0.0",
+  "description": "Strona internetowa Mileny Wolak – celebrantki ceremonii humanistycznych (Milena Wolak Ceremonie).",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "celebrantka",
+    "ceremonie-humanistyczne",
+    "slub-humanistyczny",
+    "express",
+    "bootstrap"
+  ],
+  "author": "Milena Wolak Ceremonie",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-ejs-layouts": "^2.5.1",
+    "helmet": "^8.0.0"
+  }
+}

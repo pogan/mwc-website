@@ -1,0 +1,20 @@
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-band__inner" data-reveal>
+      <p class="kicker kicker--light">Porozmawiajmy</p>
+      <h2 class="cta-band__title">
+        <%= typeof ctaTitle !== 'undefined' ? ctaTitle : 'Opowiedzcie mi swoją historię' %>
+      </h2>
+      <p class="cta-band__text">
+        <%= typeof ctaText !== 'undefined' ? ctaText
+          : 'Zapraszam na niezobowiązujące spotkanie – osobiste lub online. Poznamy się bliżej i zaplanujemy ceremonię idealnie dopasowaną do Was.' %>
+      </p>
+      <div class="cta-band__actions">
+        <a href="/kontakt" class="btn btn-primary btn-lg">Napisz do mnie</a>
+        <a href="tel:<%= contact.phoneHref %>" class="btn btn-outline-light btn-lg">
+          Zadzwoń: <%= contact.phoneDisplay %>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
