@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Branch, tag, or commit SHA to deploy (e.g. main, or a SHA to roll back to)"
+        required: false
+        default: main
+
+concurrency:
+  group: deploy-mwc-website
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          # The server's authorized_keys forces this key to run a fixed deploy
+          # script; whatever we put here just tells that script which ref to
+          # check out (defaults to main on a plain push).
+          script: ${{ github.event.inputs.ref || github.sha }}
