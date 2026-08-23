@@ -245,7 +245,7 @@ section { position: relative; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('/images/wedding-beach.jpg');
+  background-image: url('/images/wedding-beach.webp');
   background-size: cover;
   background-position: center 30%;
   transform: scale(1.05);
@@ -698,7 +698,7 @@ section { position: relative; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/images/wedding-candles.jpg');
+  background-image: url('/images/wedding-candles.webp');
   background-size: cover;
   background-position: center;
   opacity: 0.16;

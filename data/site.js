@@ -3,12 +3,16 @@
  * Dzięki temu nawigacja, oferta, cennik, FAQ i dane kontaktowe są w jednym miejscu.
  */
 
+const url = 'https://milenawolakceremonie.pl';
+
 const contact = {
   phoneDisplay: '510 769 900',
   phoneHref: '+48510769900',
   email: 'marczykowska@gmail.com',
   city: 'Gdańsk i całe Trójmiasto',
   serviceArea: 'Pomorze i cała Polska',
+  /** Miejscowości/regiony do areaServed w danych strukturalnych i lokalnego SEO. */
+  areaServedList: ['Gdańsk', 'Trójmiasto', 'Województwo pomorskie', 'Polska'],
   facebook: 'https://www.facebook.com/milenawolakceremonie',
   instagram: 'https://www.instagram.com/milena_wolak_ceremonie',
   instagramHandle: '@milena_wolak_ceremonie'
@@ -39,7 +43,7 @@ const services = [
   {
     title: 'Ceremonie ślubne',
     path: '/ceremonie-slubne',
-    image: '/images/wedding-beach.jpg',
+    image: '/images/wedding-beach.webp',
     icon: 'rings',
     excerpt:
       'Spersonalizowany scenariusz oparty na Waszej historii, pomoc w napisaniu przysięgi i rytuały szyte na miarę.'
@@ -47,7 +51,7 @@ const services = [
   {
     title: 'Pary jednopłciowe',
     path: '/pary-jednoplciowe',
-    image: '/images/couple-samesex.jpg',
+    image: '/images/couple-samesex.webp',
     icon: 'heart',
     excerpt:
       'Ceremonia bez ograniczeń i uprzedzeń – równie piękna, osobista i pełna emocji, na jaką zasługuje każda miłość.'
@@ -55,7 +59,7 @@ const services = [
   {
     title: 'Przywitanie dziecka w rodzinie',
     path: '/przywitanie-dziecka',
-    image: '/images/family-children.jpg',
+    image: '/images/family-children.webp',
     icon: 'child',
     excerpt:
       'Symboliczne powitanie nowego członka rodziny – ciepła uroczystość celebrująca miłość, więzi i wspólną przyszłość.'
@@ -63,7 +67,7 @@ const services = [
   {
     title: 'Ceremonie funeralne',
     path: '/ceremonie-funeralne',
-    image: '/images/funerals.jpg',
+    image: '/images/funerals.webp',
     icon: 'leaf',
     excerpt:
       'Godne, świeckie pożegnanie bliskiej osoby – opowieść o życiu, które warto uczcić słowem, ciszą i pamięcią.'
@@ -212,6 +216,7 @@ const testimonials = [
 ];
 
 module.exports = {
+  url,
   brand,
   contact,
   nav,

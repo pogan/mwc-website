@@ -52,6 +52,10 @@ app.use((req, res, next) => {
   res.locals.brand = site.brand;
   res.locals.contact = site.contact;
   res.locals.form = null; // domyślny stan formularza kontaktowego
+  res.locals.canonicalUrl = site.url + (req.path === '/' ? '' : req.path.replace(/\/$/, ''));
+  res.locals.ogImage = '/images/wedding-beach.jpg'; // domyślne, nadpisywane per trasa
+  res.locals.serviceSchema = null;
+  res.locals.faqSchema = false;
   next();
 });
 
@@ -59,57 +63,84 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   res.render('pages/home', {
-    title: `${site.brand.name} – ${site.brand.role}`,
+    title: `${site.brand.name} – ${site.brand.role} | Gdańsk`,
     description:
-      'Milena Wolak – celebrantka ceremonii humanistycznych. Śluby, ceremonie dla par jednopłciowych, przywitania dziecka i ceremonie funeralne szyte na miarę. Gdańsk i cała Polska.'
+      'Milena Wolak – celebrantka ceremonii humanistycznych. Śluby, ceremonie dla par jednopłciowych, przywitania dziecka i ceremonie funeralne szyte na miarę. Gdańsk, Trójmiasto i cała Polska.',
+    ogImage: '/images/wedding-beach.jpg'
   });
 });
 
 app.get('/ceremonie-slubne', (req, res) => {
   res.render('pages/ceremonie-slubne', {
-    title: 'Ceremonie ślubne – ślub humanistyczny | Milena Wolak',
+    title: 'Ślub Humanistyczny – Gdańsk, Trójmiasto i cała Polska | Milena Wolak',
     description:
-      'Ślub humanistyczny szyty na miarę: spersonalizowany scenariusz, pomoc w przysiędze, rytuały i pełna koordynacja dnia ślubu.'
+      'Ślub humanistyczny szyty na miarę: spersonalizowany scenariusz, pomoc w przysiędze, rytuały i pełna koordynacja dnia ślubu. Gdańsk, Trójmiasto i cała Polska.',
+    ogImage: '/images/wedding-arch.jpg',
+    serviceSchema: {
+      name: 'Ślub humanistyczny',
+      description:
+        'Spersonalizowany scenariusz oparty na Waszej historii, pomoc w napisaniu przysięgi i rytuały szyte na miarę.'
+    }
   });
 });
 
 app.get('/pary-jednoplciowe', (req, res) => {
   res.render('pages/pary-jednoplciowe', {
-    title: 'Ceremonie dla par jednopłciowych | Milena Wolak',
+    title: 'Ceremonie dla Par Jednopłciowych – Gdańsk i cała Polska | Milena Wolak',
     description:
-      'Ceremonie humanistyczne dla par jednopłciowych – bez ograniczeń i uprzedzeń. Piękna, osobista celebracja miłości.'
+      'Ceremonie humanistyczne dla par jednopłciowych – bez ograniczeń i uprzedzeń. Piękna, osobista celebracja miłości. Gdańsk, Trójmiasto i cała Polska.',
+    ogImage: '/images/couple-samesex.jpg',
+    serviceSchema: {
+      name: 'Ceremonia dla par jednopłciowych',
+      description:
+        'Ceremonia bez ograniczeń i uprzedzeń – równie piękna, osobista i pełna emocji, na jaką zasługuje każda miłość.'
+    }
   });
 });
 
 app.get('/przywitanie-dziecka', (req, res) => {
   res.render('pages/przywitanie-dziecka', {
-    title: 'Przywitanie dziecka w rodzinie | Milena Wolak',
+    title: 'Przywitanie Dziecka w Rodzinie – Gdańsk i cała Polska | Milena Wolak',
     description:
-      'Świecka ceremonia powitania dziecka w rodzinie – ciepła uroczystość celebrująca miłość, więzi i wspólną przyszłość.'
+      'Świecka ceremonia powitania dziecka w rodzinie – ciepła uroczystość celebrująca miłość, więzi i wspólną przyszłość. Gdańsk, Trójmiasto i cała Polska.',
+    ogImage: '/images/family-children.jpg',
+    serviceSchema: {
+      name: 'Przywitanie dziecka w rodzinie',
+      description:
+        'Symboliczne powitanie nowego członka rodziny – ciepła uroczystość celebrująca miłość, więzi i wspólną przyszłość.'
+    }
   });
 });
 
 app.get('/ceremonie-funeralne', (req, res) => {
   res.render('pages/ceremonie-funeralne', {
-    title: 'Ceremonie funeralne – świeckie pożegnanie | Milena Wolak',
+    title: 'Ceremonie Funeralne, Świeckie Pożegnanie – Gdańsk i cała Polska | Milena Wolak',
     description:
-      'Godne, świeckie ceremonie pożegnania. Osobista opowieść o życiu bliskiej osoby, uczczona słowem, ciszą i pamięcią.'
+      'Godne, świeckie ceremonie pożegnania. Osobista opowieść o życiu bliskiej osoby, uczczona słowem, ciszą i pamięcią. Gdańsk, Trójmiasto i cała Polska.',
+    ogImage: '/images/funerals.jpg',
+    serviceSchema: {
+      name: 'Ceremonia funeralna',
+      description:
+        'Godne, świeckie pożegnanie bliskiej osoby – opowieść o życiu, które warto uczcić słowem, ciszą i pamięcią.'
+    }
   });
 });
 
 app.get('/o-mnie', (req, res) => {
   res.render('pages/o-mnie', {
-    title: 'O mnie – Milena Wolak, celebrantka',
+    title: 'O mnie – Milena Wolak, Celebrantka z Gdańska',
     description:
-      'Poznaj Milenę Wolak – celebrantkę łączącą sceniczną charyzmę z wrażliwością na ludzkie historie. W branży ślubnej od 2017 roku.'
+      'Poznaj Milenę Wolak – celebrantkę łączącą sceniczną charyzmę z wrażliwością na ludzkie historie. W branży ślubnej od 2017 roku. Gdańsk i cała Polska.',
+    ogImage: '/images/milena-portrait.jpg'
   });
 });
 
 app.get('/cennik', (req, res) => {
   res.render('pages/cennik', {
-    title: 'Cennik ceremonii | Milena Wolak',
+    title: 'Cennik Ceremonii Humanistycznych – Gdańsk i cała Polska | Milena Wolak',
     description:
-      'Cennik ceremonii humanistycznych Mileny Wolak – pakiety personalizowane i dwujęzyczne, oprawa muzyczna oraz warunki dojazdu.'
+      'Cennik ceremonii humanistycznych Mileny Wolak – pakiety personalizowane i dwujęzyczne, oprawa muzyczna oraz warunki dojazdu. Gdańsk, Trójmiasto i cała Polska.',
+    ogImage: '/images/wedding-rustic.jpg'
   });
 });
 
@@ -117,15 +148,18 @@ app.get('/faq', (req, res) => {
   res.render('pages/faq', {
     title: 'FAQ – najczęściej zadawane pytania | Milena Wolak',
     description:
-      'Odpowiedzi na najczęstsze pytania o ślub humanistyczny, przysięgę, oprawę muzyczną i dojazd celebrantki.'
+      'Odpowiedzi na najczęstsze pytania o ślub humanistyczny, przysięgę, oprawę muzyczną i dojazd celebrantki.',
+    ogImage: '/images/ceremony-inclusive.jpg',
+    faqSchema: true
   });
 });
 
 app.get('/kontakt', (req, res) => {
   res.render('pages/kontakt', {
-    title: 'Kontakt | Milena Wolak Ceremonie',
+    title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Wolak Ceremonie',
     description:
-      'Skontaktuj się z Mileną Wolak. Zapraszam na spotkanie osobiste lub online, aby porozmawiać o Waszej wyjątkowej ceremonii.'
+      'Skontaktuj się z Mileną Wolak. Zapraszam na spotkanie osobiste lub online, aby porozmawiać o Waszej wyjątkowej ceremonii. Gdańsk, Trójmiasto i cała Polska.',
+    ogImage: '/images/wedding-arch.jpg'
   });
 });
 
@@ -134,10 +168,27 @@ app.post('/kontakt', async (req, res) => {
   const formState = await processContactForm(req.body);
 
   res.status(formState.errors.length ? 422 : 200).render('pages/kontakt', {
-    title: 'Kontakt | Milena Wolak Ceremonie',
+    title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Wolak Ceremonie',
     description: 'Skontaktuj się z Mileną Wolak.',
+    ogImage: '/images/wedding-arch.jpg',
     form: formState
   });
+});
+
+/* -------------------------------- Sitemap -------------------------------- */
+
+app.get('/sitemap.xml', (req, res) => {
+  const today = new Date().toISOString().slice(0, 10);
+  const urls = site.nav
+    .map((item) => {
+      const priority = item.path === '/' ? '1.0' : site.services.some((s) => s.path === item.path) ? '0.8' : '0.5';
+      return `  <url>\n    <loc>${site.url}${item.path}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>\n  </url>`;
+    })
+    .join('\n');
+
+  res.type('application/xml').send(
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`
+  );
 });
 
 /* ------------------------------ 404 / błędy ----------------------------- */

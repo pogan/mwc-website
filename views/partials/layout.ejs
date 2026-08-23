@@ -7,15 +7,100 @@
   <meta name="description" content="<%= typeof description !== 'undefined' ? description : brand.tagline %>" />
   <meta name="author" content="Milena Wolak" />
   <meta name="theme-color" content="#8a5a44" />
+  <link rel="canonical" href="<%= canonicalUrl %>" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Milena Wolak Ceremonie" />
   <meta property="og:title" content="<%= title %>" />
   <meta property="og:description" content="<%= typeof description !== 'undefined' ? description : brand.tagline %>" />
-  <meta property="og:image" content="/images/wedding-beach.jpg" />
+  <meta property="og:url" content="<%= canonicalUrl %>" />
+  <meta property="og:image" content="<%= site.url %><%= ogImage %>" />
+  <meta property="og:locale" content="pl_PL" />
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <!-- Dane strukturalne: firma i osoba (na każdej podstronie) -->
+  <script type="application/ld+json">
+    <%- JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'ProfessionalService',
+          '@id': site.url + '/#business',
+          name: brand.short,
+          image: site.url + '/images/milena-portrait.webp',
+          url: site.url,
+          telephone: contact.phoneHref,
+          email: contact.email,
+          priceRange: '1700 zł - 2800 zł',
+          areaServed: contact.areaServedList,
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Gdańsk',
+            addressRegion: 'Pomorskie',
+            addressCountry: 'PL'
+          },
+          sameAs: [contact.facebook, contact.instagram]
+        },
+        {
+          '@type': 'Person',
+          '@id': site.url + '/o-mnie#person',
+          name: brand.name,
+          jobTitle: brand.role,
+          url: site.url + '/o-mnie',
+          image: site.url + '/images/milena-portrait.webp',
+          worksFor: { '@id': site.url + '/#business' },
+          sameAs: [contact.facebook, contact.instagram]
+        }
+      ]
+    }).replace(/</g, '\\u003c') %>
+  </script>
+
+  <% var breadcrumbItem = nav.find(function (n) { return n.path === currentPath && n.path !== '/'; }); %>
+  <% if (breadcrumbItem) { %>
+    <script type="application/ld+json">
+      <%- JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Start', item: site.url + '/' },
+          { '@type': 'ListItem', position: 2, name: breadcrumbItem.label, item: canonicalUrl }
+        ]
+      }).replace(/</g, '\\u003c') %>
+    </script>
+  <% } %>
+
+  <% if (typeof serviceSchema !== 'undefined' && serviceSchema) { %>
+    <script type="application/ld+json">
+      <%- JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: serviceSchema.name,
+        name: serviceSchema.name,
+        description: serviceSchema.description,
+        provider: { '@id': site.url + '/#business' },
+        areaServed: contact.areaServedList,
+        url: canonicalUrl
+      }).replace(/</g, '\\u003c') %>
+    </script>
+  <% } %>
+
+  <% if (typeof faqSchema !== 'undefined' && faqSchema) { %>
+    <script type="application/ld+json">
+      <%- JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: site.faq.map(function (item) {
+          return {
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: { '@type': 'Answer', text: item.a }
+          };
+        })
+      }).replace(/</g, '\\u003c') %>
+    </script>
+  <% } %>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
