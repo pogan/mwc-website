@@ -3,12 +3,15 @@
  * Serwuje stronę wizytówkę celebrantki ceremonii humanistycznych.
  */
 
+require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const helmet = require('helmet');
 
 const site = require('./data/site');
+const { processContactForm } = require('./lib/contactForm');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -126,31 +129,11 @@ app.get('/kontakt', (req, res) => {
   });
 });
 
-// Obsługa formularza kontaktowego (bez wysyłki e-mail – walidacja i komunikat).
-app.post('/kontakt', (req, res) => {
-  const { name = '', email = '', phone = '', eventType = '', message = '' } = req.body;
-  const errors = [];
+// Obsługa formularza kontaktowego – walidacja i wysyłka e-mail (patrz lib/contactForm.js).
+app.post('/kontakt', async (req, res) => {
+  const formState = await processContactForm(req.body);
 
-  const cleanName = name.trim();
-  const cleanEmail = email.trim();
-  const cleanMessage = message.trim();
-
-  if (cleanName.length < 2) errors.push('Podaj imię (min. 2 znaki).');
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) errors.push('Podaj poprawny adres e-mail.');
-  if (cleanMessage.length < 10) errors.push('Napisz kilka słów o swojej ceremonii (min. 10 znaków).');
-
-  const formState = {
-    values: { name: cleanName, email: cleanEmail, phone: phone.trim(), eventType: eventType.trim(), message: cleanMessage },
-    errors,
-    success: errors.length === 0
-  };
-
-  // W realnym wdrożeniu tutaj następowałaby wysyłka wiadomości (np. Nodemailer).
-  if (formState.success) {
-    formState.values = { name: '', email: '', phone: '', eventType: '', message: '' };
-  }
-
-  res.status(errors.length ? 422 : 200).render('pages/kontakt', {
+  res.status(formState.errors.length ? 422 : 200).render('pages/kontakt', {
     title: 'Kontakt | Milena Wolak Ceremonie',
     description: 'Skontaktuj się z Mileną Wolak.',
     form: formState
