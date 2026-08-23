@@ -63,7 +63,7 @@ const services = [
   {
     title: 'Ceremonie funeralne',
     path: '/ceremonie-funeralne',
-    image: '/images/wedding-candles.jpg',
+    image: '/images/funerals.jpg',
     icon: 'leaf',
     excerpt:
       'Godne, świeckie pożegnanie bliskiej osoby – opowieść o życiu, które warto uczcić słowem, ciszą i pamięcią.'
