@@ -156,7 +156,7 @@ app.get('/faq', (req, res) => {
 
 app.get('/kontakt', (req, res) => {
   res.render('pages/kontakt', {
-    title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Wolak Ceremonie',
+    title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Wolak Ceremonie Humanistyczne',
     description:
       'Skontaktuj się z Mileną Wolak. Zapraszam na spotkanie osobiste lub online, aby porozmawiać o Waszej wyjątkowej ceremonii. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/wedding-arch.jpg'
@@ -168,7 +168,7 @@ app.post('/kontakt', async (req, res) => {
   const formState = await processContactForm(req.body);
 
   res.status(formState.errors.length ? 422 : 200).render('pages/kontakt', {
-    title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Wolak Ceremonie',
+    title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Wolak Ceremonie Humanistyczne',
     description: 'Skontaktuj się z Mileną Wolak.',
     ogImage: '/images/wedding-arch.jpg',
     form: formState

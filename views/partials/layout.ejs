@@ -11,7 +11,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Milena Wolak Ceremonie" />
+  <meta property="og:site_name" content="<%= brand.short %>" />
   <meta property="og:title" content="<%= title %>" />
   <meta property="og:description" content="<%= typeof description !== 'undefined' ? description : brand.tagline %>" />
   <meta property="og:url" content="<%= canonicalUrl %>" />
@@ -29,6 +29,7 @@
           '@type': 'ProfessionalService',
           '@id': site.url + '/#business',
           name: brand.short,
+          alternateName: 'Milena Wolak Ceremonie',
           image: site.url + '/images/milena-portrait.webp',
           url: site.url,
           telephone: contact.phoneHref,

@@ -21,7 +21,7 @@ const contact = {
 const brand = {
   name: 'Milena Wolak',
   role: 'Celebrantka ceremonii humanistycznych',
-  short: 'Milena Wolak Ceremonie',
+  short: 'Milena Wolak Ceremonie Humanistyczne',
   tagline: 'Wasza historia, opowiedziana tak, jak Wam odpowiada.'
 };
 
