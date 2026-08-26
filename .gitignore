@@ -3,6 +3,7 @@ npm-debug.log*
 .env
 .DS_Store
 *.log
+logs/
 
 # Materiały źródłowe klienta (nie publikujemy w repo)
 kk_input_data/
