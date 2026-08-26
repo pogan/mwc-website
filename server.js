@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
   res.render('pages/home', {
     title: `${site.brand.name} – ${site.brand.role} | Gdańsk`,
     description:
-      'Milena Wolak – celebrantka ceremonii humanistycznych. Śluby, ceremonie dla par jednopłciowych, przywitania dziecka i ceremonie funeralne szyte na miarę. Gdańsk, Trójmiasto i cała Polska.',
+      'Milena Wolak – celebrantka ceremonii humanistycznych. Śluby, ceremonie dla par LGBT+, przywitania dziecka, ceremonie pożegnania i odnowienie przysięgi szyte na miarę. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/wedding-beach.jpg'
   });
 });
@@ -85,13 +85,17 @@ app.get('/ceremonie-slubne', (req, res) => {
 });
 
 app.get('/pary-jednoplciowe', (req, res) => {
-  res.render('pages/pary-jednoplciowe', {
-    title: 'Ceremonie dla Par Jednopłciowych – Gdańsk i cała Polska | Milena Wolak',
+  res.redirect(301, '/pary-lgbt');
+});
+
+app.get('/pary-lgbt', (req, res) => {
+  res.render('pages/pary-lgbt', {
+    title: 'Ceremonie dla Par LGBT+ – Gdańsk i cała Polska | Milena Wolak',
     description:
-      'Ceremonie humanistyczne dla par jednopłciowych – bez ograniczeń i uprzedzeń. Piękna, osobista celebracja miłości. Gdańsk, Trójmiasto i cała Polska.',
+      'Ceremonie humanistyczne dla par LGBT+ – bez ograniczeń i uprzedzeń. Piękna, osobista celebracja miłości. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/couple-samesex.jpg',
     serviceSchema: {
-      name: 'Ceremonia dla par jednopłciowych',
+      name: 'Ceremonia dla par LGBT+',
       description:
         'Ceremonia bez ograniczeń i uprzedzeń – równie piękna, osobista i pełna emocji, na jaką zasługuje każda miłość.'
     }
@@ -113,15 +117,33 @@ app.get('/przywitanie-dziecka', (req, res) => {
 });
 
 app.get('/ceremonie-funeralne', (req, res) => {
-  res.render('pages/ceremonie-funeralne', {
-    title: 'Ceremonie Funeralne, Świeckie Pożegnanie – Gdańsk i cała Polska | Milena Wolak',
+  res.redirect(301, '/ceremonie-pozegnania');
+});
+
+app.get('/ceremonie-pozegnania', (req, res) => {
+  res.render('pages/ceremonie-pozegnania', {
+    title: 'Ceremonie Pożegnania, Świeckie Pożegnanie – Gdańsk i cała Polska | Milena Wolak',
     description:
       'Godne, świeckie ceremonie pożegnania. Osobista opowieść o życiu bliskiej osoby, uczczona słowem, ciszą i pamięcią. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/funerals.jpg',
     serviceSchema: {
-      name: 'Ceremonia funeralna',
+      name: 'Ceremonia pożegnania',
       description:
         'Godne, świeckie pożegnanie bliskiej osoby – opowieść o życiu, które warto uczcić słowem, ciszą i pamięcią.'
+    }
+  });
+});
+
+app.get('/odnowienie-przysiegi', (req, res) => {
+  res.render('pages/odnowienie-przysiegi', {
+    title: 'Odnowienie Przysięgi Małżeńskiej – Gdańsk i cała Polska | Milena Wolak',
+    description:
+      'Celebracja Waszej historii, miłości i drogi, którą przeszliście razem. Autorska ceremonia odnowienia przysięgi małżeńskiej. Gdańsk, Trójmiasto i cała Polska.',
+    ogImage: '/images/wedding-candles.jpg',
+    serviceSchema: {
+      name: 'Odnowienie przysięgi małżeńskiej',
+      description:
+        'Celebracja Waszej historii, miłości i drogi, którą przeszliście razem – świętujcie na własnych zasadach, po latach.'
     }
   });
 });
@@ -179,10 +201,13 @@ app.post('/kontakt', async (req, res) => {
 
 app.get('/sitemap.xml', (req, res) => {
   const today = new Date().toISOString().slice(0, 10);
-  const urls = site.nav
-    .map((item) => {
-      const priority = item.path === '/' ? '1.0' : site.services.some((s) => s.path === item.path) ? '0.8' : '0.5';
-      return `  <url>\n    <loc>${site.url}${item.path}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>\n  </url>`;
+  // '/' i '/kontakt' są ukryte w menu (patrz data/site.js), ale mają zostać w sitemapie.
+  const navPaths = site.nav.map((item) => item.path);
+  const paths = ['/', ...navPaths, '/kontakt'].filter((p, i, arr) => arr.indexOf(p) === i);
+  const urls = paths
+    .map((path) => {
+      const priority = path === '/' ? '1.0' : site.services.some((s) => s.path === path) ? '0.8' : '0.5';
+      return `  <url>\n    <loc>${site.url}${path}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>\n  </url>`;
     })
     .join('\n');
 

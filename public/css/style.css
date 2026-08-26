@@ -198,17 +198,18 @@ section { position: relative; }
 }
 
 .navbar-nav .nav-link {
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   color: var(--ink);
-  padding: 0.4rem 0.85rem;
+  padding: 0.4rem 0.55rem;
   position: relative;
   font-weight: 400;
+  white-space: nowrap;
 }
 .navbar-nav .nav-link::after {
   content: '';
   position: absolute;
-  left: 0.85rem;
-  right: 0.85rem;
+  left: 0.55rem;
+  right: 0.55rem;
   bottom: 0.15rem;
   height: 1px;
   background: var(--clay);
@@ -313,7 +314,7 @@ section { position: relative; }
   color: #fff;
   background-image: var(--hero-image);
   background-size: cover;
-  background-position: center 35%;
+  background-position: var(--hero-position, center 35%);
 }
 .page-hero--solid {
   background: radial-gradient(circle at 30% 20%, #4a3b33 0%, #2f2822 55%, #241e19 100%);
@@ -592,6 +593,24 @@ section { position: relative; }
 }
 .price-card .feature-list { flex-grow: 1; margin-bottom: 1.4rem; }
 .price-card .feature-list li { font-size: 0.92rem; }
+.price-card__duration { font-size: 0.85rem; color: var(--ink-soft); margin-top: -0.9rem; margin-bottom: 1.1rem; }
+
+.price-category + .price-category { margin-top: 3.5rem; }
+.price-category__title { font-size: 1.5rem; margin-bottom: 1.8rem; }
+
+/* -------------------------- Rytuały pożegnalne --------------------------- */
+
+.ritual-group + .ritual-group { margin-top: 3rem; }
+.ritual-group__title { font-size: 1.3rem; margin-bottom: 1.6rem; }
+.ritual-card {
+  background: var(--white);
+  border: 1px solid rgba(138, 90, 68, 0.12);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.7rem;
+  height: 100%;
+}
+.ritual-card h4 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--clay); }
+.ritual-card p { margin: 0; font-size: 0.92rem; color: var(--ink-soft); }
 
 .price-note {
   background: var(--cream-2);

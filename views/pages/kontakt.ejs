@@ -97,7 +97,7 @@
               <div class="col-md-6">
                 <label for="eventType" class="form-label">Rodzaj ceremonii</label>
                 <select class="form-select" id="eventType" name="eventType">
-                  <% var types = ['Ceremonia ślubna','Para jednopłciowa','Przywitanie dziecka','Ceremonia funeralna','Inne']; %>
+                  <% var types = ['Ceremonia ślubna','Para LGBT+','Przywitanie dziecka','Ceremonia pożegnania','Odnowienie przysięgi','Inne']; %>
                   <option value="">— wybierz —</option>
                   <% types.forEach(function (t) { %>
                     <option value="<%= t %>" <%= v.eventType === t ? 'selected' : '' %>><%= t %></option>

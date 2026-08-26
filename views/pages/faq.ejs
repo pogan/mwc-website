@@ -5,42 +5,54 @@
   heroSubtitle: 'Zebrałam odpowiedzi na pytania, które najczęściej słyszę. Jeśli czegoś brakuje – napiszcie śmiało.'
 }) %>
 
-<section class="section-pad bg-cream">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-9">
-        <div class="accordion" id="faqAccordion" data-reveal>
-          <% site.faq.forEach(function (item, i) { %>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="faqHeading<%= i %>">
-                <button
-                  class="accordion-button <%= i === 0 ? '' : 'collapsed' %>"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faqCollapse<%= i %>"
-                  aria-expanded="<%= i === 0 ? 'true' : 'false' %>"
-                  aria-controls="faqCollapse<%= i %>"
-                >
-                  <%= item.q %>
-                </button>
-              </h2>
-              <div
-                id="faqCollapse<%= i %>"
-                class="accordion-collapse collapse <%= i === 0 ? 'show' : '' %>"
-                aria-labelledby="faqHeading<%= i %>"
-                data-bs-parent="#faqAccordion"
-              >
-                <div class="accordion-body"><%= item.a %></div>
-              </div>
+<% site.faqCategories.forEach(function (cat) { %>
+  <% var items = site.faq.filter(function (item) { return item.category === cat.key; }); %>
+  <% if (items.length) { %>
+    <section class="section-pad bg-cream">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="text-center mb-4" data-reveal>
+              <h2 class="section-title"><%= cat.label %></h2>
             </div>
-          <% }); %>
-        </div>
-
-        <div class="text-center mt-5" data-reveal>
-          <p class="lead-soft">Nie znaleźliście odpowiedzi na swoje pytanie?</p>
-          <a href="/kontakt" class="btn btn-primary">Zadaj je bezpośrednio</a>
+            <div class="accordion" id="faqAccordion-<%= cat.key %>" data-reveal>
+              <% items.forEach(function (item, i) { %>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="faqHeading-<%= cat.key %>-<%= i %>">
+                    <button
+                      class="accordion-button <%= i === 0 ? '' : 'collapsed' %>"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faqCollapse-<%= cat.key %>-<%= i %>"
+                      aria-expanded="<%= i === 0 ? 'true' : 'false' %>"
+                      aria-controls="faqCollapse-<%= cat.key %>-<%= i %>"
+                    >
+                      <%= item.q %>
+                    </button>
+                  </h3>
+                  <div
+                    id="faqCollapse-<%= cat.key %>-<%= i %>"
+                    class="accordion-collapse collapse <%= i === 0 ? 'show' : '' %>"
+                    aria-labelledby="faqHeading-<%= cat.key %>-<%= i %>"
+                    data-bs-parent="#faqAccordion-<%= cat.key %>"
+                  >
+                    <div class="accordion-body"><%= item.a %></div>
+                  </div>
+                </div>
+              <% }); %>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+  <% } %>
+<% }); %>
+
+<section class="section-pad-sm bg-cream">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <p class="lead-soft">Nie znaleźliście odpowiedzi na swoje pytanie?</p>
+      <a href="/kontakt" class="btn btn-primary">Zadaj je bezpośrednio</a>
     </div>
   </div>
 </section>
