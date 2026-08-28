@@ -1,0 +1,620 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c01"
+    },
+    {
+      "file": "C01S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c01"
+    },
+    {
+      "file": "C01S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c01"
+    },
+    {
+      "file": "C01S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c01"
+    },
+    {
+      "file": "C01S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c01"
+    },
+    {
+      "file": "C02S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c02"
+    },
+    {
+      "file": "C02S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c02"
+    },
+    {
+      "file": "C02S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c02"
+    },
+    {
+      "file": "C02S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c02"
+    },
+    {
+      "file": "C02S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c02"
+    },
+    {
+      "file": "C03S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c03"
+    },
+    {
+      "file": "C03S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c03"
+    },
+    {
+      "file": "C03S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c03"
+    },
+    {
+      "file": "C03S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c03"
+    },
+    {
+      "file": "C03S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c03"
+    },
+    {
+      "file": "C04S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c04"
+    },
+    {
+      "file": "C04S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c04"
+    },
+    {
+      "file": "C04S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c04"
+    },
+    {
+      "file": "C04S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c04"
+    },
+    {
+      "file": "C04S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c04"
+    },
+    {
+      "file": "C05S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c05"
+    },
+    {
+      "file": "C05S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c05"
+    },
+    {
+      "file": "C05S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c05"
+    },
+    {
+      "file": "C05S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c05"
+    },
+    {
+      "file": "C05S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c05"
+    },
+    {
+      "file": "C06S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c06"
+    },
+    {
+      "file": "C06S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c06"
+    },
+    {
+      "file": "C06S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c06"
+    },
+    {
+      "file": "C06S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c06"
+    },
+    {
+      "file": "C06S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c06"
+    },
+    {
+      "file": "C07S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c07"
+    },
+    {
+      "file": "C07S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c07"
+    },
+    {
+      "file": "C07S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c07"
+    },
+    {
+      "file": "C07S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c07"
+    },
+    {
+      "file": "C07S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c07"
+    },
+    {
+      "file": "C07S6.dc.html",
+      "x": 6100,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c07"
+    },
+    {
+      "file": "C08S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c08"
+    },
+    {
+      "file": "C08S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c08"
+    },
+    {
+      "file": "C08S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c08"
+    },
+    {
+      "file": "C08S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c08"
+    },
+    {
+      "file": "C08S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c08"
+    },
+    {
+      "file": "C09S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c09"
+    },
+    {
+      "file": "C09S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c09"
+    },
+    {
+      "file": "C09S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c09"
+    },
+    {
+      "file": "C09S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c09"
+    },
+    {
+      "file": "C10S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c10"
+    },
+    {
+      "file": "C10S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c10"
+    },
+    {
+      "file": "C10S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c10"
+    },
+    {
+      "file": "C10S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c10"
+    },
+    {
+      "file": "C11S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c11"
+    },
+    {
+      "file": "C11S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c11"
+    },
+    {
+      "file": "C11S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c11"
+    },
+    {
+      "file": "C11S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c11"
+    },
+    {
+      "file": "C11S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c11"
+    },
+    {
+      "file": "C12S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c12"
+    },
+    {
+      "file": "C12S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c12"
+    },
+    {
+      "file": "C12S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c12"
+    },
+    {
+      "file": "C12S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "c12"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-c01",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c01",
+      "text": "PYTANIE FAQ (Moc prawna)\nCzy ślub humanistyczny ma moc prawną? Jak pogodzić go z formalnościami?\n\nProponowany hook do opisu posta:\n„Ślub humanistyczny a formalności — jak to pogodzić bez stresu.”"
+    },
+    {
+      "id": "note-c02",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c02",
+      "text": "PYTANIE FAQ (Cywilny + humanistyczny)\nCzy można połączyć ślub cywilny ze ślubem humanistycznym w tym samym miejscu i czasie?\n\nProponowany hook do opisu posta:\n„Akt małżeństwa i osobista ceremonia jednego dnia — da się.”"
+    },
+    {
+      "id": "note-c03",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c03",
+      "text": "PYTANIE FAQ (Tradycyjna rodzina)\nJak na ślub humanistyczny reaguje tradycyjna część rodziny i goście, którzy nigdy nie słyszeli o takiej ceremonii?\n\nProponowany hook do opisu posta:\n„Najczęstsza obawa Par Młodych — i jak się zwykle kończy.”"
+    },
+    {
+      "id": "note-c04",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c04",
+      "text": "PYTANIE FAQ (Dwa języki)\nCzy ślub humanistyczny można poprowadzić w dwóch językach?\n\nProponowany hook do opisu posta:\n„Ceremonia dwujęzyczna dla par międzynarodowych.”"
+    },
+    {
+      "id": "note-c05",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c05",
+      "text": "PYTANIE FAQ (Stres przy przysiędze)\nNie lubimy mówić publicznie i boimy się stresu. Co jeśli zablokujemy się przy przysiędze?\n\nProponowany hook do opisu posta:\n„Trema przy przysiędze? Jestem obok właśnie po to.”"
+    },
+    {
+      "id": "note-c06",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c06",
+      "text": "PYTANIE FAQ (Pisanie przysięgi)\nJak napisać autentyczną przysięgę ślubną?\n\nProponowany hook do opisu posta:\n„Przysięga, która jest w 100% Wasza — krok po kroku.”"
+    },
+    {
+      "id": "note-c07",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c07",
+      "text": "PYTANIE FAQ (Proces przygotowań)\nJak wygląda proces przygotowań i ile spotkań nas czeka?\n\nProponowany hook do opisu posta:\n„Cały proces przygotowań — od pierwszej rozmowy do dnia ślubu.”"
+    },
+    {
+      "id": "note-c08",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c08",
+      "text": "PYTANIE FAQ (Oprawa muzyczna)\nJak wygląda kwestia oprawy muzycznej i nagłośnienia podczas ceremonii?\n\nProponowany hook do opisu posta:\n„Muzyka i czysty dźwięk — serce emocjonalne ceremonii.”"
+    },
+    {
+      "id": "note-c09",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c09",
+      "text": "PYTANIE FAQ (Poza Trójmiastem)\nCzy mogę zorganizować ceremonię poza Trójmiastem?\n\nProponowany hook do opisu posta:\n„Gdańsk, całe Trójmiasto — i dowolne miejsce w Polsce.”"
+    },
+    {
+      "id": "note-c10",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c10",
+      "text": "PYTANIE FAQ (Wyprzedzenie)\nZ jakim wyprzedzeniem najlepiej się zgłosić?\n\nProponowany hook do opisu posta:\n„Kiedy się odezwać? Im wcześniej, tym spokojniej.”"
+    },
+    {
+      "id": "note-c11",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c11",
+      "text": "PYTANIE FAQ (Sytuacja losowa)\nCo jeśli zachorujesz albo zdarzy się coś nagłego?\n\nProponowany hook do opisu posta:\n„Plan na wypadek sytuacji losowej — nigdy nie zostajecie sami.”"
+    },
+    {
+      "id": "note-c12",
+      "x": 0,
+      "y": -220,
+      "w": 1080,
+      "page": "c12",
+      "text": "PYTANIE FAQ (Deszcz w plenerze)\nCo w sytuacji, gdy ceremonia ma odbyć się w plenerze, a spadnie deszcz?\n\nProponowany hook do opisu posta:\n„Pogoda bywa zmienna — dlatego zawsze mamy Plan B.”"
+    }
+  ],
+  "pages": [
+    {
+      "id": "c01",
+      "name": "1 · Moc prawna"
+    },
+    {
+      "id": "c02",
+      "name": "2 · Cywilny + humanistyczny"
+    },
+    {
+      "id": "c03",
+      "name": "3 · Tradycyjna rodzina"
+    },
+    {
+      "id": "c04",
+      "name": "4 · Dwa języki"
+    },
+    {
+      "id": "c05",
+      "name": "5 · Stres przy przysiędze"
+    },
+    {
+      "id": "c06",
+      "name": "6 · Pisanie przysięgi"
+    },
+    {
+      "id": "c07",
+      "name": "7 · Proces przygotowań"
+    },
+    {
+      "id": "c08",
+      "name": "8 · Oprawa muzyczna"
+    },
+    {
+      "id": "c09",
+      "name": "9 · Poza Trójmiastem"
+    },
+    {
+      "id": "c10",
+      "name": "10 · Wyprzedzenie"
+    },
+    {
+      "id": "c11",
+      "name": "11 · Sytuacja losowa"
+    },
+    {
+      "id": "c12",
+      "name": "12 · Deszcz w plenerze"
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "c01"
+  }
+}
