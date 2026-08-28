@@ -189,10 +189,6 @@ function page(t, body, opts = {}) {
       object-fit: cover; opacity: ${t.photoOpacity};
       mix-blend-mode: ${t.photoBlend}; filter: grayscale(0.2);
     }
-    .frame {
-      position: absolute; inset: 54px; border: 1px solid ${t.arrow};
-      opacity: 0.35; pointer-events: none;
-    }
     .inner {
       position: absolute; inset: 0; padding: 118px 112px 96px;
       display: flex; flex-direction: column;
@@ -216,7 +212,6 @@ function page(t, body, opts = {}) {
 </helmet>
 <div class="slide">
   <img class="bg" src="bg.jpg" alt="">
-  <div class="frame"></div>
   <div class="inner">
 ${body}
   </div>
@@ -240,13 +235,9 @@ function coverBody(t, cIndex, total, qHtml) {
 function answerBody(t, qShort, text, idx, count) {
   return `    <div style="text-align:center; font-style:italic; font-size:30px; line-height:1.4; color:${t.soft}; max-width:640px; margin:0 auto;">${nl2br(qShort)}</div>
     <div style="flex:1; display:flex; align-items:center; justify-content:center;">
-      <p style="margin:0; text-align:center; font-weight:500; font-size:46px; line-height:1.4; letter-spacing:0.2px; max-width:820px; text-wrap:pretty;">${nl2br(text)}</p>
+      <p style="margin:0; text-align:center; font-weight:500; font-size:47px; line-height:1.42; letter-spacing:0.2px; max-width:830px; text-wrap:pretty;">${nl2br(text)}</p>
     </div>
-    <div style="display:flex; gap:14px; justify-content:center;">
-      ${Array.from({length: count}, (_, i) =>
-        `<span style="width:${i===idx?'34px':'10px'}; height:10px; border-radius:6px; background:${i===idx?t.kicker:t.foot}; opacity:${i===idx?1:0.5}; transition:all .2s;"></span>`
-      ).join('\n      ')}
-    </div>`;
+    <div style="height:26px;"></div>`;
 }
 
 function ctaBody(t) {
