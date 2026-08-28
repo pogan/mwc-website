@@ -1,8 +1,8 @@
-# Milena Wolak Ceremonie
+# Milena Marczykowska Ceremonie
 
-**Live:** [milenawolakceremonie.pl](https://milenawolakceremonie.pl)
+**Live:** [marczykowska.com](https://marczykowska.com)
 
-A production business website for **Milena Wolak**, an independent humanist ceremony
+A production business website for **Milena Marczykowska**, an independent humanist ceremony
 celebrant based in Gdańsk, Poland. The site is the client's primary sales channel: it
 presents her services (weddings, same-sex ceremonies, baby-welcoming ceremonies, and
 funerals), makes pricing transparent up front, and converts visitors into leads through

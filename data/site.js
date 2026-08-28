@@ -3,7 +3,7 @@
  * Dzięki temu nawigacja, oferta, cennik, FAQ i dane kontaktowe są w jednym miejscu.
  */
 
-const url = 'https://milenawolakceremonie.pl';
+const url = 'https://marczykowska.com';
 
 const contact = {
   phoneDisplay: '510 769 900',
@@ -19,9 +19,9 @@ const contact = {
 };
 
 const brand = {
-  name: 'Milena Wolak',
+  name: 'Milena Marczykowska',
   role: 'Celebrantka ceremonii humanistycznych',
-  short: 'Milena Wolak Ceremonie Humanistyczne',
+  short: 'Milena Marczykowska Ceremonie Humanistyczne',
   tagline: 'Wasza historia, opowiedziana tak, jak Wam odpowiada.'
 };
 

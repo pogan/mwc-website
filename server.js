@@ -1,5 +1,5 @@
 /**
- * Milena Wolak Ceremonie – aplikacja Express.js
+ * Milena Marczykowska Ceremonie – aplikacja Express.js
  * Serwuje stronę wizytówkę celebrantki ceremonii humanistycznych.
  */
 
@@ -65,14 +65,14 @@ app.get('/', (req, res) => {
   res.render('pages/home', {
     title: `${site.brand.name} – ${site.brand.role} | Gdańsk`,
     description:
-      'Milena Wolak – celebrantka ceremonii humanistycznych. Śluby, ceremonie dla par LGBT+, przywitania dziecka, ceremonie pożegnania i odnowienie przysięgi szyte na miarę. Gdańsk, Trójmiasto i cała Polska.',
+      'Milena Marczykowska – celebrantka ceremonii humanistycznych. Śluby, ceremonie dla par LGBT+, przywitania dziecka, ceremonie pożegnania i odnowienie przysięgi szyte na miarę. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/wedding-beach.jpg'
   });
 });
 
 app.get('/ceremonie-slubne', (req, res) => {
   res.render('pages/ceremonie-slubne', {
-    title: 'Ślub Humanistyczny – Gdańsk, Trójmiasto i cała Polska | Milena Wolak',
+    title: 'Ślub Humanistyczny – Gdańsk, Trójmiasto i cała Polska | Milena Marczykowska',
     description:
       'Ślub humanistyczny szyty na miarę: spersonalizowany scenariusz, pomoc w przysiędze, rytuały i pełna koordynacja dnia ślubu. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/wedding-arch.jpg',
@@ -90,7 +90,7 @@ app.get('/pary-jednoplciowe', (req, res) => {
 
 app.get('/pary-lgbt', (req, res) => {
   res.render('pages/pary-lgbt', {
-    title: 'Ceremonie dla Par LGBT+ – Gdańsk i cała Polska | Milena Wolak',
+    title: 'Ceremonie dla Par LGBT+ – Gdańsk i cała Polska | Milena Marczykowska',
     description:
       'Ceremonie humanistyczne dla par LGBT+ – bez ograniczeń i uprzedzeń. Piękna, osobista celebracja miłości. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/couple-samesex.jpg',
@@ -104,7 +104,7 @@ app.get('/pary-lgbt', (req, res) => {
 
 app.get('/przywitanie-dziecka', (req, res) => {
   res.render('pages/przywitanie-dziecka', {
-    title: 'Przywitanie Dziecka w Rodzinie – Gdańsk i cała Polska | Milena Wolak',
+    title: 'Przywitanie Dziecka w Rodzinie – Gdańsk i cała Polska | Milena Marczykowska',
     description:
       'Świecka ceremonia powitania dziecka w rodzinie – ciepła uroczystość celebrująca miłość, więzi i wspólną przyszłość. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/family-children.jpg',
@@ -122,7 +122,7 @@ app.get('/ceremonie-funeralne', (req, res) => {
 
 app.get('/ceremonie-pozegnania', (req, res) => {
   res.render('pages/ceremonie-pozegnania', {
-    title: 'Ceremonie Pożegnania, Świeckie Pożegnanie – Gdańsk i cała Polska | Milena Wolak',
+    title: 'Ceremonie Pożegnania, Świeckie Pożegnanie – Gdańsk i cała Polska | Milena Marczykowska',
     description:
       'Godne, świeckie ceremonie pożegnania. Osobista opowieść o życiu bliskiej osoby, uczczona słowem, ciszą i pamięcią. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/funerals.jpg',
@@ -136,7 +136,7 @@ app.get('/ceremonie-pozegnania', (req, res) => {
 
 app.get('/odnowienie-przysiegi', (req, res) => {
   res.render('pages/odnowienie-przysiegi', {
-    title: 'Odnowienie Przysięgi Małżeńskiej – Gdańsk i cała Polska | Milena Wolak',
+    title: 'Odnowienie Przysięgi Małżeńskiej – Gdańsk i cała Polska | Milena Marczykowska',
     description:
       'Celebracja Waszej historii, miłości i drogi, którą przeszliście razem. Autorska ceremonia odnowienia przysięgi małżeńskiej. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/wedding-candles.jpg',
@@ -150,25 +150,25 @@ app.get('/odnowienie-przysiegi', (req, res) => {
 
 app.get('/o-mnie', (req, res) => {
   res.render('pages/o-mnie', {
-    title: 'O mnie – Milena Wolak, Celebrantka z Gdańska',
+    title: 'O mnie – Milena Marczykowska, Celebrantka z Gdańska',
     description:
-      'Poznaj Milenę Wolak – celebrantkę łączącą sceniczną charyzmę z wrażliwością na ludzkie historie. W branży ślubnej od 2017 roku. Gdańsk i cała Polska.',
+      'Poznaj Milenę Marczykowską – celebrantkę łączącą sceniczną charyzmę z wrażliwością na ludzkie historie. W branży ślubnej od 2017 roku. Gdańsk i cała Polska.',
     ogImage: '/images/milena-portrait.jpg'
   });
 });
 
 app.get('/cennik', (req, res) => {
   res.render('pages/cennik', {
-    title: 'Cennik Ceremonii Humanistycznych – Gdańsk i cała Polska | Milena Wolak',
+    title: 'Cennik Ceremonii Humanistycznych – Gdańsk i cała Polska | Milena Marczykowska',
     description:
-      'Cennik ceremonii humanistycznych Mileny Wolak – pakiety personalizowane i dwujęzyczne, oprawa muzyczna oraz warunki dojazdu. Gdańsk, Trójmiasto i cała Polska.',
+      'Cennik ceremonii humanistycznych Mileny Marczykowskiej – pakiety personalizowane i dwujęzyczne, oprawa muzyczna oraz warunki dojazdu. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/wedding-rustic.jpg'
   });
 });
 
 app.get('/faq', (req, res) => {
   res.render('pages/faq', {
-    title: 'FAQ – najczęściej zadawane pytania | Milena Wolak',
+    title: 'FAQ – najczęściej zadawane pytania | Milena Marczykowska',
     description:
       'Odpowiedzi na najczęstsze pytania o ślub humanistyczny, przysięgę, oprawę muzyczną i dojazd celebrantki.',
     ogImage: '/images/ceremony-inclusive.jpg',
@@ -178,9 +178,9 @@ app.get('/faq', (req, res) => {
 
 app.get('/kontakt', (req, res) => {
   res.render('pages/kontakt', {
-    title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Wolak Ceremonie Humanistyczne',
+    title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Marczykowska Ceremonie Humanistyczne',
     description:
-      'Skontaktuj się z Mileną Wolak. Zapraszam na spotkanie osobiste lub online, aby porozmawiać o Waszej wyjątkowej ceremonii. Gdańsk, Trójmiasto i cała Polska.',
+      'Skontaktuj się z Mileną Marczykowską. Zapraszam na spotkanie osobiste lub online, aby porozmawiać o Waszej wyjątkowej ceremonii. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/wedding-arch.jpg'
   });
 });
@@ -190,8 +190,8 @@ app.post('/kontakt', async (req, res) => {
   const formState = await processContactForm(req.body);
 
   res.status(formState.errors.length ? 422 : 200).render('pages/kontakt', {
-    title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Wolak Ceremonie Humanistyczne',
-    description: 'Skontaktuj się z Mileną Wolak.',
+    title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Marczykowska Ceremonie Humanistyczne',
+    description: 'Skontaktuj się z Mileną Marczykowską.',
     ogImage: '/images/wedding-arch.jpg',
     form: formState
   });
@@ -220,7 +220,7 @@ app.get('/sitemap.xml', (req, res) => {
 
 app.use((req, res) => {
   res.status(404).render('pages/404', {
-    title: 'Nie znaleziono strony (404) | Milena Wolak',
+    title: 'Nie znaleziono strony (404) | Milena Marczykowska',
     description: 'Strona, której szukasz, nie istnieje.'
   });
 });
@@ -229,13 +229,13 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).render('pages/404', {
-    title: 'Błąd serwera | Milena Wolak',
+    title: 'Błąd serwera | Milena Marczykowska',
     description: 'Coś poszło nie tak.'
   });
 });
 
 app.listen(PORT, () => {
-  console.log(`✦ Milena Wolak Ceremonie – serwer działa na http://localhost:${PORT}`);
+  console.log(`✦ Milena Marczykowska Ceremonie – serwer działa na http://localhost:${PORT}`);
 });
 
 module.exports = app;

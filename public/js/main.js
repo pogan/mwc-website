@@ -1,4 +1,4 @@
-/* Milena Wolak Ceremonie – interakcje po stronie klienta */
+/* Milena Marczykowska Ceremonie – interakcje po stronie klienta */
 (function () {
   'use strict';
 
