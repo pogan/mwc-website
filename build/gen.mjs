@@ -165,6 +165,7 @@ function arrowSVG(color) {
 
 function page(t, body, opts = {}) {
   const arrow = opts.noArrow ? '' : arrowSVG(t.arrow);
+  const foot = opts.noFoot ? '' : `<div class="foot">${SITE}</div>`;
   return `<!doctype html>
 <html>
 <head>
@@ -216,7 +217,7 @@ function page(t, body, opts = {}) {
 ${body}
   </div>
   ${arrow}
-  <div class="foot">${HANDLE}</div>
+  ${foot}
 </div>
 </x-dc>
 </body>
@@ -228,8 +229,7 @@ function coverBody(t, cIndex, total, qHtml) {
   return `    <div class="kicker">FAQ &middot; Śluby humanistyczne</div>
     <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
       <h1 style="margin:0; font-weight:600; font-size:82px; line-height:1.14; letter-spacing:0.3px; text-wrap:balance;">${qHtml}</h1>
-    </div>
-    <div style="font-family:'Jost',system-ui,sans-serif; font-weight:300; font-size:20px; letter-spacing:0.28em; text-transform:uppercase; color:${t.soft};">${String(cIndex).padStart(2,'0')} / ${String(total).padStart(2,'0')}</div>`;
+    </div>`;
 }
 
 function answerBody(t, qShort, text, idx, count) {
@@ -282,7 +282,7 @@ carousels.forEach((c, ci) => {
     push(`${stemBase}S${si + 2}`, page(tone, answerBody(tone, qShort, txt, si + 1, total - 1)));
   });
   // cta
-  push(`${stemBase}S${c.slides.length + 2}`, page(tone, ctaBody(tone), { noArrow: true }));
+  push(`${stemBase}S${c.slides.length + 2}`, page(tone, ctaBody(tone), { noArrow: true, noFoot: true }));
 
   annotations.push({
     id: `note-${pageId}`,
