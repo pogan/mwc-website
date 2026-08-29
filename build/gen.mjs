@@ -536,10 +536,11 @@ const ROWGAP = 520;   // vertical gap between carousel rows (room for sticky not
 const artboards = [];
 const annotations = [];
 const pages = [];
+const pngmap = [];            // { file, out } — for the PNG export script
 let firstFile = true;
 let mainName = null;
 
-categories.forEach((cat) => {
+categories.forEach((cat, catIdx) => {
   pages.push({ id: cat.key, name: cat.label });
 
   cat.items.forEach((c, ci) => {
@@ -547,22 +548,25 @@ categories.forEach((cat) => {
     const bg = `bg-${c.theme.photo}.jpg`;
     const rowY = ci * (SLIDE + ROWGAP);
     const cc = String(ci + 1).padStart(2, '0');
+    const lastSlide = 1 + c.slides.length + 1;   // 1-based index of the CTA slide
+    const dir = `${catIdx + 1}-${cat.key}/${cc}-${c.slug}`;
     let sIdx = 0;
 
-    const push = (stem, html) => {
+    const push = (stem, html, label) => {
       const file = `${firstFile ? 'Main' : stem}.dc.html`;
       firstFile = false;
       writeFileSync(new URL(`./art/${file}`, import.meta.url), html);
       artboards.push({ file, x: sIdx * (SLIDE + COLGAP), y: rowY, w: SLIDE, h: SLIDE, page: cat.key });
+      pngmap.push({ file, out: `${dir}/${label}.png` });
       if (!mainName) mainName = file;
       sIdx++;
     };
 
-    push(`${cat.prefix}${cc}S1`, page(tone, coverBody(tone, cat.kicker, nl2br(c.q)), { bg }));
+    push(`${cat.prefix}${cc}S1`, page(tone, coverBody(tone, cat.kicker, nl2br(c.q)), { bg }), '1-tytul');
     c.slides.forEach((txt, si) => {
-      push(`${cat.prefix}${cc}S${si + 2}`, page(tone, answerBody(tone, c.q, txt), { bg }));
+      push(`${cat.prefix}${cc}S${si + 2}`, page(tone, answerBody(tone, c.q, txt), { bg }), String(si + 2));
     });
-    push(`${cat.prefix}${cc}S${c.slides.length + 2}`, page(tone, ctaBody(tone), { noArrow: true, noFoot: true, bg }));
+    push(`${cat.prefix}${cc}S${c.slides.length + 2}`, page(tone, ctaBody(tone), { noArrow: true, noFoot: true, bg }), `${lastSlide}-kontakt`);
 
     annotations.push({
       id: `note-${cat.key}-${cc}`,
@@ -579,6 +583,7 @@ const canvas = {
   launch: { view: 'canvas', page: 'slub' }
 };
 writeFileSync(new URL('./art/canvas.json', import.meta.url), JSON.stringify(canvas, null, 2));
+writeFileSync(new URL('./art/pngmap.json', import.meta.url), JSON.stringify(pngmap, null, 2));
 
 const totalCarousels = categories.reduce((n, c) => n + c.items.length, 0);
 console.log(`main=${mainName} artboards=${artboards.length} carousels=${totalCarousels} pages=${pages.length}`);

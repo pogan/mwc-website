@@ -1,0 +1,2 @@
+# rendered slide exports (regenerate with: node gen.mjs && node shoot.mjs)
+png/

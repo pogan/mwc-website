@@ -1,0 +1,626 @@
+[
+  {
+    "file": "Main.dc.html",
+    "out": "1-slub/01-moc-prawna/1-tytul.png"
+  },
+  {
+    "file": "SLU01S2.dc.html",
+    "out": "1-slub/01-moc-prawna/2.png"
+  },
+  {
+    "file": "SLU01S3.dc.html",
+    "out": "1-slub/01-moc-prawna/3.png"
+  },
+  {
+    "file": "SLU01S4.dc.html",
+    "out": "1-slub/01-moc-prawna/4.png"
+  },
+  {
+    "file": "SLU01S5.dc.html",
+    "out": "1-slub/01-moc-prawna/5-kontakt.png"
+  },
+  {
+    "file": "SLU02S1.dc.html",
+    "out": "1-slub/02-cywilny-i-humanistyczny/1-tytul.png"
+  },
+  {
+    "file": "SLU02S2.dc.html",
+    "out": "1-slub/02-cywilny-i-humanistyczny/2.png"
+  },
+  {
+    "file": "SLU02S3.dc.html",
+    "out": "1-slub/02-cywilny-i-humanistyczny/3.png"
+  },
+  {
+    "file": "SLU02S4.dc.html",
+    "out": "1-slub/02-cywilny-i-humanistyczny/4.png"
+  },
+  {
+    "file": "SLU02S5.dc.html",
+    "out": "1-slub/02-cywilny-i-humanistyczny/5-kontakt.png"
+  },
+  {
+    "file": "SLU03S1.dc.html",
+    "out": "1-slub/03-tradycyjna-rodzina/1-tytul.png"
+  },
+  {
+    "file": "SLU03S2.dc.html",
+    "out": "1-slub/03-tradycyjna-rodzina/2.png"
+  },
+  {
+    "file": "SLU03S3.dc.html",
+    "out": "1-slub/03-tradycyjna-rodzina/3.png"
+  },
+  {
+    "file": "SLU03S4.dc.html",
+    "out": "1-slub/03-tradycyjna-rodzina/4.png"
+  },
+  {
+    "file": "SLU03S5.dc.html",
+    "out": "1-slub/03-tradycyjna-rodzina/5-kontakt.png"
+  },
+  {
+    "file": "SLU04S1.dc.html",
+    "out": "1-slub/04-dwa-jezyki/1-tytul.png"
+  },
+  {
+    "file": "SLU04S2.dc.html",
+    "out": "1-slub/04-dwa-jezyki/2.png"
+  },
+  {
+    "file": "SLU04S3.dc.html",
+    "out": "1-slub/04-dwa-jezyki/3.png"
+  },
+  {
+    "file": "SLU04S4.dc.html",
+    "out": "1-slub/04-dwa-jezyki/4.png"
+  },
+  {
+    "file": "SLU04S5.dc.html",
+    "out": "1-slub/04-dwa-jezyki/5-kontakt.png"
+  },
+  {
+    "file": "SLU05S1.dc.html",
+    "out": "1-slub/05-stres-przy-przysiedze/1-tytul.png"
+  },
+  {
+    "file": "SLU05S2.dc.html",
+    "out": "1-slub/05-stres-przy-przysiedze/2.png"
+  },
+  {
+    "file": "SLU05S3.dc.html",
+    "out": "1-slub/05-stres-przy-przysiedze/3.png"
+  },
+  {
+    "file": "SLU05S4.dc.html",
+    "out": "1-slub/05-stres-przy-przysiedze/4.png"
+  },
+  {
+    "file": "SLU05S5.dc.html",
+    "out": "1-slub/05-stres-przy-przysiedze/5-kontakt.png"
+  },
+  {
+    "file": "SLU06S1.dc.html",
+    "out": "1-slub/06-jak-napisac-przysiege/1-tytul.png"
+  },
+  {
+    "file": "SLU06S2.dc.html",
+    "out": "1-slub/06-jak-napisac-przysiege/2.png"
+  },
+  {
+    "file": "SLU06S3.dc.html",
+    "out": "1-slub/06-jak-napisac-przysiege/3.png"
+  },
+  {
+    "file": "SLU06S4.dc.html",
+    "out": "1-slub/06-jak-napisac-przysiege/4.png"
+  },
+  {
+    "file": "SLU06S5.dc.html",
+    "out": "1-slub/06-jak-napisac-przysiege/5-kontakt.png"
+  },
+  {
+    "file": "SLU07S1.dc.html",
+    "out": "1-slub/07-proces-przygotowan/1-tytul.png"
+  },
+  {
+    "file": "SLU07S2.dc.html",
+    "out": "1-slub/07-proces-przygotowan/2.png"
+  },
+  {
+    "file": "SLU07S3.dc.html",
+    "out": "1-slub/07-proces-przygotowan/3.png"
+  },
+  {
+    "file": "SLU07S4.dc.html",
+    "out": "1-slub/07-proces-przygotowan/4.png"
+  },
+  {
+    "file": "SLU07S5.dc.html",
+    "out": "1-slub/07-proces-przygotowan/5.png"
+  },
+  {
+    "file": "SLU07S6.dc.html",
+    "out": "1-slub/07-proces-przygotowan/6-kontakt.png"
+  },
+  {
+    "file": "SLU08S1.dc.html",
+    "out": "1-slub/08-oprawa-muzyczna/1-tytul.png"
+  },
+  {
+    "file": "SLU08S2.dc.html",
+    "out": "1-slub/08-oprawa-muzyczna/2.png"
+  },
+  {
+    "file": "SLU08S3.dc.html",
+    "out": "1-slub/08-oprawa-muzyczna/3.png"
+  },
+  {
+    "file": "SLU08S4.dc.html",
+    "out": "1-slub/08-oprawa-muzyczna/4.png"
+  },
+  {
+    "file": "SLU08S5.dc.html",
+    "out": "1-slub/08-oprawa-muzyczna/5-kontakt.png"
+  },
+  {
+    "file": "SLU09S1.dc.html",
+    "out": "1-slub/09-poza-trojmiastem/1-tytul.png"
+  },
+  {
+    "file": "SLU09S2.dc.html",
+    "out": "1-slub/09-poza-trojmiastem/2.png"
+  },
+  {
+    "file": "SLU09S3.dc.html",
+    "out": "1-slub/09-poza-trojmiastem/3.png"
+  },
+  {
+    "file": "SLU09S4.dc.html",
+    "out": "1-slub/09-poza-trojmiastem/4-kontakt.png"
+  },
+  {
+    "file": "SLU10S1.dc.html",
+    "out": "1-slub/10-z-jakim-wyprzedzeniem/1-tytul.png"
+  },
+  {
+    "file": "SLU10S2.dc.html",
+    "out": "1-slub/10-z-jakim-wyprzedzeniem/2.png"
+  },
+  {
+    "file": "SLU10S3.dc.html",
+    "out": "1-slub/10-z-jakim-wyprzedzeniem/3.png"
+  },
+  {
+    "file": "SLU10S4.dc.html",
+    "out": "1-slub/10-z-jakim-wyprzedzeniem/4-kontakt.png"
+  },
+  {
+    "file": "SLU11S1.dc.html",
+    "out": "1-slub/11-cos-naglego/1-tytul.png"
+  },
+  {
+    "file": "SLU11S2.dc.html",
+    "out": "1-slub/11-cos-naglego/2.png"
+  },
+  {
+    "file": "SLU11S3.dc.html",
+    "out": "1-slub/11-cos-naglego/3.png"
+  },
+  {
+    "file": "SLU11S4.dc.html",
+    "out": "1-slub/11-cos-naglego/4.png"
+  },
+  {
+    "file": "SLU11S5.dc.html",
+    "out": "1-slub/11-cos-naglego/5-kontakt.png"
+  },
+  {
+    "file": "SLU12S1.dc.html",
+    "out": "1-slub/12-deszcz-w-plenerze/1-tytul.png"
+  },
+  {
+    "file": "SLU12S2.dc.html",
+    "out": "1-slub/12-deszcz-w-plenerze/2.png"
+  },
+  {
+    "file": "SLU12S3.dc.html",
+    "out": "1-slub/12-deszcz-w-plenerze/3.png"
+  },
+  {
+    "file": "SLU12S4.dc.html",
+    "out": "1-slub/12-deszcz-w-plenerze/4-kontakt.png"
+  },
+  {
+    "file": "PRZ01S1.dc.html",
+    "out": "2-przywitanie/01-placz-malucha/1-tytul.png"
+  },
+  {
+    "file": "PRZ01S2.dc.html",
+    "out": "2-przywitanie/01-placz-malucha/2.png"
+  },
+  {
+    "file": "PRZ01S3.dc.html",
+    "out": "2-przywitanie/01-placz-malucha/3.png"
+  },
+  {
+    "file": "PRZ01S4.dc.html",
+    "out": "2-przywitanie/01-placz-malucha/4.png"
+  },
+  {
+    "file": "PRZ01S5.dc.html",
+    "out": "2-przywitanie/01-placz-malucha/5-kontakt.png"
+  },
+  {
+    "file": "PRZ02S1.dc.html",
+    "out": "2-przywitanie/02-gdzie-i-kiedy/1-tytul.png"
+  },
+  {
+    "file": "PRZ02S2.dc.html",
+    "out": "2-przywitanie/02-gdzie-i-kiedy/2.png"
+  },
+  {
+    "file": "PRZ02S3.dc.html",
+    "out": "2-przywitanie/02-gdzie-i-kiedy/3.png"
+  },
+  {
+    "file": "PRZ02S4.dc.html",
+    "out": "2-przywitanie/02-gdzie-i-kiedy/4.png"
+  },
+  {
+    "file": "PRZ02S5.dc.html",
+    "out": "2-przywitanie/02-gdzie-i-kiedy/5-kontakt.png"
+  },
+  {
+    "file": "PRZ03S1.dc.html",
+    "out": "2-przywitanie/03-proces-przygotowan-przywitanie/1-tytul.png"
+  },
+  {
+    "file": "PRZ03S2.dc.html",
+    "out": "2-przywitanie/03-proces-przygotowan-przywitanie/2.png"
+  },
+  {
+    "file": "PRZ03S3.dc.html",
+    "out": "2-przywitanie/03-proces-przygotowan-przywitanie/3.png"
+  },
+  {
+    "file": "PRZ03S4.dc.html",
+    "out": "2-przywitanie/03-proces-przygotowan-przywitanie/4.png"
+  },
+  {
+    "file": "PRZ03S5.dc.html",
+    "out": "2-przywitanie/03-proces-przygotowan-przywitanie/5-kontakt.png"
+  },
+  {
+    "file": "PRZ04S1.dc.html",
+    "out": "2-przywitanie/04-presja-chrzest/1-tytul.png"
+  },
+  {
+    "file": "PRZ04S2.dc.html",
+    "out": "2-przywitanie/04-presja-chrzest/2.png"
+  },
+  {
+    "file": "PRZ04S3.dc.html",
+    "out": "2-przywitanie/04-presja-chrzest/3.png"
+  },
+  {
+    "file": "PRZ04S4.dc.html",
+    "out": "2-przywitanie/04-presja-chrzest/4.png"
+  },
+  {
+    "file": "PRZ04S5.dc.html",
+    "out": "2-przywitanie/04-presja-chrzest/5-kontakt.png"
+  },
+  {
+    "file": "PRZ05S1.dc.html",
+    "out": "2-przywitanie/05-rodzice-honorowi/1-tytul.png"
+  },
+  {
+    "file": "PRZ05S2.dc.html",
+    "out": "2-przywitanie/05-rodzice-honorowi/2.png"
+  },
+  {
+    "file": "PRZ05S3.dc.html",
+    "out": "2-przywitanie/05-rodzice-honorowi/3.png"
+  },
+  {
+    "file": "PRZ05S4.dc.html",
+    "out": "2-przywitanie/05-rodzice-honorowi/4.png"
+  },
+  {
+    "file": "PRZ05S5.dc.html",
+    "out": "2-przywitanie/05-rodzice-honorowi/5-kontakt.png"
+  },
+  {
+    "file": "PRZ06S1.dc.html",
+    "out": "2-przywitanie/06-przygotowanie-miejsca/1-tytul.png"
+  },
+  {
+    "file": "PRZ06S2.dc.html",
+    "out": "2-przywitanie/06-przygotowanie-miejsca/2.png"
+  },
+  {
+    "file": "PRZ06S3.dc.html",
+    "out": "2-przywitanie/06-przygotowanie-miejsca/3.png"
+  },
+  {
+    "file": "PRZ06S4.dc.html",
+    "out": "2-przywitanie/06-przygotowanie-miejsca/4.png"
+  },
+  {
+    "file": "PRZ06S5.dc.html",
+    "out": "2-przywitanie/06-przygotowanie-miejsca/5-kontakt.png"
+  },
+  {
+    "file": "PRZ07S1.dc.html",
+    "out": "2-przywitanie/07-ile-trwa-przywitanie/1-tytul.png"
+  },
+  {
+    "file": "PRZ07S2.dc.html",
+    "out": "2-przywitanie/07-ile-trwa-przywitanie/2.png"
+  },
+  {
+    "file": "PRZ07S3.dc.html",
+    "out": "2-przywitanie/07-ile-trwa-przywitanie/3.png"
+  },
+  {
+    "file": "PRZ07S4.dc.html",
+    "out": "2-przywitanie/07-ile-trwa-przywitanie/4.png"
+  },
+  {
+    "file": "PRZ07S5.dc.html",
+    "out": "2-przywitanie/07-ile-trwa-przywitanie/5-kontakt.png"
+  },
+  {
+    "file": "PRZ08S1.dc.html",
+    "out": "2-przywitanie/08-cos-naglego-przywitanie/1-tytul.png"
+  },
+  {
+    "file": "PRZ08S2.dc.html",
+    "out": "2-przywitanie/08-cos-naglego-przywitanie/2.png"
+  },
+  {
+    "file": "PRZ08S3.dc.html",
+    "out": "2-przywitanie/08-cos-naglego-przywitanie/3.png"
+  },
+  {
+    "file": "PRZ08S4.dc.html",
+    "out": "2-przywitanie/08-cos-naglego-przywitanie/4.png"
+  },
+  {
+    "file": "PRZ08S5.dc.html",
+    "out": "2-przywitanie/08-cos-naglego-przywitanie/5-kontakt.png"
+  },
+  {
+    "file": "PRZ09S1.dc.html",
+    "out": "2-przywitanie/09-deszcz-przywitanie/1-tytul.png"
+  },
+  {
+    "file": "PRZ09S2.dc.html",
+    "out": "2-przywitanie/09-deszcz-przywitanie/2.png"
+  },
+  {
+    "file": "PRZ09S3.dc.html",
+    "out": "2-przywitanie/09-deszcz-przywitanie/3.png"
+  },
+  {
+    "file": "PRZ09S4.dc.html",
+    "out": "2-przywitanie/09-deszcz-przywitanie/4-kontakt.png"
+  },
+  {
+    "file": "POZ01S1.dc.html",
+    "out": "3-pogrzeb/01-obyczaje-wierzacych/1-tytul.png"
+  },
+  {
+    "file": "POZ01S2.dc.html",
+    "out": "3-pogrzeb/01-obyczaje-wierzacych/2.png"
+  },
+  {
+    "file": "POZ01S3.dc.html",
+    "out": "3-pogrzeb/01-obyczaje-wierzacych/3.png"
+  },
+  {
+    "file": "POZ01S4.dc.html",
+    "out": "3-pogrzeb/01-obyczaje-wierzacych/4.png"
+  },
+  {
+    "file": "POZ01S5.dc.html",
+    "out": "3-pogrzeb/01-obyczaje-wierzacych/5-kontakt.png"
+  },
+  {
+    "file": "POZ02S1.dc.html",
+    "out": "3-pogrzeb/02-zbieranie-wspomnien/1-tytul.png"
+  },
+  {
+    "file": "POZ02S2.dc.html",
+    "out": "3-pogrzeb/02-zbieranie-wspomnien/2.png"
+  },
+  {
+    "file": "POZ02S3.dc.html",
+    "out": "3-pogrzeb/02-zbieranie-wspomnien/3.png"
+  },
+  {
+    "file": "POZ02S4.dc.html",
+    "out": "3-pogrzeb/02-zbieranie-wspomnien/4.png"
+  },
+  {
+    "file": "POZ02S5.dc.html",
+    "out": "3-pogrzeb/02-zbieranie-wspomnien/5.png"
+  },
+  {
+    "file": "POZ02S6.dc.html",
+    "out": "3-pogrzeb/02-zbieranie-wspomnien/6-kontakt.png"
+  },
+  {
+    "file": "POZ03S1.dc.html",
+    "out": "3-pogrzeb/03-glos-rodziny/1-tytul.png"
+  },
+  {
+    "file": "POZ03S2.dc.html",
+    "out": "3-pogrzeb/03-glos-rodziny/2.png"
+  },
+  {
+    "file": "POZ03S3.dc.html",
+    "out": "3-pogrzeb/03-glos-rodziny/3.png"
+  },
+  {
+    "file": "POZ03S4.dc.html",
+    "out": "3-pogrzeb/03-glos-rodziny/4.png"
+  },
+  {
+    "file": "POZ03S5.dc.html",
+    "out": "3-pogrzeb/03-glos-rodziny/5-kontakt.png"
+  },
+  {
+    "file": "POZ04S1.dc.html",
+    "out": "3-pogrzeb/04-cos-naglego-pogrzeb/1-tytul.png"
+  },
+  {
+    "file": "POZ04S2.dc.html",
+    "out": "3-pogrzeb/04-cos-naglego-pogrzeb/2.png"
+  },
+  {
+    "file": "POZ04S3.dc.html",
+    "out": "3-pogrzeb/04-cos-naglego-pogrzeb/3.png"
+  },
+  {
+    "file": "POZ04S4.dc.html",
+    "out": "3-pogrzeb/04-cos-naglego-pogrzeb/4.png"
+  },
+  {
+    "file": "POZ04S5.dc.html",
+    "out": "3-pogrzeb/04-cos-naglego-pogrzeb/5-kontakt.png"
+  },
+  {
+    "file": "POZ05S1.dc.html",
+    "out": "3-pogrzeb/05-deszcz-pogrzeb/1-tytul.png"
+  },
+  {
+    "file": "POZ05S2.dc.html",
+    "out": "3-pogrzeb/05-deszcz-pogrzeb/2.png"
+  },
+  {
+    "file": "POZ05S3.dc.html",
+    "out": "3-pogrzeb/05-deszcz-pogrzeb/3.png"
+  },
+  {
+    "file": "POZ05S4.dc.html",
+    "out": "3-pogrzeb/05-deszcz-pogrzeb/4-kontakt.png"
+  },
+  {
+    "file": "ODN01S1.dc.html",
+    "out": "4-odnowienie/01-dobry-moment/1-tytul.png"
+  },
+  {
+    "file": "ODN01S2.dc.html",
+    "out": "4-odnowienie/01-dobry-moment/2.png"
+  },
+  {
+    "file": "ODN01S3.dc.html",
+    "out": "4-odnowienie/01-dobry-moment/3.png"
+  },
+  {
+    "file": "ODN01S4.dc.html",
+    "out": "4-odnowienie/01-dobry-moment/4.png"
+  },
+  {
+    "file": "ODN01S5.dc.html",
+    "out": "4-odnowienie/01-dobry-moment/5-kontakt.png"
+  },
+  {
+    "file": "ODN02S1.dc.html",
+    "out": "4-odnowienie/02-nowe-slowa/1-tytul.png"
+  },
+  {
+    "file": "ODN02S2.dc.html",
+    "out": "4-odnowienie/02-nowe-slowa/2.png"
+  },
+  {
+    "file": "ODN02S3.dc.html",
+    "out": "4-odnowienie/02-nowe-slowa/3.png"
+  },
+  {
+    "file": "ODN02S4.dc.html",
+    "out": "4-odnowienie/02-nowe-slowa/4.png"
+  },
+  {
+    "file": "ODN02S5.dc.html",
+    "out": "4-odnowienie/02-nowe-slowa/5-kontakt.png"
+  },
+  {
+    "file": "ODN03S1.dc.html",
+    "out": "4-odnowienie/03-proces-przygotowan-odnowienie/1-tytul.png"
+  },
+  {
+    "file": "ODN03S2.dc.html",
+    "out": "4-odnowienie/03-proces-przygotowan-odnowienie/2.png"
+  },
+  {
+    "file": "ODN03S3.dc.html",
+    "out": "4-odnowienie/03-proces-przygotowan-odnowienie/3.png"
+  },
+  {
+    "file": "ODN03S4.dc.html",
+    "out": "4-odnowienie/03-proces-przygotowan-odnowienie/4.png"
+  },
+  {
+    "file": "ODN03S5.dc.html",
+    "out": "4-odnowienie/03-proces-przygotowan-odnowienie/5-kontakt.png"
+  },
+  {
+    "file": "ODN04S1.dc.html",
+    "out": "4-odnowienie/04-wlaczyc-dzieci/1-tytul.png"
+  },
+  {
+    "file": "ODN04S2.dc.html",
+    "out": "4-odnowienie/04-wlaczyc-dzieci/2.png"
+  },
+  {
+    "file": "ODN04S3.dc.html",
+    "out": "4-odnowienie/04-wlaczyc-dzieci/3.png"
+  },
+  {
+    "file": "ODN04S4.dc.html",
+    "out": "4-odnowienie/04-wlaczyc-dzieci/4.png"
+  },
+  {
+    "file": "ODN04S5.dc.html",
+    "out": "4-odnowienie/04-wlaczyc-dzieci/5-kontakt.png"
+  },
+  {
+    "file": "ODN05S1.dc.html",
+    "out": "4-odnowienie/05-cos-naglego-odnowienie/1-tytul.png"
+  },
+  {
+    "file": "ODN05S2.dc.html",
+    "out": "4-odnowienie/05-cos-naglego-odnowienie/2.png"
+  },
+  {
+    "file": "ODN05S3.dc.html",
+    "out": "4-odnowienie/05-cos-naglego-odnowienie/3.png"
+  },
+  {
+    "file": "ODN05S4.dc.html",
+    "out": "4-odnowienie/05-cos-naglego-odnowienie/4.png"
+  },
+  {
+    "file": "ODN05S5.dc.html",
+    "out": "4-odnowienie/05-cos-naglego-odnowienie/5-kontakt.png"
+  },
+  {
+    "file": "ODN06S1.dc.html",
+    "out": "4-odnowienie/06-deszcz-odnowienie/1-tytul.png"
+  },
+  {
+    "file": "ODN06S2.dc.html",
+    "out": "4-odnowienie/06-deszcz-odnowienie/2.png"
+  },
+  {
+    "file": "ODN06S3.dc.html",
+    "out": "4-odnowienie/06-deszcz-odnowienie/3.png"
+  },
+  {
+    "file": "ODN06S4.dc.html",
+    "out": "4-odnowienie/06-deszcz-odnowienie/4-kontakt.png"
+  }
+]
