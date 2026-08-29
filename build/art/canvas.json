@@ -6,615 +6,1527 @@
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c01"
+      "page": "slub"
     },
     {
-      "file": "C01S2.dc.html",
+      "file": "SLU01S2.dc.html",
       "x": 1220,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c01"
+      "page": "slub"
     },
     {
-      "file": "C01S3.dc.html",
+      "file": "SLU01S3.dc.html",
       "x": 2440,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c01"
+      "page": "slub"
     },
     {
-      "file": "C01S4.dc.html",
+      "file": "SLU01S4.dc.html",
       "x": 3660,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c01"
+      "page": "slub"
     },
     {
-      "file": "C01S5.dc.html",
+      "file": "SLU01S5.dc.html",
       "x": 4880,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c01"
+      "page": "slub"
     },
     {
-      "file": "C02S1.dc.html",
+      "file": "SLU02S1.dc.html",
       "x": 0,
-      "y": 0,
+      "y": 1600,
       "w": 1080,
       "h": 1080,
-      "page": "c02"
+      "page": "slub"
     },
     {
-      "file": "C02S2.dc.html",
+      "file": "SLU02S2.dc.html",
       "x": 1220,
-      "y": 0,
+      "y": 1600,
       "w": 1080,
       "h": 1080,
-      "page": "c02"
+      "page": "slub"
     },
     {
-      "file": "C02S3.dc.html",
+      "file": "SLU02S3.dc.html",
       "x": 2440,
-      "y": 0,
+      "y": 1600,
       "w": 1080,
       "h": 1080,
-      "page": "c02"
+      "page": "slub"
     },
     {
-      "file": "C02S4.dc.html",
+      "file": "SLU02S4.dc.html",
       "x": 3660,
-      "y": 0,
+      "y": 1600,
       "w": 1080,
       "h": 1080,
-      "page": "c02"
+      "page": "slub"
     },
     {
-      "file": "C02S5.dc.html",
+      "file": "SLU02S5.dc.html",
       "x": 4880,
-      "y": 0,
+      "y": 1600,
       "w": 1080,
       "h": 1080,
-      "page": "c02"
+      "page": "slub"
     },
     {
-      "file": "C03S1.dc.html",
+      "file": "SLU03S1.dc.html",
       "x": 0,
-      "y": 0,
+      "y": 3200,
       "w": 1080,
       "h": 1080,
-      "page": "c03"
+      "page": "slub"
     },
     {
-      "file": "C03S2.dc.html",
+      "file": "SLU03S2.dc.html",
       "x": 1220,
-      "y": 0,
+      "y": 3200,
       "w": 1080,
       "h": 1080,
-      "page": "c03"
+      "page": "slub"
     },
     {
-      "file": "C03S3.dc.html",
+      "file": "SLU03S3.dc.html",
       "x": 2440,
-      "y": 0,
+      "y": 3200,
       "w": 1080,
       "h": 1080,
-      "page": "c03"
+      "page": "slub"
     },
     {
-      "file": "C03S4.dc.html",
+      "file": "SLU03S4.dc.html",
       "x": 3660,
-      "y": 0,
+      "y": 3200,
       "w": 1080,
       "h": 1080,
-      "page": "c03"
+      "page": "slub"
     },
     {
-      "file": "C03S5.dc.html",
+      "file": "SLU03S5.dc.html",
       "x": 4880,
-      "y": 0,
+      "y": 3200,
       "w": 1080,
       "h": 1080,
-      "page": "c03"
+      "page": "slub"
     },
     {
-      "file": "C04S1.dc.html",
+      "file": "SLU04S1.dc.html",
       "x": 0,
-      "y": 0,
+      "y": 4800,
       "w": 1080,
       "h": 1080,
-      "page": "c04"
+      "page": "slub"
     },
     {
-      "file": "C04S2.dc.html",
+      "file": "SLU04S2.dc.html",
       "x": 1220,
-      "y": 0,
+      "y": 4800,
       "w": 1080,
       "h": 1080,
-      "page": "c04"
+      "page": "slub"
     },
     {
-      "file": "C04S3.dc.html",
+      "file": "SLU04S3.dc.html",
       "x": 2440,
-      "y": 0,
+      "y": 4800,
       "w": 1080,
       "h": 1080,
-      "page": "c04"
+      "page": "slub"
     },
     {
-      "file": "C04S4.dc.html",
+      "file": "SLU04S4.dc.html",
       "x": 3660,
-      "y": 0,
+      "y": 4800,
       "w": 1080,
       "h": 1080,
-      "page": "c04"
+      "page": "slub"
     },
     {
-      "file": "C04S5.dc.html",
+      "file": "SLU04S5.dc.html",
       "x": 4880,
-      "y": 0,
+      "y": 4800,
       "w": 1080,
       "h": 1080,
-      "page": "c04"
+      "page": "slub"
     },
     {
-      "file": "C05S1.dc.html",
+      "file": "SLU05S1.dc.html",
       "x": 0,
-      "y": 0,
+      "y": 6400,
       "w": 1080,
       "h": 1080,
-      "page": "c05"
+      "page": "slub"
     },
     {
-      "file": "C05S2.dc.html",
+      "file": "SLU05S2.dc.html",
       "x": 1220,
-      "y": 0,
+      "y": 6400,
       "w": 1080,
       "h": 1080,
-      "page": "c05"
+      "page": "slub"
     },
     {
-      "file": "C05S3.dc.html",
+      "file": "SLU05S3.dc.html",
       "x": 2440,
-      "y": 0,
+      "y": 6400,
       "w": 1080,
       "h": 1080,
-      "page": "c05"
+      "page": "slub"
     },
     {
-      "file": "C05S4.dc.html",
+      "file": "SLU05S4.dc.html",
       "x": 3660,
-      "y": 0,
+      "y": 6400,
       "w": 1080,
       "h": 1080,
-      "page": "c05"
+      "page": "slub"
     },
     {
-      "file": "C05S5.dc.html",
+      "file": "SLU05S5.dc.html",
       "x": 4880,
-      "y": 0,
+      "y": 6400,
       "w": 1080,
       "h": 1080,
-      "page": "c05"
+      "page": "slub"
     },
     {
-      "file": "C06S1.dc.html",
+      "file": "SLU06S1.dc.html",
       "x": 0,
-      "y": 0,
+      "y": 8000,
       "w": 1080,
       "h": 1080,
-      "page": "c06"
+      "page": "slub"
     },
     {
-      "file": "C06S2.dc.html",
+      "file": "SLU06S2.dc.html",
       "x": 1220,
-      "y": 0,
+      "y": 8000,
       "w": 1080,
       "h": 1080,
-      "page": "c06"
+      "page": "slub"
     },
     {
-      "file": "C06S3.dc.html",
+      "file": "SLU06S3.dc.html",
       "x": 2440,
-      "y": 0,
+      "y": 8000,
       "w": 1080,
       "h": 1080,
-      "page": "c06"
+      "page": "slub"
     },
     {
-      "file": "C06S4.dc.html",
+      "file": "SLU06S4.dc.html",
       "x": 3660,
-      "y": 0,
+      "y": 8000,
       "w": 1080,
       "h": 1080,
-      "page": "c06"
+      "page": "slub"
     },
     {
-      "file": "C06S5.dc.html",
+      "file": "SLU06S5.dc.html",
       "x": 4880,
-      "y": 0,
+      "y": 8000,
       "w": 1080,
       "h": 1080,
-      "page": "c06"
+      "page": "slub"
     },
     {
-      "file": "C07S1.dc.html",
+      "file": "SLU07S1.dc.html",
       "x": 0,
-      "y": 0,
+      "y": 9600,
       "w": 1080,
       "h": 1080,
-      "page": "c07"
+      "page": "slub"
     },
     {
-      "file": "C07S2.dc.html",
+      "file": "SLU07S2.dc.html",
       "x": 1220,
-      "y": 0,
+      "y": 9600,
       "w": 1080,
       "h": 1080,
-      "page": "c07"
+      "page": "slub"
     },
     {
-      "file": "C07S3.dc.html",
+      "file": "SLU07S3.dc.html",
       "x": 2440,
-      "y": 0,
+      "y": 9600,
       "w": 1080,
       "h": 1080,
-      "page": "c07"
+      "page": "slub"
     },
     {
-      "file": "C07S4.dc.html",
+      "file": "SLU07S4.dc.html",
       "x": 3660,
-      "y": 0,
+      "y": 9600,
       "w": 1080,
       "h": 1080,
-      "page": "c07"
+      "page": "slub"
     },
     {
-      "file": "C07S5.dc.html",
+      "file": "SLU07S5.dc.html",
       "x": 4880,
-      "y": 0,
+      "y": 9600,
       "w": 1080,
       "h": 1080,
-      "page": "c07"
+      "page": "slub"
     },
     {
-      "file": "C07S6.dc.html",
+      "file": "SLU07S6.dc.html",
       "x": 6100,
-      "y": 0,
+      "y": 9600,
       "w": 1080,
       "h": 1080,
-      "page": "c07"
+      "page": "slub"
     },
     {
-      "file": "C08S1.dc.html",
+      "file": "SLU08S1.dc.html",
+      "x": 0,
+      "y": 11200,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU08S2.dc.html",
+      "x": 1220,
+      "y": 11200,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU08S3.dc.html",
+      "x": 2440,
+      "y": 11200,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU08S4.dc.html",
+      "x": 3660,
+      "y": 11200,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU08S5.dc.html",
+      "x": 4880,
+      "y": 11200,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU09S1.dc.html",
+      "x": 0,
+      "y": 12800,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU09S2.dc.html",
+      "x": 1220,
+      "y": 12800,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU09S3.dc.html",
+      "x": 2440,
+      "y": 12800,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU09S4.dc.html",
+      "x": 3660,
+      "y": 12800,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU10S1.dc.html",
+      "x": 0,
+      "y": 14400,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU10S2.dc.html",
+      "x": 1220,
+      "y": 14400,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU10S3.dc.html",
+      "x": 2440,
+      "y": 14400,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU10S4.dc.html",
+      "x": 3660,
+      "y": 14400,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU11S1.dc.html",
+      "x": 0,
+      "y": 16000,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU11S2.dc.html",
+      "x": 1220,
+      "y": 16000,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU11S3.dc.html",
+      "x": 2440,
+      "y": 16000,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU11S4.dc.html",
+      "x": 3660,
+      "y": 16000,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU11S5.dc.html",
+      "x": 4880,
+      "y": 16000,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU12S1.dc.html",
+      "x": 0,
+      "y": 17600,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU12S2.dc.html",
+      "x": 1220,
+      "y": 17600,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU12S3.dc.html",
+      "x": 2440,
+      "y": 17600,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "SLU12S4.dc.html",
+      "x": 3660,
+      "y": 17600,
+      "w": 1080,
+      "h": 1080,
+      "page": "slub"
+    },
+    {
+      "file": "PRZ01S1.dc.html",
       "x": 0,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c08"
+      "page": "przywitanie"
     },
     {
-      "file": "C08S2.dc.html",
+      "file": "PRZ01S2.dc.html",
       "x": 1220,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c08"
+      "page": "przywitanie"
     },
     {
-      "file": "C08S3.dc.html",
+      "file": "PRZ01S3.dc.html",
       "x": 2440,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c08"
+      "page": "przywitanie"
     },
     {
-      "file": "C08S4.dc.html",
+      "file": "PRZ01S4.dc.html",
       "x": 3660,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c08"
+      "page": "przywitanie"
     },
     {
-      "file": "C08S5.dc.html",
+      "file": "PRZ01S5.dc.html",
       "x": 4880,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c08"
+      "page": "przywitanie"
     },
     {
-      "file": "C09S1.dc.html",
+      "file": "PRZ02S1.dc.html",
+      "x": 0,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ02S2.dc.html",
+      "x": 1220,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ02S3.dc.html",
+      "x": 2440,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ02S4.dc.html",
+      "x": 3660,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ02S5.dc.html",
+      "x": 4880,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ03S1.dc.html",
+      "x": 0,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ03S2.dc.html",
+      "x": 1220,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ03S3.dc.html",
+      "x": 2440,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ03S4.dc.html",
+      "x": 3660,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ03S5.dc.html",
+      "x": 4880,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ04S1.dc.html",
+      "x": 0,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ04S2.dc.html",
+      "x": 1220,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ04S3.dc.html",
+      "x": 2440,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ04S4.dc.html",
+      "x": 3660,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ04S5.dc.html",
+      "x": 4880,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ05S1.dc.html",
+      "x": 0,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ05S2.dc.html",
+      "x": 1220,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ05S3.dc.html",
+      "x": 2440,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ05S4.dc.html",
+      "x": 3660,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ05S5.dc.html",
+      "x": 4880,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ06S1.dc.html",
+      "x": 0,
+      "y": 8000,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ06S2.dc.html",
+      "x": 1220,
+      "y": 8000,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ06S3.dc.html",
+      "x": 2440,
+      "y": 8000,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ06S4.dc.html",
+      "x": 3660,
+      "y": 8000,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ06S5.dc.html",
+      "x": 4880,
+      "y": 8000,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ07S1.dc.html",
+      "x": 0,
+      "y": 9600,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ07S2.dc.html",
+      "x": 1220,
+      "y": 9600,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ07S3.dc.html",
+      "x": 2440,
+      "y": 9600,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ07S4.dc.html",
+      "x": 3660,
+      "y": 9600,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ07S5.dc.html",
+      "x": 4880,
+      "y": 9600,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ08S1.dc.html",
+      "x": 0,
+      "y": 11200,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ08S2.dc.html",
+      "x": 1220,
+      "y": 11200,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ08S3.dc.html",
+      "x": 2440,
+      "y": 11200,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ08S4.dc.html",
+      "x": 3660,
+      "y": 11200,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ08S5.dc.html",
+      "x": 4880,
+      "y": 11200,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ09S1.dc.html",
+      "x": 0,
+      "y": 12800,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ09S2.dc.html",
+      "x": 1220,
+      "y": 12800,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ09S3.dc.html",
+      "x": 2440,
+      "y": 12800,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "PRZ09S4.dc.html",
+      "x": 3660,
+      "y": 12800,
+      "w": 1080,
+      "h": 1080,
+      "page": "przywitanie"
+    },
+    {
+      "file": "POZ01S1.dc.html",
       "x": 0,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c09"
+      "page": "pogrzeb"
     },
     {
-      "file": "C09S2.dc.html",
+      "file": "POZ01S2.dc.html",
       "x": 1220,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c09"
+      "page": "pogrzeb"
     },
     {
-      "file": "C09S3.dc.html",
+      "file": "POZ01S3.dc.html",
       "x": 2440,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c09"
+      "page": "pogrzeb"
     },
     {
-      "file": "C09S4.dc.html",
+      "file": "POZ01S4.dc.html",
       "x": 3660,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c09"
+      "page": "pogrzeb"
     },
     {
-      "file": "C10S1.dc.html",
-      "x": 0,
-      "y": 0,
-      "w": 1080,
-      "h": 1080,
-      "page": "c10"
-    },
-    {
-      "file": "C10S2.dc.html",
-      "x": 1220,
-      "y": 0,
-      "w": 1080,
-      "h": 1080,
-      "page": "c10"
-    },
-    {
-      "file": "C10S3.dc.html",
-      "x": 2440,
-      "y": 0,
-      "w": 1080,
-      "h": 1080,
-      "page": "c10"
-    },
-    {
-      "file": "C10S4.dc.html",
-      "x": 3660,
-      "y": 0,
-      "w": 1080,
-      "h": 1080,
-      "page": "c10"
-    },
-    {
-      "file": "C11S1.dc.html",
-      "x": 0,
-      "y": 0,
-      "w": 1080,
-      "h": 1080,
-      "page": "c11"
-    },
-    {
-      "file": "C11S2.dc.html",
-      "x": 1220,
-      "y": 0,
-      "w": 1080,
-      "h": 1080,
-      "page": "c11"
-    },
-    {
-      "file": "C11S3.dc.html",
-      "x": 2440,
-      "y": 0,
-      "w": 1080,
-      "h": 1080,
-      "page": "c11"
-    },
-    {
-      "file": "C11S4.dc.html",
-      "x": 3660,
-      "y": 0,
-      "w": 1080,
-      "h": 1080,
-      "page": "c11"
-    },
-    {
-      "file": "C11S5.dc.html",
+      "file": "POZ01S5.dc.html",
       "x": 4880,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c11"
+      "page": "pogrzeb"
     },
     {
-      "file": "C12S1.dc.html",
+      "file": "POZ02S1.dc.html",
+      "x": 0,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ02S2.dc.html",
+      "x": 1220,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ02S3.dc.html",
+      "x": 2440,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ02S4.dc.html",
+      "x": 3660,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ02S5.dc.html",
+      "x": 4880,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ02S6.dc.html",
+      "x": 6100,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ03S1.dc.html",
+      "x": 0,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ03S2.dc.html",
+      "x": 1220,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ03S3.dc.html",
+      "x": 2440,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ03S4.dc.html",
+      "x": 3660,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ03S5.dc.html",
+      "x": 4880,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ04S1.dc.html",
+      "x": 0,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ04S2.dc.html",
+      "x": 1220,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ04S3.dc.html",
+      "x": 2440,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ04S4.dc.html",
+      "x": 3660,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ04S5.dc.html",
+      "x": 4880,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ05S1.dc.html",
+      "x": 0,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ05S2.dc.html",
+      "x": 1220,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ05S3.dc.html",
+      "x": 2440,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "POZ05S4.dc.html",
+      "x": 3660,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "pogrzeb"
+    },
+    {
+      "file": "ODN01S1.dc.html",
       "x": 0,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c12"
+      "page": "odnowienie"
     },
     {
-      "file": "C12S2.dc.html",
+      "file": "ODN01S2.dc.html",
       "x": 1220,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c12"
+      "page": "odnowienie"
     },
     {
-      "file": "C12S3.dc.html",
+      "file": "ODN01S3.dc.html",
       "x": 2440,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c12"
+      "page": "odnowienie"
     },
     {
-      "file": "C12S4.dc.html",
+      "file": "ODN01S4.dc.html",
       "x": 3660,
       "y": 0,
       "w": 1080,
       "h": 1080,
-      "page": "c12"
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN01S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN02S1.dc.html",
+      "x": 0,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN02S2.dc.html",
+      "x": 1220,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN02S3.dc.html",
+      "x": 2440,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN02S4.dc.html",
+      "x": 3660,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN02S5.dc.html",
+      "x": 4880,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN03S1.dc.html",
+      "x": 0,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN03S2.dc.html",
+      "x": 1220,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN03S3.dc.html",
+      "x": 2440,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN03S4.dc.html",
+      "x": 3660,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN03S5.dc.html",
+      "x": 4880,
+      "y": 3200,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN04S1.dc.html",
+      "x": 0,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN04S2.dc.html",
+      "x": 1220,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN04S3.dc.html",
+      "x": 2440,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN04S4.dc.html",
+      "x": 3660,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN04S5.dc.html",
+      "x": 4880,
+      "y": 4800,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN05S1.dc.html",
+      "x": 0,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN05S2.dc.html",
+      "x": 1220,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN05S3.dc.html",
+      "x": 2440,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN05S4.dc.html",
+      "x": 3660,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN05S5.dc.html",
+      "x": 4880,
+      "y": 6400,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN06S1.dc.html",
+      "x": 0,
+      "y": 8000,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN06S2.dc.html",
+      "x": 1220,
+      "y": 8000,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN06S3.dc.html",
+      "x": 2440,
+      "y": 8000,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
+    },
+    {
+      "file": "ODN06S4.dc.html",
+      "x": 3660,
+      "y": 8000,
+      "w": 1080,
+      "h": 1080,
+      "page": "odnowienie"
     }
   ],
   "annotations": [
     {
-      "id": "note-c01",
+      "id": "note-slub-01",
       "x": 0,
-      "y": -220,
+      "y": -320,
       "w": 1080,
-      "page": "c01",
-      "text": "PYTANIE FAQ (Moc prawna)\nCzy ślub humanistyczny ma moc prawną? Jak pogodzić go z formalnościami?\n\nProponowany hook do opisu posta:\n„Ślub humanistyczny a formalności — jak to pogodzić bez stresu.”"
+      "page": "slub",
+      "text": "ŚLUBY · Moc prawna\nPYTANIE FAQ: Czy ślub humanistyczny ma moc prawną? Jak pogodzić go z formalnościami?\n\nProponowany hook do opisu posta:\n„Ślub humanistyczny a formalności — jak to pogodzić bez stresu.”"
     },
     {
-      "id": "note-c02",
+      "id": "note-slub-02",
       "x": 0,
-      "y": -220,
+      "y": 1280,
       "w": 1080,
-      "page": "c02",
-      "text": "PYTANIE FAQ (Cywilny + humanistyczny)\nCzy można połączyć ślub cywilny ze ślubem humanistycznym w tym samym miejscu i czasie?\n\nProponowany hook do opisu posta:\n„Akt małżeństwa i osobista ceremonia jednego dnia — da się.”"
+      "page": "slub",
+      "text": "ŚLUBY · Cywilny + humanistyczny\nPYTANIE FAQ: Czy można połączyć ślub cywilny ze ślubem humanistycznym w tym samym miejscu i czasie?\n\nProponowany hook do opisu posta:\n„Akt małżeństwa i osobista ceremonia jednego dnia — da się.”"
     },
     {
-      "id": "note-c03",
+      "id": "note-slub-03",
       "x": 0,
-      "y": -220,
+      "y": 2880,
       "w": 1080,
-      "page": "c03",
-      "text": "PYTANIE FAQ (Tradycyjna rodzina)\nJak na ślub humanistyczny reaguje tradycyjna część rodziny i goście, którzy nigdy nie słyszeli o takiej ceremonii?\n\nProponowany hook do opisu posta:\n„Najczęstsza obawa Par Młodych — i jak się zwykle kończy.”"
+      "page": "slub",
+      "text": "ŚLUBY · Tradycyjna rodzina\nPYTANIE FAQ: Jak na ślub humanistyczny reaguje tradycyjna część rodziny i goście, którzy nigdy nie słyszeli o takiej ceremonii?\n\nProponowany hook do opisu posta:\n„Najczęstsza obawa Par Młodych — i jak się zwykle kończy.”"
     },
     {
-      "id": "note-c04",
+      "id": "note-slub-04",
       "x": 0,
-      "y": -220,
+      "y": 4480,
       "w": 1080,
-      "page": "c04",
-      "text": "PYTANIE FAQ (Dwa języki)\nCzy ślub humanistyczny można poprowadzić w dwóch językach?\n\nProponowany hook do opisu posta:\n„Ceremonia dwujęzyczna dla par międzynarodowych.”"
+      "page": "slub",
+      "text": "ŚLUBY · Dwa języki\nPYTANIE FAQ: Czy ślub humanistyczny można poprowadzić w dwóch językach?\n\nProponowany hook do opisu posta:\n„Ceremonia dwujęzyczna dla par międzynarodowych.”"
     },
     {
-      "id": "note-c05",
+      "id": "note-slub-05",
       "x": 0,
-      "y": -220,
+      "y": 6080,
       "w": 1080,
-      "page": "c05",
-      "text": "PYTANIE FAQ (Stres przy przysiędze)\nNie lubimy mówić publicznie i boimy się stresu. Co jeśli zablokujemy się przy przysiędze?\n\nProponowany hook do opisu posta:\n„Trema przy przysiędze? Jestem obok właśnie po to.”"
+      "page": "slub",
+      "text": "ŚLUBY · Stres przy przysiędze\nPYTANIE FAQ: Nie lubimy mówić publicznie i boimy się stresu. Co jeśli zablokujemy się przy przysiędze?\n\nProponowany hook do opisu posta:\n„Trema przy przysiędze? Jestem obok właśnie po to.”"
     },
     {
-      "id": "note-c06",
+      "id": "note-slub-06",
       "x": 0,
-      "y": -220,
+      "y": 7680,
       "w": 1080,
-      "page": "c06",
-      "text": "PYTANIE FAQ (Pisanie przysięgi)\nJak napisać autentyczną przysięgę ślubną?\n\nProponowany hook do opisu posta:\n„Przysięga, która jest w 100% Wasza — krok po kroku.”"
+      "page": "slub",
+      "text": "ŚLUBY · Pisanie przysięgi\nPYTANIE FAQ: Jak napisać autentyczną przysięgę ślubną?\n\nProponowany hook do opisu posta:\n„Przysięga, która jest w 100% Wasza — krok po kroku.”"
     },
     {
-      "id": "note-c07",
+      "id": "note-slub-07",
       "x": 0,
-      "y": -220,
+      "y": 9280,
       "w": 1080,
-      "page": "c07",
-      "text": "PYTANIE FAQ (Proces przygotowań)\nJak wygląda proces przygotowań i ile spotkań nas czeka?\n\nProponowany hook do opisu posta:\n„Cały proces przygotowań — od pierwszej rozmowy do dnia ślubu.”"
+      "page": "slub",
+      "text": "ŚLUBY · Proces przygotowań\nPYTANIE FAQ: Jak wygląda proces przygotowań i ile spotkań nas czeka?\n\nProponowany hook do opisu posta:\n„Cały proces przygotowań — od pierwszej rozmowy do dnia ślubu.”"
     },
     {
-      "id": "note-c08",
+      "id": "note-slub-08",
       "x": 0,
-      "y": -220,
+      "y": 10880,
       "w": 1080,
-      "page": "c08",
-      "text": "PYTANIE FAQ (Oprawa muzyczna)\nJak wygląda kwestia oprawy muzycznej i nagłośnienia podczas ceremonii?\n\nProponowany hook do opisu posta:\n„Muzyka i czysty dźwięk — serce emocjonalne ceremonii.”"
+      "page": "slub",
+      "text": "ŚLUBY · Oprawa muzyczna\nPYTANIE FAQ: Jak wygląda kwestia oprawy muzycznej i nagłośnienia podczas ceremonii?\n\nProponowany hook do opisu posta:\n„Muzyka i czysty dźwięk — serce emocjonalne ceremonii.”"
     },
     {
-      "id": "note-c09",
+      "id": "note-slub-09",
       "x": 0,
-      "y": -220,
+      "y": 12480,
       "w": 1080,
-      "page": "c09",
-      "text": "PYTANIE FAQ (Poza Trójmiastem)\nCzy mogę zorganizować ceremonię poza Trójmiastem?\n\nProponowany hook do opisu posta:\n„Gdańsk, całe Trójmiasto — i dowolne miejsce w Polsce.”"
+      "page": "slub",
+      "text": "ŚLUBY · Poza Trójmiastem\nPYTANIE FAQ: Czy mogę zorganizować ceremonię poza Trójmiastem?\n\nProponowany hook do opisu posta:\n„Gdańsk, całe Trójmiasto — i dowolne miejsce w Polsce.”"
     },
     {
-      "id": "note-c10",
+      "id": "note-slub-10",
       "x": 0,
-      "y": -220,
+      "y": 14080,
       "w": 1080,
-      "page": "c10",
-      "text": "PYTANIE FAQ (Wyprzedzenie)\nZ jakim wyprzedzeniem najlepiej się zgłosić?\n\nProponowany hook do opisu posta:\n„Kiedy się odezwać? Im wcześniej, tym spokojniej.”"
+      "page": "slub",
+      "text": "ŚLUBY · Wyprzedzenie\nPYTANIE FAQ: Z jakim wyprzedzeniem najlepiej się zgłosić?\n\nProponowany hook do opisu posta:\n„Kiedy się odezwać? Im wcześniej, tym spokojniej.”"
     },
     {
-      "id": "note-c11",
+      "id": "note-slub-11",
       "x": 0,
-      "y": -220,
+      "y": 15680,
       "w": 1080,
-      "page": "c11",
-      "text": "PYTANIE FAQ (Sytuacja losowa)\nCo jeśli zachorujesz albo zdarzy się coś nagłego?\n\nProponowany hook do opisu posta:\n„Plan na wypadek sytuacji losowej — nigdy nie zostajecie sami.”"
+      "page": "slub",
+      "text": "ŚLUBY · Sytuacja losowa\nPYTANIE FAQ: Co jeśli zachorujesz albo zdarzy się coś nagłego?\n\nProponowany hook do opisu posta:\n„Plan na wypadek sytuacji losowej — nigdy nie zostajecie sami.”"
     },
     {
-      "id": "note-c12",
+      "id": "note-slub-12",
       "x": 0,
-      "y": -220,
+      "y": 17280,
       "w": 1080,
-      "page": "c12",
-      "text": "PYTANIE FAQ (Deszcz w plenerze)\nCo w sytuacji, gdy ceremonia ma odbyć się w plenerze, a spadnie deszcz?\n\nProponowany hook do opisu posta:\n„Pogoda bywa zmienna — dlatego zawsze mamy Plan B.”"
+      "page": "slub",
+      "text": "ŚLUBY · Deszcz w plenerze\nPYTANIE FAQ: Co w sytuacji, gdy ceremonia ma odbyć się w plenerze, a spadnie deszcz?\n\nProponowany hook do opisu posta:\n„Pogoda bywa zmienna — dlatego zawsze mamy Plan B.”"
+    },
+    {
+      "id": "note-przywitanie-01",
+      "x": 0,
+      "y": -320,
+      "w": 1080,
+      "page": "przywitanie",
+      "text": "PRZYWITANIA · Płacz malucha\nPYTANIE FAQ: Co jeśli maluszek zacznie płakać, będzie głodny albo potrzebuje przewinięcia?\n\nProponowany hook do opisu posta:\n„Dziecko jest głównym bohaterem — ceremonia dopasowuje się do niego.”"
+    },
+    {
+      "id": "note-przywitanie-02",
+      "x": 0,
+      "y": 1280,
+      "w": 1080,
+      "page": "przywitanie",
+      "text": "PRZYWITANIA · Gdzie i kiedy\nPYTANIE FAQ: Gdzie i kiedy może odbyć się taka ceremonia?\n\nProponowany hook do opisu posta:\n„Żadnych ograniczeń co do miejsca ani terminu.”"
+    },
+    {
+      "id": "note-przywitanie-03",
+      "x": 0,
+      "y": 2880,
+      "w": 1080,
+      "page": "przywitanie",
+      "text": "PRZYWITANIA · Proces przygotowań\nPYTANIE FAQ: Jak wygląda proces przygotowań i ile czasu musimy na to poświęcić?\n\nProponowany hook do opisu posta:\n„Cały proces szybko i bezstresowo — wiem, ile zabiera mały człowiek.”"
+    },
+    {
+      "id": "note-przywitanie-04",
+      "x": 0,
+      "y": 4480,
+      "w": 1080,
+      "page": "przywitanie",
+      "text": "PRZYWITANIA · Presja na chrzest\nPYTANIE FAQ: Czujemy presję ze strony rodziny na tradycyjny chrzest. Jak wytłumaczyć im naszą decyzję?\n\nProponowany hook do opisu posta:\n„Nie rezygnujecie ze świętowania — robicie to w zgodzie ze sobą.”"
+    },
+    {
+      "id": "note-przywitanie-05",
+      "x": 0,
+      "y": 6080,
+      "w": 1080,
+      "page": "przywitanie",
+      "text": "PRZYWITANIA · Rodzice Honorowi\nPYTANIE FAQ: Kim są Rodzice Honorowi i jaka jest ich rola podczas ceremonii?\n\nProponowany hook do opisu posta:\n„Humanistyczny odpowiednik Rodziców Chrzestnych — bez zaświadczeń z parafii.”"
+    },
+    {
+      "id": "note-przywitanie-06",
+      "x": 0,
+      "y": 7680,
+      "w": 1080,
+      "page": "przywitanie",
+      "text": "PRZYWITANIA · Przygotowanie miejsca\nPYTANIE FAQ: Jak przygotować miejsce na Ceremonię Przywitania Dziecka?\n\nProponowany hook do opisu posta:\n„Przestrzeń ma dawać swobodę Wam, maluszkowi i gościom.”"
+    },
+    {
+      "id": "note-przywitanie-07",
+      "x": 0,
+      "y": 9280,
+      "w": 1080,
+      "page": "przywitanie",
+      "text": "PRZYWITANIA · Ile trwa\nPYTANIE FAQ: Ile trwa ceremonia przywitania dziecka w rodzinie?\n\nProponowany hook do opisu posta:\n„Około 25–30 minut — tyle, by wzruszyć, ale nie zmęczyć malucha.”"
+    },
+    {
+      "id": "note-przywitanie-08",
+      "x": 0,
+      "y": 10880,
+      "w": 1080,
+      "page": "przywitanie",
+      "text": "PRZYWITANIA · Sytuacja losowa\nPYTANIE FAQ: Co jeśli zachorujesz albo zdarzy się coś nagłego?\n\nProponowany hook do opisu posta:\n„Plan na wypadek sytuacji losowej — nigdy nie zostajecie sami.”"
+    },
+    {
+      "id": "note-przywitanie-09",
+      "x": 0,
+      "y": 12480,
+      "w": 1080,
+      "page": "przywitanie",
+      "text": "PRZYWITANIA · Deszcz w plenerze\nPYTANIE FAQ: Co w sytuacji, gdy ceremonia ma odbyć się w plenerze, a spadnie deszcz?\n\nProponowany hook do opisu posta:\n„Pogoda bywa zmienna — dlatego zawsze mamy Plan B.”"
+    },
+    {
+      "id": "note-pogrzeb-01",
+      "x": 0,
+      "y": -320,
+      "w": 1080,
+      "page": "pogrzeb",
+      "text": "POŻEGNANIA · Wierzący w rodzinie\nPYTANIE FAQ: Jak pogodzić ceremonię z obyczajami lub potrzebami wierzących członków rodziny?\n\nProponowany hook do opisu posta:\n„Humanistyczne pożegnanie nie walczy z tradycją — łączy bliskich.”"
+    },
+    {
+      "id": "note-pogrzeb-02",
+      "x": 0,
+      "y": 1280,
+      "w": 1080,
+      "page": "pogrzeb",
+      "text": "POŻEGNANIA · Zbieranie wspomnień\nPYTANIE FAQ: Jak zbierasz wspomnienia do scenariusza i ile czasu musimy na to poświęcić?\n\nProponowany hook do opisu posta:\n„Cały proces prowadzę z najwyższą delikatnością i bez presji.”"
+    },
+    {
+      "id": "note-pogrzeb-03",
+      "x": 0,
+      "y": 2880,
+      "w": 1080,
+      "page": "pogrzeb",
+      "text": "POŻEGNANIA · Głos rodziny\nPYTANIE FAQ: Czy rodzina lub przyjaciele mogą zabrać głos podczas ceremonii?\n\nProponowany hook do opisu posta:\n„Poruszający, choć całkowicie dobrowolny akcent.”"
+    },
+    {
+      "id": "note-pogrzeb-04",
+      "x": 0,
+      "y": 4480,
+      "w": 1080,
+      "page": "pogrzeb",
+      "text": "POŻEGNANIA · Sytuacja losowa\nPYTANIE FAQ: Co jeśli zachorujesz albo zdarzy się coś nagłego?\n\nProponowany hook do opisu posta:\n„W razie sytuacji losowej Rodzina nigdy nie zostaje bez wsparcia.”"
+    },
+    {
+      "id": "note-pogrzeb-05",
+      "x": 0,
+      "y": 6080,
+      "w": 1080,
+      "page": "pogrzeb",
+      "text": "POŻEGNANIA · Deszcz w plenerze\nPYTANIE FAQ: Co w sytuacji, gdy ceremonia ma odbyć się w plenerze, a spadnie deszcz?\n\nProponowany hook do opisu posta:\n„Pogoda bywa zmienna — dlatego zawsze mamy Plan B.”"
+    },
+    {
+      "id": "note-odnowienie-01",
+      "x": 0,
+      "y": -320,
+      "w": 1080,
+      "page": "odnowienie",
+      "text": "ODNOWIENIA PRZYSIĘGI · Dobry moment\nPYTANIE FAQ: Kiedy jest dobry moment na odnowienie przysięgi małżeńskiej?\n\nProponowany hook do opisu posta:\n„Każdy moment jest idealny — bez sztywnych reguł.”"
+    },
+    {
+      "id": "note-odnowienie-02",
+      "x": 0,
+      "y": 1280,
+      "w": 1080,
+      "page": "odnowienie",
+      "text": "ODNOWIENIA PRZYSIĘGI · Nowe słowa\nPYTANIE FAQ: Nie chcemy „powtarzać” starej przysięgi. Jak napisać nowe słowa po latach?\n\nProponowany hook do opisu posta:\n„Po latach przysięga ma zupełnie inny wymiar.”"
+    },
+    {
+      "id": "note-odnowienie-03",
+      "x": 0,
+      "y": 2880,
+      "w": 1080,
+      "page": "odnowienie",
+      "text": "ODNOWIENIA PRZYSIĘGI · Proces przygotowań\nPYTANIE FAQ: Jak wygląda proces przygotowań i ile spotkań nas czeka?\n\nProponowany hook do opisu posta:\n„Prosto i bezstresowo — od rozmowy do reżyserii dnia.”"
+    },
+    {
+      "id": "note-odnowienie-04",
+      "x": 0,
+      "y": 4480,
+      "w": 1080,
+      "page": "odnowienie",
+      "text": "ODNOWIENIA PRZYSIĘGI · Udział dzieci\nPYTANIE FAQ: Jak włączyć w ceremonię nasze dzieci lub bliskich?\n\nProponowany hook do opisu posta:\n„Jeden z najpiękniejszych elementów odnowienia przysięgi.”"
+    },
+    {
+      "id": "note-odnowienie-05",
+      "x": 0,
+      "y": 6080,
+      "w": 1080,
+      "page": "odnowienie",
+      "text": "ODNOWIENIA PRZYSIĘGI · Sytuacja losowa\nPYTANIE FAQ: Co jeśli zachorujesz albo zdarzy się coś nagłego?\n\nProponowany hook do opisu posta:\n„Plan na wypadek sytuacji losowej — nigdy nie zostajecie sami.”"
+    },
+    {
+      "id": "note-odnowienie-06",
+      "x": 0,
+      "y": 7680,
+      "w": 1080,
+      "page": "odnowienie",
+      "text": "ODNOWIENIA PRZYSIĘGI · Deszcz w plenerze\nPYTANIE FAQ: Co w sytuacji, gdy ceremonia ma odbyć się w plenerze, a spadnie deszcz?\n\nProponowany hook do opisu posta:\n„Pogoda bywa zmienna — dlatego zawsze mamy Plan B.”"
     }
   ],
   "pages": [
     {
-      "id": "c01",
-      "name": "1 · Moc prawna"
+      "id": "slub",
+      "name": "Śluby"
     },
     {
-      "id": "c02",
-      "name": "2 · Cywilny + humanistyczny"
+      "id": "przywitanie",
+      "name": "Przywitania"
     },
     {
-      "id": "c03",
-      "name": "3 · Tradycyjna rodzina"
+      "id": "pogrzeb",
+      "name": "Pożegnania"
     },
     {
-      "id": "c04",
-      "name": "4 · Dwa języki"
-    },
-    {
-      "id": "c05",
-      "name": "5 · Stres przy przysiędze"
-    },
-    {
-      "id": "c06",
-      "name": "6 · Pisanie przysięgi"
-    },
-    {
-      "id": "c07",
-      "name": "7 · Proces przygotowań"
-    },
-    {
-      "id": "c08",
-      "name": "8 · Oprawa muzyczna"
-    },
-    {
-      "id": "c09",
-      "name": "9 · Poza Trójmiastem"
-    },
-    {
-      "id": "c10",
-      "name": "10 · Wyprzedzenie"
-    },
-    {
-      "id": "c11",
-      "name": "11 · Sytuacja losowa"
-    },
-    {
-      "id": "c12",
-      "name": "12 · Deszcz w plenerze"
+      "id": "odnowienie",
+      "name": "Odnowienia przysięgi"
     }
   ],
   "launch": {
     "view": "canvas",
-    "page": "c01"
+    "page": "slub"
   }
 }
