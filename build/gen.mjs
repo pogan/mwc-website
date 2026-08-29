@@ -143,18 +143,66 @@ const carousels = [
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const nl2br = (s) => esc(s).replace(/\n/g, '<br>');
 
-const tones = {
+const palettes = {
+  // --- light grounds (dark text) ---
   cream: {
     bg: '#f2e8db', bg2: '#ece0d0', ink: '#4a3b30', soft: '#7a6552',
     foot: '#95836f', kicker: '#9c6f4f', arrow: '#b58c68',
     photoOpacity: '0.12', photoBlend: 'multiply', sign: '#8a5a44'
   },
+  sage: {
+    bg: '#e8e9df', bg2: '#dce0d1', ink: '#3b4034', soft: '#63695a',
+    foot: '#828a76', kicker: '#6f7a5a', arrow: '#93a07e',
+    photoOpacity: '0.12', photoBlend: 'multiply', sign: '#5f6b48'
+  },
+  blush: {
+    bg: '#f3e6e2', bg2: '#ecd8d2', ink: '#4a352f', soft: '#7d6058',
+    foot: '#9a7d74', kicker: '#a86f5f', arrow: '#c08d7d',
+    photoOpacity: '0.12', photoBlend: 'multiply', sign: '#965448'
+  },
+  sand: {
+    bg: '#efe6d5', bg2: '#e4d7c1', ink: '#453a2b', soft: '#776a53',
+    foot: '#93856a', kicker: '#9a7b4f', arrow: '#bfa072',
+    photoOpacity: '0.13', photoBlend: 'multiply', sign: '#8a6a3f'
+  },
+  // --- dark grounds (light text) ---
   brown: {
     bg: '#7a5744', bg2: '#6a4938', ink: '#f6efe5', soft: '#e9dccb',
     foot: 'rgba(246,239,229,0.62)', kicker: '#ecceac', arrow: 'rgba(246,239,229,0.72)',
     photoOpacity: '0.14', photoBlend: 'soft-light', sign: '#f3e6d5'
+  },
+  forest: {
+    bg: '#40483b', bg2: '#333a2f', ink: '#f2f1e6', soft: '#d8dcc8',
+    foot: 'rgba(242,241,230,0.6)', kicker: '#cdd7a8', arrow: 'rgba(242,241,230,0.7)',
+    photoOpacity: '0.15', photoBlend: 'soft-light', sign: '#e6ecd0'
+  },
+  aubergine: {
+    bg: '#4b3540', bg2: '#3c2a33', ink: '#f5ece9', soft: '#e0cfd0',
+    foot: 'rgba(245,236,233,0.6)', kicker: '#e6bfc0', arrow: 'rgba(245,236,233,0.7)',
+    photoOpacity: '0.15', photoBlend: 'soft-light', sign: '#efd7d6'
+  },
+  inkwarm: {
+    bg: '#38322c', bg2: '#2b2622', ink: '#f4efe6', soft: '#d8cfc0',
+    foot: 'rgba(244,239,230,0.58)', kicker: '#d8b98f', arrow: 'rgba(244,239,230,0.7)',
+    photoOpacity: '0.16', photoBlend: 'soft-light', sign: '#e9d8c0'
   }
 };
+
+// per-carousel look: palette + background photo (order matches `carousels`)
+const themes = [
+  { pal: 'cream',     photo: 'rustic'  }, // 1  moc-prawna
+  { pal: 'brown',     photo: 'vows'    }, // 2  cywilny-i-humanistyczny
+  { pal: 'sage',      photo: 'cer'     }, // 3  tradycyjna-rodzina
+  { pal: 'aubergine', photo: 'css'     }, // 4  dwa-jezyki
+  { pal: 'blush',     photo: 'arch'    }, // 5  stres-przy-przysiedze
+  { pal: 'inkwarm',   photo: 'candles' }, // 6  jak-napisac-przysiege
+  { pal: 'sand',      photo: 'beach'   }, // 7  proces-przygotowan
+  { pal: 'forest',    photo: 'rustic'  }, // 8  oprawa-muzyczna
+  { pal: 'cream',     photo: 'cer'     }, // 9  poza-trojmiastem
+  { pal: 'brown',     photo: 'css'     }, // 10 z-jakim-wyprzedzeniem
+  { pal: 'sage',      photo: 'arch'    }, // 11 cos-naglego
+  { pal: 'aubergine', photo: 'beach'   }  // 12 deszcz-w-plenerze
+];
 
 function arrowSVG(color) {
   return `<svg class="arrow" viewBox="0 0 240 140" fill="none" stroke="${color}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -212,7 +260,7 @@ function page(t, body, opts = {}) {
   </style>
 </helmet>
 <div class="slide">
-  <img class="bg" src="bg.jpg" alt="">
+  <img class="bg" src="${opts.bg || 'bg-rustic.jpg'}" alt="">
   <div class="inner">
 ${body}
   </div>
@@ -257,7 +305,9 @@ const pages = [];
 let mainName = null;
 
 carousels.forEach((c, ci) => {
-  const tone = ci % 2 === 0 ? tones.cream : tones.brown;
+  const theme = themes[ci] || themes[ci % themes.length];
+  const tone = palettes[theme.pal];
+  const bg = `bg-${theme.photo}.jpg`;
   const pageId = 'c' + String(ci + 1).padStart(2, '0');
   pages.push({ id: pageId, name: `${ci + 1} · ${c.menu}` });
 
@@ -276,13 +326,13 @@ carousels.forEach((c, ci) => {
   const stemBase = `C${String(ci + 1).padStart(2, '0')}`;
   // cover
   const coverStem = ci === 0 ? 'Main' : `${stemBase}S1`;
-  push(coverStem, page(tone, coverBody(tone, ci + 1, carousels.length, nl2br(c.q))));
+  push(coverStem, page(tone, coverBody(tone, ci + 1, carousels.length, nl2br(c.q)), { bg }));
   // answers
   c.slides.forEach((txt, si) => {
-    push(`${stemBase}S${si + 2}`, page(tone, answerBody(tone, qShort, txt, si + 1, total - 1)));
+    push(`${stemBase}S${si + 2}`, page(tone, answerBody(tone, qShort, txt, si + 1, total - 1), { bg }));
   });
   // cta
-  push(`${stemBase}S${c.slides.length + 2}`, page(tone, ctaBody(tone), { noArrow: true, noFoot: true }));
+  push(`${stemBase}S${c.slides.length + 2}`, page(tone, ctaBody(tone), { noArrow: true, noFoot: true, bg }));
 
   annotations.push({
     id: `note-${pageId}`,
