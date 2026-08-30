@@ -15,6 +15,7 @@
       position: relative; width: 1080px; height: 1080px; overflow: hidden;
       background: radial-gradient(120% 120% at 30% 20%, #38322c 0%, #2b2622 100%);
       font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-variant-numeric: lining-nums;
       color: #f4efe6;
     }
     .slide .bg {
@@ -23,13 +24,8 @@
       mix-blend-mode: soft-light; filter: grayscale(0.2);
     }
     .inner {
-      position: absolute; inset: 0; padding: 118px 112px 96px;
+      position: absolute; inset: 0; padding: 116px 108px 92px;
       display: flex; flex-direction: column;
-    }
-    .kicker {
-      font-family: 'Jost', system-ui, sans-serif; font-weight: 500;
-      text-transform: uppercase; letter-spacing: 0.34em; font-size: 21px;
-      color: #d8b98f;
     }
     .foot {
       position: absolute; left: 0; right: 0; bottom: 60px; text-align: center;
@@ -41,15 +37,16 @@
       position: absolute; right: 104px; bottom: 150px; width: 132px; height: auto;
       opacity: 0.62;
     }
+    .lead { display: block; font-weight: 600; margin-bottom: 22px; }
     a { color: #e9d8c0; } a:hover { color: #e9d8c0; }
   </style>
 </helmet>
 <div class="slide">
   <img class="bg" src="bg-cer.jpg" alt="">
   <div class="inner">
-    <div class="kicker">Wolne terminy</div>
     <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
-      <h1 style="margin:0; font-weight:600; font-size:82px; line-height:1.14; letter-spacing:0.3px; text-wrap:balance;">Sezon 2026<br>domykamy.<br>Macie termin?</h1>
+      <h1 style="margin:0; font-weight:600; font-size:80px; line-height:1.14; letter-spacing:0.3px; text-wrap:balance;">Sezon 2026<br>domykamy.<br>Macie termin?</h1>
+      <div style="margin-top:36px; font-size:35px; line-height:1.4; color:#d8cfc0;">Wolne terminy 2026 i 2027.</div>
     </div>
   </div>
   <svg class="arrow" viewBox="0 0 240 140" fill="none" stroke="rgba(244,239,230,0.7)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

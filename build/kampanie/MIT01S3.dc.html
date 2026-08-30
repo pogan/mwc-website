@@ -15,6 +15,7 @@
       position: relative; width: 1080px; height: 1080px; overflow: hidden;
       background: radial-gradient(120% 120% at 30% 20%, #40483b 0%, #333a2f 100%);
       font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-variant-numeric: lining-nums;
       color: #f2f1e6;
     }
     .slide .bg {
@@ -23,13 +24,8 @@
       mix-blend-mode: soft-light; filter: grayscale(0.2);
     }
     .inner {
-      position: absolute; inset: 0; padding: 118px 112px 96px;
+      position: absolute; inset: 0; padding: 116px 108px 92px;
       display: flex; flex-direction: column;
-    }
-    .kicker {
-      font-family: 'Jost', system-ui, sans-serif; font-weight: 500;
-      text-transform: uppercase; letter-spacing: 0.34em; font-size: 21px;
-      color: #cdd7a8;
     }
     .foot {
       position: absolute; left: 0; right: 0; bottom: 60px; text-align: center;
@@ -41,17 +37,18 @@
       position: absolute; right: 104px; bottom: 150px; width: 132px; height: auto;
       opacity: 0.62;
     }
+    .lead { display: block; font-weight: 600; margin-bottom: 22px; }
     a { color: #e6ecd0; } a:hover { color: #e6ecd0; }
   </style>
 </helmet>
 <div class="slide">
   <img class="bg" src="bg-cer.jpg" alt="">
   <div class="inner">
-    <div style="text-align:center; font-style:italic; font-size:30px; line-height:1.4; color:#d8dcc8; max-width:680px; margin:0 auto;">„Goście nie będą wiedzieć, jak się zachować.”</div>
-    <div style="flex:1; display:flex; align-items:center; justify-content:center;">
-      <p style="margin:0; text-align:center; font-weight:500; font-size:47px; line-height:1.42; letter-spacing:0.2px; max-width:830px; text-wrap:pretty;">Na początku ciepło wprowadzam wszystkich w to, co się właśnie dzieje. Po dwóch minutach nikt nie pamięta, że to coś nowego.</p>
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+      <p style="margin:0; max-width:850px; font-size:46px; line-height:1.44; letter-spacing:0.2px; text-wrap:pretty;">
+        <span class="lead">„Goście nie będą wiedzieć, jak się zachować.”</span><span style="font-weight:500;">Na początku ciepło wprowadzam wszystkich w to, co się właśnie dzieje. Po dwóch minutach nikt nie pamięta, że to coś nowego.</span>
+      </p>
     </div>
-    <div style="height:26px;"></div>
   </div>
   <svg class="arrow" viewBox="0 0 240 140" fill="none" stroke="rgba(242,241,230,0.7)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M10 40 C 68 6, 126 8, 150 58 C 160 80, 142 106, 120 95 C 104 87, 110 60, 138 64 C 178 70, 208 92, 226 74" />
