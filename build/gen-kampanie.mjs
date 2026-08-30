@@ -1,11 +1,11 @@
-import { writeFileSync, readFileSync, readdirSync, unlinkSync } from 'node:fs';
+import { writeFileSync, readFileSync, readdirSync, mkdirSync, copyFileSync, rmSync } from 'node:fs';
 
 // ---------------------------------------------------------------------------
-// ADDITIVE generator — appends a "Kampanie" page to the existing canvas.
-// It writes only its own new artboards (ROC*/LGB*) into build/art/ and patches
-// build/art/canvas.json in place; it never touches the FAQ artboards, which
-// are now maintained directly in the published artifact. Idempotent: re-running
-// replaces the Kampanie page cleanly.
+// Standalone generator for the "Kampanie — Marczykowska" canvas.
+// The FAQ artifact hit the editor's 200-file ceiling, so the campaign
+// carousels live in their own artifact. Writes a fresh build/kampanie/ tree
+// (one .dc.html per slide, the bg images it uses, canvas.json with one page
+// per campaign) plus pngmap-kampanie.json for the PNG export.
 // Shared rendering helpers are copied verbatim from gen.mjs.
 // ---------------------------------------------------------------------------
 
@@ -13,7 +13,8 @@ const PHONE = '+48 510 769 900';
 const SIGN = 'Milena Marczykowska';
 const SITE = 'marczykowska.com';
 
-const ART = new URL('./art/', import.meta.url);
+const SRC_IMG = new URL('./art/', import.meta.url);        // where bg-*.jpg live
+const OUT = new URL('./kampanie/', import.meta.url);       // fresh output tree
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const nl2br = (s) => esc(s).replace(/\n/g, '<br>');
@@ -107,7 +108,7 @@ function coverBody(t, kicker, qHtml) {
 }
 
 function answerBody(t, tag, text) {
-  return `    <div style="text-align:center; font-style:italic; font-size:30px; line-height:1.4; color:${t.soft}; max-width:640px; margin:0 auto;">${nl2br(tag)}</div>
+  return `    <div style="text-align:center; font-style:italic; font-size:30px; line-height:1.4; color:${t.soft}; max-width:680px; margin:0 auto;">${nl2br(tag)}</div>
     <div style="flex:1; display:flex; align-items:center; justify-content:center;">
       <p style="margin:0; text-align:center; font-weight:500; font-size:47px; line-height:1.42; letter-spacing:0.2px; max-width:830px; text-wrap:pretty;">${nl2br(text)}</p>
     </div>
@@ -127,8 +128,7 @@ function ctaBody(t, lead, head) {
 // ---- content ------------------------------------------------------------
 const carousels = [
   {
-    prefix: 'ROC', slug: 'rocznice-slubu', menu: 'Rocznice ślubu',
-    pal: 'sand', photo: 'vows',
+    prefix: 'ROC', slug: 'rocznice-slubu', pal: 'sand', photo: 'vows',
     kicker: 'Rocznice ślubu',
     cover: 'Rocznice ślubu —\nczy znasz\nje wszystkie?',
     slides: [
@@ -144,8 +144,7 @@ const carousels = [
     note: 'KAMPANIE · Rocznice ślubu\n\nProponowany hook do opisu posta:\n„Czy znasz je wszystkie?”\n\nCTA: Zaplanuj odnowienie swojej przysięgi razem z nami.\nNazwy rocznic wg tradycji polskiej.',
   },
   {
-    prefix: 'LGB', slug: 'pary-lgbtq-promocja', menu: 'Promocja — pary LGBTQ+',
-    pal: 'aubergine', photo: 'arch',
+    prefix: 'LGB', slug: 'pary-lgbtq-promocja', pal: 'aubergine', photo: 'arch',
     kicker: 'Ceremonie dla par LGBTQ+',
     cover: 'Miłość nie czeka\nna pozwolenie.',
     slides: [
@@ -158,45 +157,123 @@ const carousels = [
     cta: { lead: 'Wasza historia zasługuje na święto.', head: 'Napiszcie do mnie' },
     note: 'KAMPANIE · Promocja dla par LGBTQ+\n\nKontekst: od 23.08.2026 USC w Polsce transkrybują zagraniczne akty małżeństw par jednopłciowych (wyroki NSA / TSUE, rozporządzenie z 22.05.2026). To NIE jest legalizacja małżeństw jednopłciowych w Polsce.\nŹródło: rp.pl, „Przełom w polskich urzędach…”, 23.08.2026\n\nOferta: 20% zniżki na wszystkie ceremonie dla par LGBTQ+ z terminem w 2026 r.',
   },
+  {
+    prefix: 'MIT', slug: 'mity', pal: 'forest', photo: 'cer',
+    kicker: 'Mity o ślubie humanistycznym',
+    cover: '„To nie jest\nprawdziwy ślub”\ni inne mity.',
+    slides: [
+      ['„To nie jest prawdziwy ślub.”', 'Jest prawdziwy dla Was i dla gości. Nie ma tylko skutków prawnych — te załatwiacie w USC w kilka minut, w trampkach.'],
+      ['„Goście nie będą wiedzieć, jak się zachować.”', 'Na początku ciepło wprowadzam wszystkich w to, co się właśnie dzieje. Po dwóch minutach nikt nie pamięta, że to coś nowego.'],
+      ['„Bez księdza będzie zimno.”', 'Najczęściej jest odwrotnie. Ceremonia jest o Was — Waszej historii i Waszych słowach — więc wzrusza nawet tych, którzy „się nie wzruszają”.'],
+      ['„To moda, która minie.”', 'Świeccy mistrzowie ceremonii prowadzą śluby od dziesięcioleci. W Polsce to wciąż nowość, na Zachodzie — norma od dawna.'],
+      ['„Starsza rodzina tego nie przyjmie.”', 'To zwykle najbardziej sceptyczni goście podchodzą po ceremonii ze łzami, że nigdy nie byli na czymś tak pięknym.'],
+    ],
+    cta: { lead: 'Masz wątpliwość, której tu nie ma?', head: 'Napisz — rozwieję ją\nna spokojnie' },
+    note: 'KAMPANIE · Mity o ślubie humanistycznym\n\nProponowany hook: „Ile z tych zdań słyszeliście?”\nFormat: mit w cudzysłowie na górze slajdu + spokojne sprostowanie.',
+  },
+  {
+    prefix: 'RYT', slug: 'rytualy-jednosci', pal: 'cream', photo: 'candles',
+    kicker: 'Rytuały jedności',
+    cover: 'Rytuały jedności —\nwybierz swój.',
+    slides: [
+      ['Piasek', 'Dwa kolory piasku przesypujecie do jednego naczynia. Warstw nie da się już rozdzielić — jak Waszych historii.'],
+      ['Świeca jedności', 'Od dwóch osobnych płomieni zapalacie jeden wspólny. Pięknie wygląda o zmierzchu i w plenerze.'],
+      ['Sadzenie drzewa', 'Podlewacie je wodą przyniesioną z Waszych rodzinnych domów. Rośnie razem z Wami przez kolejne lata.'],
+      ['List i wino', 'Zamykacie w skrzynce list do siebie i butelkę wina. Otwieracie na pierwszą rocznicę albo w trudniejszy dzień.'],
+      ['Handfasting', 'Wiązanie dłoni wstążką — najstarszy z rytuałów i źródło zwrotu „związać się węzłem”. Mocny wizualnie.'],
+    ],
+    cta: { lead: 'Nie wiecie, który wybrać?', head: 'Podpowiem przy\nplanowaniu scenariusza' },
+    note: 'KAMPANIE · Rytuały jedności\n\nProponowany hook: „Wybierz swój rytuał.”\nMożna rozbić na osobne posty, jeśli któryś rytuał chwyci.',
+  },
+  {
+    prefix: 'CEN', slug: 'cennik', pal: 'sage', photo: 'css',
+    kicker: 'Ile kosztuje ceremonia',
+    cover: 'Ile kosztuje\nceremonia —\nza co płacisz?',
+    slides: [
+      ['Nie za 20 minut mówienia', 'Ceremonia trwa pół godziny. Przygotowanie jej — tygodnie: rozmowy, kwestionariusze, pisanie i szlifowanie scenariusza.'],
+      ['Za autorski scenariusz', 'Każde słowo pisane od zera, pod Waszą historię. Do tego pomoc z przysięgami i doborem muzyki.'],
+      ['Za spokój w dniu ślubu', 'Reżyseria przebiegu, próba mikrofonu, kontakt z obsługą miejsca, plan B na pogodę i sytuacje losowe.'],
+      ['Za doświadczenie', 'Setki poprowadzonych ceremonii i sieć zastępców, gdyby stało się coś nagłego. Nigdy nie zostajecie sami.'],
+      ['Konkretna wycena', 'Zależy od miejsca, dojazdu, liczby języków i zakresu. Podaję ją po bezpłatnej rozmowie — bez zobowiązań.'],
+    ],
+    cta: { lead: 'Chcecie poznać wycenę?', head: 'Umów bezpłatną\nrozmowę' },
+    note: 'KAMPANIE · Ile kosztuje ceremonia\n\nProponowany hook: „Za co właściwie płacisz?”\nCelowo bez kwot — jeśli chcesz podać widełki „od…”, dopisz je na slajdzie „Konkretna wycena”.',
+  },
+  {
+    prefix: 'POR', slug: 'pory-roku', pal: 'brown', photo: 'rustic',
+    kicker: 'Ceremonia w cztery pory roku',
+    cover: 'Kiedy wziąć\nślub humanistyczny?',
+    slides: [
+      ['Wiosna', 'Świeża zieleń, długie światło, jeszcze bez upału. Idealna na ogród i plener — miej tylko gotowy plan B na deszcz.'],
+      ['Lato', 'Najdłuższe dni i ciepłe wieczory. Ceremonię ustawiamy tak, by słońce nie świeciło Wam i gościom w oczy.'],
+      ['Jesień', 'Złote światło, cieplejsze barwy, mniej obłożone terminy. Fotograficznie — często najpiękniejsza pora.'],
+      ['Zima', 'Świece, wnętrza, kominek, kameralnie. Zimowa ceremonia ma klimat, jakiego lato nie da.'],
+    ],
+    cta: { lead: 'Wybraliście porę roku?', head: 'Sprawdźmy\nwolne terminy' },
+    note: 'KAMPANIE · Ceremonia w cztery pory roku\n\nProponowany hook: „Kiedy wziąć ślub humanistyczny?”\nDobry do publikacji sezonowej — po jednym slajdzie na start każdej pory roku.',
+  },
+  {
+    prefix: 'TER', slug: 'wolne-terminy', pal: 'inkwarm', photo: 'cer',
+    kicker: 'Wolne terminy',
+    cover: 'Sezon 2026\ndomykamy.\nMacie termin?',
+    slides: [
+      ['2026', 'Zostały pojedyncze wolne soboty. Jeśli macie datę — nie zwlekajcie z pytaniem.'],
+      ['2027', 'Kalendarz już otwarty. Najlepsze terminy — długie weekendy i czerwcowe soboty — rezerwują się najszybciej.'],
+      ['Blisko terminu?', 'Nawet jeśli data jest za kilka tygodni — napiszcie. Jeśli nie ja, to sprawdzony celebrant z mojej sieci.'],
+      ['Jak rezerwujecie', 'Krótka rozmowa, umowa online, zaliczka. Termin jest Wasz — a przygotowania robimy spokojnie, krok po kroku.'],
+    ],
+    cta: { lead: 'Chcecie sprawdzić swój termin?', head: 'Napiszcie —\nodpowiem szybko' },
+    note: 'KAMPANIE · Wolne terminy\n\nProponowany hook: „Sprawdź, czy Twój termin jest wolny.”\nUWAGA: zweryfikuj realną dostępność 2026/2027 przed publikacją — treść slajdów jest szablonowa.',
+  },
 ];
 
-// ---- generate + patch canvas ------------------------------------------
-const PAGE_ID = 'kampanie';
-const PAGE_NAME = 'Kampanie';
-const SLIDE = 1080, COLGAP = 140, ROWGAP = 520;
+// ---- generate a fresh standalone canvas -----------------------------
+const NAMES = {
+  ROC: 'Rocznice ślubu', LGB: 'Pary LGBTQ+ (promo)', MIT: 'Mity',
+  RYT: 'Rytuały jedności', CEN: 'Ile kosztuje ceremonia', POR: 'Pory roku',
+  TER: 'Wolne terminy',
+};
+const SLIDE = 1080, COLGAP = 140;
 
-// wipe any previous Kampanie artboards
-for (const f of readdirSync(ART)) {
-  if (/^(ROC|LGB)\d/.test(f)) unlinkSync(new URL(f, ART));
-}
+rmSync(OUT, { recursive: true, force: true });
+mkdirSync(OUT, { recursive: true });
 
-const canvasURL = new URL('./canvas.json', ART);
-const canvas = JSON.parse(readFileSync(canvasURL, 'utf8'));
-canvas.artboards = canvas.artboards.filter((a) => a.page !== PAGE_ID);
-canvas.annotations = canvas.annotations.filter((a) => a.page !== PAGE_ID);
-canvas.pages = canvas.pages.filter((p) => p.id !== PAGE_ID);
-canvas.pages.push({ id: PAGE_ID, name: PAGE_NAME });
+// copy only the bg images the campaigns use
+const usedPhotos = [...new Set(carousels.map((c) => c.photo))];
+for (const p of usedPhotos) copyFileSync(new URL(`bg-${p}.jpg`, SRC_IMG), new URL(`bg-${p}.jpg`, OUT));
+
+const artboards = [];
+const annotations = [];
+const pages = [];
+const pngmap = [];
+let first = true;
 
 carousels.forEach((c, ci) => {
   const t = palettes[c.pal];
   const bg = `bg-${c.photo}.jpg`;
-  const rowY = ci * (SLIDE + ROWGAP);
-  const cc = '01'; // one carousel per prefix
+  const cc = '01';
+  const dir = `5-kampanie/${ci + 1}-${c.slug}`;
+  const last = c.slides.length + 2;
+  pages.push({ id: c.slug, name: NAMES[c.prefix] });
   let sIdx = 0;
-  const push = (stem, html) => {
-    writeFileSync(new URL(`${stem}.dc.html`, ART), html);
-    canvas.artboards.push({ file: `${stem}.dc.html`, x: sIdx * (SLIDE + COLGAP), y: rowY, w: SLIDE, h: SLIDE, page: PAGE_ID });
+  const push = (stem, html, label) => {
+    const file = `${first ? 'Main' : stem}.dc.html`;
+    first = false;
+    writeFileSync(new URL(file, OUT), html);
+    artboards.push({ file, x: sIdx * (SLIDE + COLGAP), y: 0, w: SLIDE, h: SLIDE, page: c.slug });
+    pngmap.push({ file, out: `${dir}/${label}.png` });
     sIdx++;
   };
-  push(`${c.prefix}${cc}S1`, page(t, coverBody(t, c.kicker, nl2br(c.cover)), { bg }));
-  c.slides.forEach((s, si) => push(`${c.prefix}${cc}S${si + 2}`, page(t, answerBody(t, s[0], s[1]), { bg })));
-  push(`${c.prefix}${cc}S${c.slides.length + 2}`, page(t, ctaBody(t, c.cta.lead, c.cta.head), { noArrow: true, noFoot: true, bg }));
+  push(`${c.prefix}${cc}S1`, page(t, coverBody(t, c.kicker, nl2br(c.cover)), { bg }), '1-tytul');
+  c.slides.forEach((s, si) => push(`${c.prefix}${cc}S${si + 2}`, page(t, answerBody(t, s[0], s[1]), { bg }), String(si + 2)));
+  push(`${c.prefix}${cc}S${last}`, page(t, ctaBody(t, c.cta.lead, c.cta.head), { noArrow: true, noFoot: true, bg }), `${last}-kontakt`);
 
-  canvas.annotations.push({ id: `note-kampanie-${c.prefix.toLowerCase()}`, x: 0, y: rowY - 320, w: 1080, page: PAGE_ID, text: c.note });
+  annotations.push({ id: `note-${c.slug}`.slice(0, 40), x: 0, y: -320, w: 1080, page: c.slug, text: c.note });
 });
 
-canvas.launch = { view: 'canvas', page: PAGE_ID };
-writeFileSync(canvasURL, JSON.stringify(canvas, null, 2));
+const canvas = { artboards, annotations, pages, launch: { view: 'canvas', page: carousels[0].slug } };
+writeFileSync(new URL('canvas.json', OUT), JSON.stringify(canvas, null, 2));
+writeFileSync(new URL('./pngmap-kampanie.json', import.meta.url), JSON.stringify(pngmap, null, 2));
 
-const n = carousels.reduce((a, c) => a + c.slides.length + 2, 0);
-console.log(`Kampanie: ${carousels.length} karuzele, ${n} artboardów; canvas pages -> ${canvas.pages.map((p) => p.id).join(', ')}`);
+const n = artboards.length;
+console.log(`Kampanie: ${carousels.length} karuzel, ${n} artboardów, ${pages.length} kart -> build/kampanie/`);

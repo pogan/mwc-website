@@ -13,13 +13,13 @@
     body { margin: 0; }
     .slide {
       position: relative; width: 1080px; height: 1080px; overflow: hidden;
-      background: radial-gradient(120% 120% at 30% 20%, #4b3540 0%, #3c2a33 100%);
+      background: radial-gradient(120% 120% at 30% 20%, #38322c 0%, #2b2622 100%);
       font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-      color: #f5ece9;
+      color: #f4efe6;
     }
     .slide .bg {
       position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; opacity: 0.15;
+      object-fit: cover; opacity: 0.16;
       mix-blend-mode: soft-light; filter: grayscale(0.2);
     }
     .inner {
@@ -29,35 +29,34 @@
     .kicker {
       font-family: 'Jost', system-ui, sans-serif; font-weight: 500;
       text-transform: uppercase; letter-spacing: 0.34em; font-size: 21px;
-      color: #e6bfc0;
+      color: #d8b98f;
     }
     .foot {
       position: absolute; left: 0; right: 0; bottom: 60px; text-align: center;
       font-family: 'Jost', system-ui, sans-serif; font-weight: 300;
       font-size: 20px; letter-spacing: 0.3em; text-transform: uppercase;
-      color: rgba(245,236,233,0.6);
+      color: rgba(244,239,230,0.58);
     }
     .arrow {
       position: absolute; right: 104px; bottom: 150px; width: 132px; height: auto;
       opacity: 0.62;
     }
-    a { color: #efd7d6; } a:hover { color: #efd7d6; }
+    a { color: #e9d8c0; } a:hover { color: #e9d8c0; }
   </style>
 </helmet>
 <div class="slide">
-  <img class="bg" src="bg-arch.jpg" alt="">
+  <img class="bg" src="bg-cer.jpg" alt="">
   <div class="inner">
-    <div style="text-align:center; font-style:italic; font-size:30px; line-height:1.4; color:#e0cfd0; max-width:640px; margin:0 auto;">Promocja</div>
-    <div style="flex:1; display:flex; align-items:center; justify-content:center;">
-      <p style="margin:0; text-align:center; font-weight:500; font-size:47px; line-height:1.42; letter-spacing:0.2px; max-width:830px; text-wrap:pretty;">Wszystkie ceremonie dla par LGBTQ+ z terminem w 2026 roku — 20% zniżki.</p>
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:6px;">
+      <div style="font-style:italic; font-size:40px; color:#d8cfc0;">Chcecie sprawdzić swój termin?</div>
+      <h2 style="margin:0 0 26px; font-weight:600; font-size:56px; line-height:1.2;">Napiszcie —<br>odpowiem szybko</h2>
+      <div style="font-family:'Jost',system-ui,sans-serif; font-weight:300; font-size:34px; letter-spacing:0.14em; color:#f4efe6;">+48 510 769 900</div>
+      <div style="font-family:'Parisienne',cursive; font-size:62px; line-height:1; margin-top:34px; color:#e9d8c0;">Milena Marczykowska</div>
+      <div style="font-family:'Jost',system-ui,sans-serif; font-weight:300; font-size:20px; letter-spacing:0.3em; text-transform:uppercase; color:#d8cfc0; margin-top:14px;">marczykowska.com</div>
     </div>
-    <div style="height:26px;"></div>
   </div>
-  <svg class="arrow" viewBox="0 0 240 140" fill="none" stroke="rgba(245,236,233,0.7)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M10 40 C 68 6, 126 8, 150 58 C 160 80, 142 106, 120 95 C 104 87, 110 60, 138 64 C 178 70, 208 92, 226 74" />
-      <path d="M226 74 l -24 -2 M226 74 l -9 20" />
-    </svg>
-  <div class="foot">marczykowska.com</div>
+  
+  
 </div>
 </x-dc>
 </body>
