@@ -1,6 +1,6 @@
 #!/bin/zsh
 set -e
-BASE="/private/tmp/claude-501/bundled-skills/2.1.251/b99e484980246d78cea582c60ed86121/design"
+BASE="/private/tmp/claude-501/bundled-skills/2.1.251/af7c463d5f8a4eb8505d63d6d31ac2db/design"
 cd "$(dirname "$0")"
 ARGS=()
 for f in art/*.dc.html; do ARGS+=(--artboard "$f"); done

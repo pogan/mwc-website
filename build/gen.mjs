@@ -479,7 +479,8 @@ function page(t, body, opts = {}) {
     }
     .foot {
       position: absolute; left: 0; right: 0; bottom: 60px; text-align: center;
-      font-style: italic; font-size: 24px; letter-spacing: 0.06em;
+      font-family: 'Jost', system-ui, sans-serif; font-weight: 300;
+      font-size: 20px; letter-spacing: 0.3em; text-transform: uppercase;
       color: ${t.foot};
     }
     .arrow {
