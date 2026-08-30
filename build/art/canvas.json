@@ -1247,6 +1247,134 @@
       "w": 1080,
       "h": 1080,
       "page": "odnowienie"
+    },
+    {
+      "file": "ROC01S1.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "ROC01S2.dc.html",
+      "x": 1220,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "ROC01S3.dc.html",
+      "x": 2440,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "ROC01S4.dc.html",
+      "x": 3660,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "ROC01S5.dc.html",
+      "x": 4880,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "ROC01S6.dc.html",
+      "x": 6100,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "ROC01S7.dc.html",
+      "x": 7320,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "ROC01S8.dc.html",
+      "x": 8540,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "ROC01S9.dc.html",
+      "x": 9760,
+      "y": 0,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "LGB01S1.dc.html",
+      "x": 0,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "LGB01S2.dc.html",
+      "x": 1220,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "LGB01S3.dc.html",
+      "x": 2440,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "LGB01S4.dc.html",
+      "x": 3660,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "LGB01S5.dc.html",
+      "x": 4880,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "LGB01S6.dc.html",
+      "x": 6100,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
+    },
+    {
+      "file": "LGB01S7.dc.html",
+      "x": 7320,
+      "y": 1600,
+      "w": 1080,
+      "h": 1080,
+      "page": "kampanie"
     }
   ],
   "annotations": [
@@ -1505,11 +1633,27 @@
       "w": 1080,
       "text": "ODNOWIENIA PRZYSIĘGI · Deszcz w plenerze\nPYTANIE FAQ: Co w sytuacji, gdy ceremonia ma odbyć się w plenerze, a spadnie deszcz?\n\nProponowany hook do opisu posta:\n„Pogoda bywa zmienna — dlatego zawsze mamy Plan B.”",
       "page": "odnowienie"
+    },
+    {
+      "id": "note-kampanie-roc",
+      "x": 0,
+      "y": -320,
+      "w": 1080,
+      "page": "kampanie",
+      "text": "KAMPANIE · Rocznice ślubu\n\nProponowany hook do opisu posta:\n„Czy znasz je wszystkie?”\n\nCTA: Zaplanuj odnowienie swojej przysięgi razem z nami.\nNazwy rocznic wg tradycji polskiej."
+    },
+    {
+      "id": "note-kampanie-lgb",
+      "x": 0,
+      "y": 1280,
+      "w": 1080,
+      "page": "kampanie",
+      "text": "KAMPANIE · Promocja dla par LGBTQ+\n\nKontekst: od 23.08.2026 USC w Polsce transkrybują zagraniczne akty małżeństw par jednopłciowych (wyroki NSA / TSUE, rozporządzenie z 22.05.2026). To NIE jest legalizacja małżeństw jednopłciowych w Polsce.\nŹródło: rp.pl, „Przełom w polskich urzędach…”, 23.08.2026\n\nOferta: 20% zniżki na wszystkie ceremonie dla par LGBTQ+ z terminem w 2026 r."
     }
   ],
   "launch": {
     "view": "canvas",
-    "page": "odnowienie"
+    "page": "kampanie"
   },
   "pages": [
     {
@@ -1527,6 +1671,10 @@
     {
       "id": "odnowienie",
       "name": "Odnowienia przysięgi"
+    },
+    {
+      "id": "kampanie",
+      "name": "Kampanie"
     }
   ]
 }
