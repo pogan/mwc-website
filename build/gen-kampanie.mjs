@@ -1,4 +1,5 @@
 import { writeFileSync, readFileSync, readdirSync, mkdirSync, copyFileSync, rmSync } from 'node:fs';
+import { fixOrphans } from './orphans.mjs';
 
 // ---------------------------------------------------------------------------
 // Standalone generator for the "Kampanie — Marczykowska" canvas.
@@ -17,7 +18,7 @@ const SITE = 'marczykowska.com';
 const SRC_IMG = new URL('./art/', import.meta.url);        // where bg-*.jpg live
 const OUT = new URL('./kampanie/', import.meta.url);       // fresh output tree
 
-const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const esc = (s) => fixOrphans(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const nl2br = (s) => esc(s).replace(/\n/g, '<br>');
 
 const palettes = {
@@ -80,7 +81,8 @@ function page(t, body, opts = {}) {
       position: absolute; right: 104px; bottom: 150px; width: 132px; height: auto;
       opacity: 0.62;
     }
-    .lead { display: block; font-weight: 600; margin-bottom: 22px; }
+    .lead { display: block; font-weight: 600; margin-bottom: 22px; text-wrap: balance; }
+    .lead.quote { font-size: 42px; }
     a { color: ${t.sign}; } a:hover { color: ${t.sign}; }
   </style>
 </helmet>
@@ -108,9 +110,11 @@ function coverBody(t, qHtml, sub) {
 }
 
 function answerBody(t, label, text) {
+  const isQuote = label.trimStart().startsWith('„');
+  const cls = isQuote ? 'lead quote' : 'lead';
   return `    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
-      <p style="margin:0; max-width:850px; font-size:46px; line-height:1.44; letter-spacing:0.2px; text-wrap:pretty;">
-        <span class="lead">${nl2br(label)}</span><span style="font-weight:500;">${nl2br(text)}</span>
+      <p style="margin:0; max-width:${isQuote ? 900 : 850}px; font-size:46px; line-height:1.44; letter-spacing:0.2px; text-wrap:pretty;">
+        <span class="${cls}">${nl2br(label)}</span><span style="font-weight:500;">${nl2br(text)}</span>
       </p>
     </div>`;
 }

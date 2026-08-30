@@ -1,4 +1,5 @@
 import { writeFileSync } from 'node:fs';
+import { fixOrphans } from './orphans.mjs';
 
 const PHONE = '+48 510 769 900';
 const SIGN = 'Milena Marczykowska';
@@ -386,7 +387,7 @@ const categories = [
 ];
 
 // ---- shared bits -----------------------------------------------------------
-const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const esc = (s) => fixOrphans(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const nl2br = (s) => esc(s).replace(/\n/g, '<br>');
 
 const palettes = {
