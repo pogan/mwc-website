@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <%- include('analytics') %>
+
   <title><%= title %></title>
   <meta name="description" content="<%= typeof description !== 'undefined' ? description : brand.tagline %>" />
   <meta name="author" content="Milena Marczykowska" />
   <meta name="theme-color" content="#8a5a44" />
+  <% if (typeof noindex !== 'undefined' && noindex) { %>
+  <meta name="robots" content="noindex, follow" />
+  <% } %>
   <link rel="canonical" href="<%= canonicalUrl %>" />
 
   <!-- Open Graph -->

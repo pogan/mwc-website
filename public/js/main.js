@@ -46,6 +46,20 @@
     });
   });
 
+  /* Pomiar kliknięć w kontakt (telefon / e-mail) – działa tylko, gdy Google tag jest załadowany */
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+    if (!link) return;
+    var isPhone = link.getAttribute('href').indexOf('tel:') === 0;
+    var method = isPhone ? 'phone' : 'email';
+    if (typeof window.mmTrack === 'function') {
+      window.mmTrack('contact_click', { method: method });
+    }
+    if (isPhone && typeof window.mmAdsConversion === 'function') {
+      window.mmAdsConversion(window.MM_ADS_PHONE_LABEL);
+    }
+  });
+
   /* Liczniki statystyk */
   var stats = document.querySelectorAll('[data-count]');
   if ('IntersectionObserver' in window && stats.length) {

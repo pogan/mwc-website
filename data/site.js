@@ -5,6 +5,22 @@
 
 const url = 'https://marczykowska.com';
 
+/**
+ * Pomiar ruchu i konwersji (Google tag: GA4 + Google Ads).
+ * Wartości pochodzą ze zmiennych środowiskowych – patrz .env.example.
+ * Gdy oba identyfikatory są puste, skrypty pomiarowe się nie ładują.
+ */
+// Uwaga: dalej w tym module istnieje `const process` (etapy współpracy), który
+// przysłania globalny `process`, dlatego env czytamy przez globalThis.
+const _env = globalThis.process.env;
+const analytics = {
+  ga4Id: (_env.GA4_MEASUREMENT_ID || '').trim(),
+  googleAdsId: (_env.GOOGLE_ADS_ID || '').trim(),
+  leadConversionLabel: (_env.GOOGLE_ADS_LEAD_LABEL || '').trim(),
+  phoneConversionLabel: (_env.GOOGLE_ADS_PHONE_LABEL || '').trim()
+};
+analytics.enabled = Boolean(analytics.ga4Id || analytics.googleAdsId);
+
 const contact = {
   phoneDisplay: '510 769 900',
   phoneHref: '+48510769900',
@@ -458,6 +474,7 @@ const testimonials = [
 
 module.exports = {
   url,
+  analytics,
   brand,
   contact,
   nav,

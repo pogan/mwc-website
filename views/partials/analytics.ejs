@@ -1,0 +1,46 @@
+<%
+  /*
+   * Google tag (gtag.js) – wspólny dla GA4 i Google Ads.
+   * Ładuje się tylko, gdy w konfiguracji (data/site.js ← .env) ustawiono
+   * przynajmniej jeden identyfikator. Skrypt inline dostaje nonce z CSP.
+   */
+  var a = site.analytics;
+%>
+<% if (a && a.enabled) { %>
+  <% var gtagBootId = a.ga4Id || a.googleAdsId; %>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gtagBootId %>"></script>
+  <script nonce="<%= cspNonce %>">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    <% if (a.ga4Id) { %>gtag('config', '<%= a.ga4Id %>');<% } %>
+    <% if (a.googleAdsId) { %>gtag('config', '<%= a.googleAdsId %>');<% } %>
+
+    /* Etykieta konwersji Google Ads dla kliknięcia w telefon (używana w /js/main.js). */
+    window.MM_ADS_PHONE_LABEL = '<%= a.phoneConversionLabel || "" %>';
+
+    /* Pomocnik: zdarzenie GA4 + (opcjonalnie) konwersja Google Ads. */
+    window.mmTrack = function (eventName, params) {
+      params = params || {};
+      try { gtag('event', eventName, params); } catch (e) {}
+    };
+    window.mmAdsConversion = function (label, params) {
+      <% if (a.googleAdsId) { %>
+      if (!label) return;
+      try {
+        gtag('event', 'conversion', Object.assign(
+          { send_to: '<%= a.googleAdsId %>/' + label },
+          params || {}
+        ));
+      } catch (e) {}
+      <% } %>
+    };
+  </script>
+
+  <% if (typeof trackLead !== 'undefined' && trackLead) { %>
+    <script nonce="<%= cspNonce %>">
+      window.mmTrack('generate_lead', { currency: 'PLN', value: 0 });
+      <% if (a.leadConversionLabel) { %>window.mmAdsConversion('<%= a.leadConversionLabel %>');<% } %>
+    </script>
+  <% } %>
+<% } %>

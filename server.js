@@ -5,6 +5,7 @@
 
 require('dotenv').config();
 
+const crypto = require('crypto');
 const path = require('path');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
@@ -23,18 +24,44 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
 app.set('layout', 'partials/layout');
 
-// Bezpieczeństwo nagłówków. CSP dopuszcza CDN Bootstrapa i Google Fonts.
+// Nonce dla dozwolonych skryptów inline (bootstrap Google tag) – nowy na każde żądanie.
+app.use((req, res, next) => {
+  res.locals.cspNonce = crypto.randomBytes(16).toString('base64');
+  next();
+});
+
+// Bezpieczeństwo nagłówków. CSP dopuszcza CDN Bootstrapa, Google Fonts i Google tag (GA4 + Google Ads).
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", 'https://cdn.jsdelivr.net'],
+        scriptSrc: [
+          "'self'",
+          'https://cdn.jsdelivr.net',
+          'https://www.googletagmanager.com',
+          (req, res) => `'nonce-${res.locals.cspNonce}'`
+        ],
         styleSrc: ["'self'", "'unsafe-inline'", 'https://cdn.jsdelivr.net', 'https://fonts.googleapis.com'],
         fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'],
-        imgSrc: ["'self'", 'data:'],
-        connectSrc: ["'self'"],
-        frameSrc: ["'self'", 'https://www.google.com', 'https://maps.google.com']
+        imgSrc: [
+          "'self'",
+          'data:',
+          'https://www.googletagmanager.com',
+          'https://*.google-analytics.com',
+          'https://www.google.com',
+          'https://www.google.pl',
+          'https://googleads.g.doubleclick.net'
+        ],
+        connectSrc: [
+          "'self'",
+          'https://*.google-analytics.com',
+          'https://*.analytics.google.com',
+          'https://www.googletagmanager.com',
+          'https://googleads.g.doubleclick.net',
+          'https://www.google.com'
+        ],
+        frameSrc: ["'self'", 'https://www.google.com', 'https://maps.google.com', 'https://td.doubleclick.net']
       }
     },
     crossOriginEmbedderPolicy: false
@@ -56,6 +83,8 @@ app.use((req, res, next) => {
   res.locals.ogImage = '/images/wedding-beach.jpg'; // domyślne, nadpisywane per trasa
   res.locals.serviceSchema = null;
   res.locals.faqSchema = false;
+  res.locals.noindex = false; // strony wykluczone z indeksowania (np. podziękowanie)
+  res.locals.trackLead = false; // wyzwól konwersję "wysłany formularz" w Google tag
   next();
 });
 
@@ -185,11 +214,45 @@ app.get('/kontakt', (req, res) => {
   });
 });
 
+// Ciasteczko-znacznik: ustawiane po realnej wysyłce formularza, odczytywane raz na
+// stronie podziękowania. Dzięki temu konwersja liczy się tylko po wysłaniu formularza,
+// a nie przy bezpośrednim wejściu na URL /kontakt/dziekuje.
+const LEAD_COOKIE = 'lead_ok';
+function hasLeadCookie(req) {
+  return (req.headers.cookie || '').split(';').some((c) => c.trim() === `${LEAD_COOKIE}=1`);
+}
+
+// Strona podziękowania po wysłaniu formularza – tu wyzwalana jest konwersja (Google Ads / GA4).
+app.get('/kontakt/dziekuje', (req, res) => {
+  const justSubmitted = hasLeadCookie(req);
+  if (justSubmitted) res.clearCookie(LEAD_COOKIE);
+
+  res.render('pages/kontakt-dziekuje', {
+    title: 'Dziękuję za wiadomość | Milena Marczykowska Ceremonie Humanistyczne',
+    description: 'Twoja wiadomość została wysłana. Odezwę się najszybciej, jak to możliwe.',
+    ogImage: '/images/wedding-arch.jpg',
+    noindex: true,
+    trackLead: justSubmitted
+  });
+});
+
 // Obsługa formularza kontaktowego – walidacja i wysyłka e-mail (patrz lib/contactForm.js).
+// Po sukcesie: przekierowanie (POST→Redirect→GET) na stronę podziękowania, by
+// uniknąć podwójnej wysyłki przy odświeżeniu i mieć czysty URL konwersji.
 app.post('/kontakt', async (req, res) => {
   const formState = await processContactForm(req.body);
 
-  res.status(formState.errors.length ? 422 : 200).render('pages/kontakt', {
+  if (formState.errors.length === 0) {
+    res.cookie(LEAD_COOKIE, '1', {
+      maxAge: 5 * 60 * 1000,
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
+    });
+    return res.redirect(303, '/kontakt/dziekuje');
+  }
+
+  res.status(422).render('pages/kontakt', {
     title: 'Kontakt – Gdańsk, Trójmiasto i cała Polska | Milena Marczykowska Ceremonie Humanistyczne',
     description: 'Skontaktuj się z Mileną Marczykowską.',
     ogImage: '/images/wedding-arch.jpg',

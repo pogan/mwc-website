@@ -1,0 +1,29 @@
+<%- include('../partials/page-hero', {
+  heroImage: '/images/wedding-arch.webp',
+  heroKicker: 'Do usłyszenia',
+  heroTitle: 'Dziękuję za wiadomość',
+  heroSubtitle: 'Twoje zgłoszenie do mnie dotarło. Odezwę się najszybciej, jak to możliwe – zwykle w ciągu 1–2 dni.'
+}) %>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center" data-reveal>
+        <p class="kicker">Co dalej</p>
+        <h2 class="section-title">Przygotujcie kilka szczegółów</h2>
+        <p class="text-muted-soft mb-4">
+          Zanim się usłyszymy, warto zastanowić się nad planowaną datą, miejscem i przybliżoną
+          liczbą gości. To pomoże mi lepiej odpowiedzieć na Wasze pytania podczas pierwszej rozmowy.
+        </p>
+        <p class="text-muted-soft mb-4">
+          W pilnej sprawie możecie też zadzwonić:
+          <a href="tel:<%= contact.phoneHref %>"><%= contact.phoneDisplay %></a>.
+        </p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+          <a href="/cennik" class="btn btn-primary btn-lg">Zobacz cennik</a>
+          <a href="/o-mnie" class="btn btn-outline-dark btn-lg">Poznaj mnie bliżej</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
