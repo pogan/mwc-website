@@ -1,2 +1,7 @@
 # rendered slide exports (regenerate with: node gen.mjs && node shoot.mjs)
 png/
+
+# 4:5 render working dirs
+build/_ig_art/
+build/_ig_kampanie/
+build/ig-preview/
