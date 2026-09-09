@@ -37,24 +37,27 @@ function to45(html) {
     .replace(/(\.foot \{[^}]*?)bottom: 60px;/, '$1bottom: 92px;')
     .replace(/(\.arrow \{[^}]*?)bottom: 150px;/, '$1bottom: 190px;');
 
-  if (/<h1\b/.test(html)) {                       // slajd tytułowy — nagłówek maksymalnie duży
+  if (/<h1\b/.test(html)) {                       // slajd tytułowy
     html = html
-      .replace(/padding: 160px 112px 150px;/, 'padding: 132px 80px 168px;')   // więcej miejsca na wielki nagłówek, prześwit nad stopką
-      .replace(/padding: 160px 108px 150px;/, 'padding: 132px 80px 168px;')
-      .replace(/(<h1[^>]*style="[^"]*?line-height:)\s*[\d.]+/, '$1 1.06')
+      // górny pasek „FAQ · …" i tak jest przycinany w siatce — chowamy go
+      .replace(/(\.kicker\s*\{)/, '$1 display: none;')
+      // duże marginesy bezpieczeństwa wpisane w padding (siatka IG kadruje mocno) —
+      // tekst mieści się w środkowej strefie, nie dotyka krawędzi
+      .replace(/padding: 160px 112px 150px;/, 'padding: 158px 120px 158px;')
+      .replace(/padding: 160px 108px 150px;/, 'padding: 158px 120px 158px;')
+      .replace(/(<h1[^>]*style="[^"]*?line-height:)\s*[\d.]+/, '$1 1.08')
       .replace(/(<h1[^>]*>)([\s\S]*?)(<\/h1>)/, (_m, a, inner, z) => a + inner.replace(/<br\s*\/?>/g, ' ') + z)
-      .replace(/(\.kicker\s*\{[^}]*?font-size:)\s*[\d.]+px/, '$1 25px')
-      .replace(/(\.kicker\s*\{[^}]*?letter-spacing:)\s*0\.34em/, '$1 0.26em')
-      .replace(/margin-top:36px; font-size:35px;/, 'margin-top:44px; font-size:46px;')   // podtytuł okładki (Kampanie)
+      .replace(/margin-top:36px; font-size:35px;/, 'margin-top:36px; font-size:40px;')   // podtytuł okładki (Kampanie)
       .replace(/(<div[^>]*margin-top:36px[^>]*>)([\s\S]*?)(<\/div>)/, (_m, a, inner, z) => a + inner.replace(/<br\s*\/?>/g, ' ') + z)
-      // auto-dopasowanie: rozpycha nagłówek do maksymalnego stopnia mieszczącego się w kadrze
+      // auto-dopasowanie: największy stopień, który mieści się w bezpiecznej strefie
       .replace('</x-dc>', `<script>
 document.fonts.ready.then(function(){
   var h=document.querySelector('h1'); if(!h) return;
-  var w=h.parentElement;
-  var s=190; h.style.fontSize=s+'px';
-  function over(){ return h.scrollWidth > w.clientWidth+1 || w.scrollHeight > w.clientHeight+1; }
-  while(s>60 && over()){ s-=3; h.style.fontSize=s+'px'; }
+  var w=h.parentElement, cap=124;
+  function contentH(){ var t=0,k=w.children; for(var i=0;i<k.length;i++){ var c=getComputedStyle(k[i]); t+=k[i].offsetHeight+(parseFloat(c.marginTop)||0)+(parseFloat(c.marginBottom)||0); } return t; }
+  function over(){ return h.scrollWidth>w.clientWidth+1 || contentH()>w.clientHeight*0.9; }
+  var s=cap; h.style.fontSize=s+'px';
+  while(s>48 && over()){ s-=2; h.style.fontSize=s+'px'; }
 });
 </script>
 </x-dc>`);
