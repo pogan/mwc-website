@@ -7,6 +7,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
+import { tagsFor } from './hashtags.mjs';
 
 const ROOT = fileURLToPath(new URL('.', import.meta.url));
 const LIMIT = 4000;
@@ -46,13 +47,7 @@ const CTA_R = CTA;
 const CTA_ODN = 'Jeśli zbliża się Wasza rocznica — napiszcie do mnie w wiadomości prywatnej lub przez marczykowska.com. Zaplanujemy odnowienie przysięgi na Waszych zasadach.';
 const CTA_POZ = 'Jeśli mogę Wam w tym pomóc, jestem do dyspozycji — przez marczykowska.com lub w wiadomości prywatnej.';
 
-// 5 najlepiej dopasowanych hashtagów na kategorię (marka + lokalizacja + temat).
-const HT = {
-  slub: '#ślubhumanistyczny #mistrzceremonii #ślubtrójmiasto #przysięgaślubna #ślub2027',
-  przywitanie: '#przywitaniedziecka #ceremoniapowitania #rodzicehonorowi #alternatywadlachrztu #mistrzceremonii',
-  pogrzeb: '#pożegnaniehumanistyczne #ceremoniapożegnania #mowapożegnalna #świeckipogrzeb #mistrzceremonii',
-  odnowienie: '#odnowienieprzysięgi #rocznicaślubu #jubileuszmałżeński #mistrzceremonii #ślubtrójmiasto',
-};
+// 5 najlepiej dopasowanych hashtagów — wspólne źródło: build/hashtags.mjs
 
 // ─────────────────────────────────────────────────────────────────────
 // ROZBUDOWANE OPISY (≤ 4000 znaków). Klucz = slug karuzeli.
@@ -446,18 +441,6 @@ A jeśli Wasza data jest już blisko i wydaje się, że „za późno" — i tak
 Macie datę na oku? Napiszcie w wiadomości prywatnej albo przez marczykowska.com — odpowiem szybko.`,
 };
 
-// 5 hashtagów na karuzelę kampanijną — dobranych pod temat.
-const HT_KAMP = {
-  'rocznice-slubu': '#rocznicaślubu #odnowienieprzysięgi #jubileuszmałżeński #srebrnegody #złotegody',
-  'jubileusze': '#jubileuszmałżeński #rocznicaślubu #nazwyrocznic #odnowienieprzysięgi #tradycjaślubna',
-  'pary-lgbtq-promocja': '#ślublgbtq #loveislove #ceremoniahumanistyczna #ślubtrójmiasto #promocjaślubna',
-  'mity': '#ślubhumanistyczny #mityoślubie #ślubbezksiędza #ślubcywilnywtrampkach #mistrzceremonii',
-  'rytualy-jednosci': '#rytuałjedności #świecajedności #handfasting #ceremoniahumanistyczna #ślubneinspiracje',
-  'cennik': '#cennikślubny #ilekosztujeślub #mistrzceremonii #ślubnybudżet #ślubhumanistyczny',
-  'pory-roku': '#ślubwplenerze #ślubhumanistyczny #ślub2027 #ślubneinspiracje #mistrzceremonii',
-  'wolne-terminy': '#wolneterminy2027 #ślub2027 #mistrzceremonii #ślubtrójmiasto #rezerwacjaterminu',
-};
-
 const REVIEW = { 'wolne-terminy': 'Zweryfikuj realną dostępność terminów 2026/2027 — liczby są szablonowe.' };
 
 // ─────────────────────────────────────────────────────────────────────
@@ -477,7 +460,7 @@ function emit(g, prefix) {
   const name = noteName(g.note, g.slug);
   const hook = noteHook(g.note);
   const body = LONG[g.slug];
-  const tags = g.cat === 'kampanie' ? (HT_KAMP[g.slug] || HT.slub) : (HT[g.cat] || HT.slub);
+  const tags = tagsFor(g.cat, g.slug);
   p('');
   p('═══════════════════════════════════════════════════════════════════');
   p(`${prefix}${name}`);

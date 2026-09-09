@@ -8,6 +8,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
+import { tagsFor } from './hashtags.mjs';
 
 const ROOT = fileURLToPath(new URL('.', import.meta.url));
 const LIMIT = 500;
@@ -154,6 +155,7 @@ p(`Wygenerowano: ${new Date().toISOString().slice(0, 10)}`);
 p('');
 p('Jeden opis na karuzelę, do 500 znaków — gotowy do wklejenia jako treść posta.');
 p('„Hook" to propozycja pierwszego zdania / haczyka, jeśli wolisz zacząć od niego.');
+p('Pod opisem 5 dopasowanych hashtagów — te same co w opisy-rozbudowane.txt.');
 
 function emit(g, labelPrefix) {
   const name = noteName(g.note, g.slug);
@@ -168,6 +170,8 @@ function emit(g, labelPrefix) {
   if (!cap) { p('[BRAK OPISU — dopisz w CAPTIONS]'); over.push(`${g.slug}: brak opisu`); return; }
   p(`Opis (${cap.length} znaków):`);
   p(cap);
+  p('');
+  p(`Hashtagi: ${tagsFor(g.cat, g.slug)}`);
   if (cap.length > LIMIT) over.push(`${g.slug}: ${cap.length} znaków (limit ${LIMIT})`);
 }
 
