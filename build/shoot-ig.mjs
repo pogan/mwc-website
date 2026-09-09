@@ -39,8 +39,8 @@ function to45(html) {
 
   if (/<h1\b/.test(html)) {                       // slajd tytułowy — nagłówek maksymalnie duży
     html = html
-      .replace(/padding: 160px 112px 150px;/, 'padding: 128px 80px 128px;')   // więcej miejsca na wielki nagłówek
-      .replace(/padding: 160px 108px 150px;/, 'padding: 128px 80px 128px;')
+      .replace(/padding: 160px 112px 150px;/, 'padding: 132px 80px 168px;')   // więcej miejsca na wielki nagłówek, prześwit nad stopką
+      .replace(/padding: 160px 108px 150px;/, 'padding: 132px 80px 168px;')
       .replace(/(<h1[^>]*style="[^"]*?line-height:)\s*[\d.]+/, '$1 1.06')
       .replace(/(<h1[^>]*>)([\s\S]*?)(<\/h1>)/, (_m, a, inner, z) => a + inner.replace(/<br\s*\/?>/g, ' ') + z)
       .replace(/(\.kicker\s*\{[^}]*?font-size:)\s*[\d.]+px/, '$1 25px')
