@@ -46,12 +46,12 @@ const CTA_R = CTA;
 const CTA_ODN = 'Jeśli zbliża się Wasza rocznica — napiszcie do mnie w wiadomości prywatnej lub przez marczykowska.com. Zaplanujemy odnowienie przysięgi na Waszych zasadach.';
 const CTA_POZ = 'Jeśli mogę Wam w tym pomóc, jestem do dyspozycji — przez marczykowska.com lub w wiadomości prywatnej.';
 
-const HT_CORE = '#ślubhumanistyczny #ceremoniahumanistyczna #mistrzceremonii #celebrantka #ślubtrójmiasto #ślubgdańsk #ślubsopot #ślubgdynia';
+// 5 najlepiej dopasowanych hashtagów na kategorię (marka + lokalizacja + temat).
 const HT = {
-  slub: `${HT_CORE} #ślub2026 #ślub2027 #ślubwplenerze #paramłoda #pannamłoda #przysięgaślubna #ślubneinspiracje #wesele #zaślubiny`,
-  przywitanie: '#przywitaniedziecka #ceremoniapowitania #powitaniedziecka #rodzicehonorowi #humanistyczneprzywitanie #alternatywadlachrztu #roczek #celebrantka #trójmiasto #gdańsk #rodzina #maluch',
-  pogrzeb: '#pożegnaniehumanistyczne #ceremoniapożegnania #humanistycznypożegnanie #mowapożegnalna #świeckipogrzeb #celebrantka #mistrzceremonii #trójmiasto #gdańsk #pamięć',
-  odnowienie: `${HT_CORE} #odnowienieprzysięgi #odnowienieprzysiegimałżeńskiej #rocznicaślubu #jubileuszmałżeński #paramałżeńska #miłośćpolatach`,
+  slub: '#ślubhumanistyczny #mistrzceremonii #ślubtrójmiasto #przysięgaślubna #ślub2027',
+  przywitanie: '#przywitaniedziecka #ceremoniapowitania #rodzicehonorowi #alternatywadlachrztu #mistrzceremonii',
+  pogrzeb: '#pożegnaniehumanistyczne #ceremoniapożegnania #mowapożegnalna #świeckipogrzeb #mistrzceremonii',
+  odnowienie: '#odnowienieprzysięgi #rocznicaślubu #jubileuszmałżeński #mistrzceremonii #ślubtrójmiasto',
 };
 
 // ─────────────────────────────────────────────────────────────────────
@@ -446,16 +446,16 @@ A jeśli Wasza data jest już blisko i wydaje się, że „za późno" — i tak
 Macie datę na oku? Napiszcie w wiadomości prywatnej albo przez marczykowska.com — odpowiem szybko.`,
 };
 
-// per-carousel hashtag overrides for Kampanie
+// 5 hashtagów na karuzelę kampanijną — dobranych pod temat.
 const HT_KAMP = {
-  'rocznice-slubu': `${HT_CORE} #rocznicaślubu #odnowienieprzysięgi #jubileuszmałżeński #miłośćpolatach #srebrnegody #złotegody`,
-  'jubileusze': `${HT_CORE} #rocznicaślubu #jubileuszmałżeński #odnowienieprzysięgi #tradycjaślubna #miłośćpolatach #nazwyrocznic`,
-  'pary-lgbtq-promocja': `#ślublgbt #ślublgbtq #paryjednopłciowe #miłośćtomiłość #loveislove #ceremoniahumanistyczna #mistrzceremonii #ślubtrójmiasto #ślubgdańsk #równość #promocjaślubna`,
-  'mity': `${HT_CORE} #ślubbezksiędza #ślubcywilnywtrampkach #ślubneinspiracje #mityoślubie #paramłoda`,
-  'rytualy-jednosci': `${HT_CORE} #rytuałjedności #świecajedności #handfasting #rytuałpiasku #ceremoniaślubna #ślubneinspiracje`,
-  'cennik': `${HT_CORE} #cennikślubny #ilekosztujeślub #ślubnybudżet #ślubneporady #wycenaceremonii`,
-  'pory-roku': `${HT_CORE} #ślubwiosna #ślublato #ślubjesień #ślubzima #ślubwplenerze #ślubneinspiracje #ślub2027`,
-  'wolne-terminy': `${HT_CORE} #wolneterminy2026 #wolneterminy2027 #ślub2026 #ślub2027 #rezerwacjaterminu #mistrzceremoniitrójmiasto`,
+  'rocznice-slubu': '#rocznicaślubu #odnowienieprzysięgi #jubileuszmałżeński #srebrnegody #złotegody',
+  'jubileusze': '#jubileuszmałżeński #rocznicaślubu #nazwyrocznic #odnowienieprzysięgi #tradycjaślubna',
+  'pary-lgbtq-promocja': '#ślublgbtq #loveislove #ceremoniahumanistyczna #ślubtrójmiasto #promocjaślubna',
+  'mity': '#ślubhumanistyczny #mityoślubie #ślubbezksiędza #ślubcywilnywtrampkach #mistrzceremonii',
+  'rytualy-jednosci': '#rytuałjedności #świecajedności #handfasting #ceremoniahumanistyczna #ślubneinspiracje',
+  'cennik': '#cennikślubny #ilekosztujeślub #mistrzceremonii #ślubnybudżet #ślubhumanistyczny',
+  'pory-roku': '#ślubwplenerze #ślubhumanistyczny #ślub2027 #ślubneinspiracje #mistrzceremonii',
+  'wolne-terminy': '#wolneterminy2027 #ślub2027 #mistrzceremonii #ślubtrójmiasto #rezerwacjaterminu',
 };
 
 const REVIEW = { 'wolne-terminy': 'Zweryfikuj realną dostępność terminów 2026/2027 — liczby są szablonowe.' };
@@ -477,7 +477,7 @@ function emit(g, prefix) {
   const name = noteName(g.note, g.slug);
   const hook = noteHook(g.note);
   const body = LONG[g.slug];
-  const tags = g.cat === 'kampanie' ? (HT_KAMP[g.slug] || HT_CORE) : (HT[g.cat] || HT_CORE);
+  const tags = g.cat === 'kampanie' ? (HT_KAMP[g.slug] || HT.slub) : (HT[g.cat] || HT.slub);
   p('');
   p('═══════════════════════════════════════════════════════════════════');
   p(`${prefix}${name}`);
