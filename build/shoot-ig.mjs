@@ -1,12 +1,11 @@
 // Wersja karuzel przeprojektowana pod Instagram / TikTok: 1080 × 1350 (4:5).
-// Format 1:1 jest przycinany w podglądzie siatki na IG (siatka ~3:4) — tekst
-// przy krawędziach znika. 4:5 wyświetla się w całości w feedzie, a w siatce
-// traci tylko ~3% u góry/dołu, więc treść trzymamy z zapasem od krawędzi.
 //
 // Slajdy z odpowiedziami: nie zmienia szerokości (1080) → łamanie tekstu jak
 // w 1:1; dokłada tylko pionowego oddechu i odsuwa stopkę/strzałkę od dołu.
-// Slajdy tytułowe (okładki): tekst mocno powiększony i przełamany na nowo
-// (text-wrap: balance), żeby był czytelny w miniaturze siatki.
+// Slajdy tytułowe (okładki): siatka IG kadruje kafelek mocno po bokach, więc
+// nagłówek jest wyśrodkowany w centralnych ~62% szerokości (padding 205px),
+// górny pasek „FAQ · …" i strzałka ukryte, stopień auto-dopasowany (cap 104).
+// Symulacja kadru: crops w /Users/…/tmp/cropsim.mjs — tekst przeżywa nawet 2:3.
 //
 //   node build/shoot-ig.mjs           → wszystkie slajdy → ~/Desktop/…/instagram-4x5/
 //   node build/shoot-ig.mjs covers    → tylko okładki (1-tytul) → j.w.
@@ -41,23 +40,27 @@ function to45(html) {
     html = html
       // górny pasek „FAQ · …" i tak jest przycinany w siatce — chowamy go
       .replace(/(\.kicker\s*\{)/, '$1 display: none;')
-      // duże marginesy bezpieczeństwa wpisane w padding (siatka IG kadruje mocno) —
-      // tekst mieści się w środkowej strefie, nie dotyka krawędzi
-      .replace(/padding: 160px 112px 150px;/, 'padding: 158px 120px 158px;')
-      .replace(/padding: 160px 108px 150px;/, 'padding: 158px 120px 158px;')
-      .replace(/(<h1[^>]*style="[^"]*?line-height:)\s*[\d.]+/, '$1 1.08')
+      // strzałka-bazgroł zbędna na okładce i wpada pod kadr siatki
+      .replace(/(\.arrow\s*\{)/, '$1 display: none;')
+      // BARDZO duży margines bezpieczeństwa — siatka IG kadruje mocno po bokach,
+      // tekst ma się zmieścić z zapasem w środkowych ~62% szerokości
+      .replace(/padding: 160px 112px 150px;/, 'padding: 176px 205px 176px;')
+      .replace(/padding: 160px 108px 150px;/, 'padding: 176px 205px 176px;')
+      .replace(/(\.foot \{[^}]*?)bottom: 92px;/, '$1bottom: 132px;')
+      .replace(/(<h1[^>]*style=")/, '$1text-align: center; ')
+      .replace(/(<h1[^>]*style="[^"]*?line-height:)\s*[\d.]+/, '$1 1.1')
       .replace(/(<h1[^>]*>)([\s\S]*?)(<\/h1>)/, (_m, a, inner, z) => a + inner.replace(/<br\s*\/?>/g, ' ') + z)
-      .replace(/margin-top:36px; font-size:35px;/, 'margin-top:36px; font-size:40px;')   // podtytuł okładki (Kampanie)
+      .replace(/margin-top:36px; font-size:35px;/, 'text-align:center; margin-top:40px; font-size:40px;')   // podtytuł okładki (Kampanie)
       .replace(/(<div[^>]*margin-top:36px[^>]*>)([\s\S]*?)(<\/div>)/, (_m, a, inner, z) => a + inner.replace(/<br\s*\/?>/g, ' ') + z)
-      // auto-dopasowanie: największy stopień, który mieści się w bezpiecznej strefie
+      // auto-dopasowanie: największy stopień mieszczący się w bezpiecznej strefie
       .replace('</x-dc>', `<script>
 document.fonts.ready.then(function(){
   var h=document.querySelector('h1'); if(!h) return;
-  var w=h.parentElement, cap=124;
+  var w=h.parentElement, cap=104;
   function contentH(){ var t=0,k=w.children; for(var i=0;i<k.length;i++){ var c=getComputedStyle(k[i]); t+=k[i].offsetHeight+(parseFloat(c.marginTop)||0)+(parseFloat(c.marginBottom)||0); } return t; }
   function over(){ return h.scrollWidth>w.clientWidth+1 || contentH()>w.clientHeight*0.9; }
   var s=cap; h.style.fontSize=s+'px';
-  while(s>48 && over()){ s-=2; h.style.fontSize=s+'px'; }
+  while(s>44 && over()){ s-=2; h.style.fontSize=s+'px'; }
 });
 </script>
 </x-dc>`);
