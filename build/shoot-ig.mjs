@@ -1,10 +1,15 @@
 // Wersja karuzel przeprojektowana pod Instagram / TikTok: 1080 × 1350 (4:5).
 //
+// Każdy slajd (włącznie z okładką) dostaje na górze wyśrodkowaną etykietę
+// z nazwą kategorii/karuzeli — "FAQ · Śluby humanistyczne" dla FAQ,
+// "KAMPANIE · <nazwa karuzeli>" dla kampanii — kolorem stopki z danego
+// slajdu, więc pasuje do każdej palety bez ręcznego doboru.
+//
 // Slajdy z odpowiedziami: nie zmienia szerokości (1080) → łamanie tekstu jak
 // w 1:1; dokłada tylko pionowego oddechu i odsuwa stopkę/strzałkę od dołu.
 // Slajdy tytułowe (okładki): siatka IG kadruje kafelek mocno po bokach, więc
 // nagłówek jest wyśrodkowany w centralnych ~62% szerokości (padding 205px),
-// górny pasek „FAQ · …" i strzałka ukryte, stopień auto-dopasowany (cap 104).
+// strzałka ukryta, stopień auto-dopasowany (cap 104).
 // Symulacja kadru: crops w /Users/…/tmp/cropsim.mjs — tekst przeżywa nawet 2:3.
 //
 //   node build/shoot-ig.mjs           → wszystkie slajdy → ~/Desktop/…/instagram-4x5/
@@ -27,6 +32,45 @@ const only = coversOnly ? [] : args;
 
 const W = 1080, H = 1350;
 
+// ---- etykieta „kategoria/karuzela" na górze każdego slajdu -----------
+function buildLabels() {
+  const labels = {}; // "art/PLIK.dc.html" | "kampanie/PLIK.dc.html" -> tekst etykiety
+
+  const faqMap = JSON.parse(readFileSync(join(ROOT, 'art', 'pngmap.json'), 'utf8'));
+  const catLabel = {};
+  for (const { file, out } of faqMap) {
+    const cat = out.split('/')[0].replace(/^\d+-/, '');
+    if (catLabel[cat]) continue;
+    const m = readFileSync(join(ROOT, 'art', file), 'utf8').match(/<div class="kicker">([^<]*)<\/div>/);
+    if (m) catLabel[cat] = m[1];
+  }
+  for (const { file, out } of faqMap) {
+    const cat = out.split('/')[0].replace(/^\d+-/, '');
+    if (catLabel[cat]) labels[`art/${file}`] = catLabel[cat];
+  }
+
+  const kampCanvas = JSON.parse(readFileSync(join(ROOT, 'kampanie', 'canvas.json'), 'utf8'));
+  const nameBySlug = {};
+  for (const p of kampCanvas.pages || []) nameBySlug[p.id] = p.name;
+  const kampMap = JSON.parse(readFileSync(join(ROOT, 'pngmap-kampanie.json'), 'utf8'));
+  for (const { file, out } of kampMap) {
+    const slug = out.split('/')[1].replace(/^\d+-/, '');
+    if (nameBySlug[slug]) labels[`kampanie/${file}`] = `KAMPANIE · ${nameBySlug[slug]}`;
+  }
+  return labels;
+}
+const LABELS = buildLabels();
+
+function injectLabel(html, label) {
+  if (!label) return html;
+  const color = html.match(/\.foot \{[^}]*?color:\s*([^;]+);/)?.[1].trim() || '#8a8a8a';
+  const esc = label.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const bar = `    <div style="text-align:center; font-family:'Jost',system-ui,sans-serif; font-weight:500; text-transform:uppercase; letter-spacing:0.24em; font-size:20px; color:${color}; margin-bottom:30px;">${esc}</div>\n`;
+  return html
+    .replace(/<div class="kicker">[^<]*<\/div>\n?/, '')   // usuń oryginalną (tylko okładki FAQ) — zastępujemy własną
+    .replace(/(<div class="inner">\n)/, `$1${bar}`);
+}
+
 function to45(html) {
   html = html
     .replace(/[ \t]*<script src="\.\/support\.js"><\/script>\n?/, '')
@@ -38,8 +82,6 @@ function to45(html) {
 
   if (/<h1\b/.test(html)) {                       // slajd tytułowy
     html = html
-      // górny pasek „FAQ · …" i tak jest przycinany w siatce — chowamy go
-      .replace(/(\.kicker\s*\{)/, '$1 display: none;')
       // strzałka-bazgroł zbędna na okładce i wpada pod kadr siatki
       .replace(/(\.arrow\s*\{)/, '$1 display: none;')
       // BARDZO duży margines bezpieczeństwa — siatka IG kadruje mocno po bokach,
@@ -78,7 +120,8 @@ for (const src of ['art', 'kampanie']) {
   for (const f of readdirSync(join(ROOT, src))) {
     if (f.endsWith('.jpg')) { copyFileSync(join(ROOT, src, f), join(workDir, f)); continue; }
     if (!f.endsWith('.dc.html')) continue;
-    writeFileSync(join(workDir, f), to45(readFileSync(join(ROOT, src, f), 'utf8')));
+    const html = injectLabel(to45(readFileSync(join(ROOT, src, f), 'utf8')), LABELS[`${src}/${f}`]);
+    writeFileSync(join(workDir, f), html);
   }
   for (const { file, out } of map) {
     const stem = file.replace('.dc.html', '');
