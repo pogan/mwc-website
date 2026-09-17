@@ -2,6 +2,6 @@
 png/
 
 # 4:5 render working dirs
-build/_ig_art/
-build/_ig_kampanie/
-build/ig-preview/
+_ig_art/
+_ig_kampanie/
+ig-preview/
