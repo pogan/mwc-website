@@ -29,9 +29,9 @@ const contact = {
   serviceArea: 'Pomorze i cała Polska',
   /** Miejscowości/regiony do areaServed w danych strukturalnych i lokalnego SEO. */
   areaServedList: ['Gdańsk', 'Trójmiasto', 'Województwo pomorskie', 'Polska'],
-  facebook: 'https://www.facebook.com/milenawolakceremonie',
-  instagram: 'https://www.instagram.com/milena_wolak_ceremonie',
-  instagramHandle: '@milena_wolak_ceremonie'
+  facebook: 'https://www.facebook.com/marczykowskaceremonie',
+  instagram: 'https://www.instagram.com/marczykowska_ceremonie/',
+  instagramHandle: '@marczykowska_ceremonie'
 };
 
 const brand = {
