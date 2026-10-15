@@ -1,0 +1,112 @@
+<%
+  var weddingPrices = site.pricing.find(function (g) { return g.category === 'Ceremonie ślubne'; }).items;
+  var otherLocations = site.locations.filter(function (l) { return l.slug !== loc.slug; });
+%>
+<%- include('../partials/page-hero', {
+  heroImage: loc.heroImage,
+  heroKicker: 'Ślub humanistyczny',
+  heroTitle: 'Ślub humanistyczny w ' + loc.cityLocative,
+  heroSubtitle: loc.heroSubtitle
+}) %>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7" data-reveal>
+        <p class="kicker">Celebrantka w Trójmieście</p>
+        <h2 class="section-title">Ceremonia w <%= loc.cityLocative %>, szyta na miarę</h2>
+        <% loc.intro.forEach(function (p, i) { %>
+          <p class="<%= i === 0 ? 'lead-soft' : '' %>"><%= p %></p>
+        <% }); %>
+        <a href="/ceremonie-slubne" class="btn btn-outline-clay mt-2">Jak wygląda ślub humanistyczny</a>
+      </div>
+      <div class="col-lg-5" data-reveal data-reveal-delay="1">
+        <div class="price-note">
+          <h3 style="font-size: 1.3rem;" class="mb-3">Ceny ceremonii ślubnych</h3>
+          <ul>
+            <% weddingPrices.forEach(function (p) { %>
+              <li><strong><%= p.price %></strong> – <%= p.name.toLowerCase() %></li>
+            <% }); %>
+            <li>Oprawa muzyczna: od 1500 zł.</li>
+          </ul>
+          <a href="/cennik" class="btn btn-outline-clay btn-sm mt-2">Pełny cennik</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream-2">
+  <div class="container">
+    <div class="text-center mb-5" data-reveal>
+      <p class="kicker">Gdzie zorganizować ceremonię</p>
+      <h2 class="section-title">Ślub humanistyczny w <%= loc.cityLocative %> – miejsca</h2>
+    </div>
+    <div class="row g-4">
+      <% loc.places.forEach(function (place, i) { %>
+        <div class="col-md-6" data-reveal data-reveal-delay="<%= (i % 2) + 1 %>">
+          <div class="process-step">
+            <span class="process-step__num"><%= ('0' + (i + 1)).slice(-2) %></span>
+            <h3 class="process-step__title"><%= place.name %></h3>
+            <p><%= place.text %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9" data-reveal>
+        <div class="price-note">
+          <h2 class="mb-3" style="font-size: 1.5rem;">Dobrze wiedzieć przed ceremonią w <%= loc.cityLocative %></h2>
+          <ul>
+            <% loc.logistics.forEach(function (item) { %>
+              <li><%= item %></li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 mb-4" data-reveal>
+      <p class="kicker">Jak pracujemy</p>
+      <h2 class="section-title">Od pierwszej rozmowy do „tak”</h2>
+    </div>
+    <div class="row g-4">
+      <% site.process.forEach(function (s, i) { %>
+        <div class="col-md-6 col-lg-3" data-reveal data-reveal-delay="<%= (i % 3) + 1 %>">
+          <div class="process-step">
+            <span class="process-step__num"><%= s.step %></span>
+            <h3 class="process-step__title"><%= s.title %></h3>
+            <p><%= s.text %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+
+    <div class="text-center mt-5" data-reveal>
+      <p class="text-muted-soft mb-2">Ceremonia w innym miejscu Trójmiasta?</p>
+      <p>
+        <% otherLocations.forEach(function (l, i) { %>
+          <a href="<%= l.path %>">Ślub humanistyczny w <%= l.cityLocative %></a><%= i < otherLocations.length - 1 ? ' · ' : '' %>
+        <% }); %>
+      </p>
+      <p class="mb-0">
+        Przydatne poradniki:
+        <% site.guides.forEach(function (g, i) { %>
+          <a href="<%= g.path %>"><%= g.linkLabel %></a><%= i < site.guides.length - 1 ? ' · ' : '' %>
+        <% }); %>
+      </p>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/faq-section', { faqCategory: 'slub', faqIdPrefix: 'slub-' + loc.slug }) %>
+
+<%- include('../partials/cta', {
+  ctaTitle: 'Sprawdźmy, czy Wasz termin jest wolny',
+  ctaText: 'Napiszcie, gdzie i kiedy planujecie ceremonię w ' + loc.cityLocative + ' – odpowiem, czy mam wolny termin, i zaproponuję krótką rozmowę.'
+}) %>

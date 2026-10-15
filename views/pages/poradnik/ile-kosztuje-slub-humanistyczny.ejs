@@ -1,0 +1,133 @@
+<%
+  var weddingPrices = site.pricing.find(function (g) { return g.category === 'Ceremonie ślubne'; }).items;
+%>
+<%- include('../../partials/page-hero', {
+  heroImage: guide.heroImage,
+  heroKicker: 'Poradnik',
+  heroTitle: guide.heading,
+  heroSubtitle: 'Cena celebrantki, muzyka, dojazd i formalności w urzędzie – wszystko, co warto policzyć, zanim zarezerwujecie termin.'
+}) %>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row justify-content-center">
+      <article class="col-lg-9 article-body" data-reveal>
+        <p class="text-muted-soft">Aktualizacja: <%= guide.updatedLabel %> · <a href="/o-mnie">Milena Marczykowska</a>, celebrantka</p>
+
+        <div class="price-note mb-4">
+          <p class="mb-2"><strong>W skrócie:</strong></p>
+          <ul>
+            <li>Sama ceremonia z celebrantką kosztuje u mnie od <strong><%= weddingPrices[0].price %></strong> (wersja stylizowana na cywilną) do <strong><%= weddingPrices[weddingPrices.length - 1].price %></strong> (autorska ceremonia dwujęzyczna).</li>
+            <li>Najczęściej wybierana jest ceremonia personalizowana za <strong><%= weddingPrices.find(function (p) { return p.highlight; }).price %></strong>.</li>
+            <li>Do budżetu doliczcie ewentualną oprawę muzyczną (od 1500 zł), dojazd powyżej 30 km od Gdańska oraz opłaty w Urzędzie Stanu Cywilnego, jeśli chcecie, żeby małżeństwo miało skutki prawne.</li>
+          </ul>
+        </div>
+
+        <h2>Ile kosztuje celebrantka?</h2>
+        <p>
+          Cena celebranta to przede wszystkim koszt jego czasu – i to nie tylko tych
+          30–40 minut w dniu ślubu. Przy ceremonii personalizowanej większość pracy dzieje
+          się wcześniej: rozmowy z Wami, kwestionariusze, pisanie scenariusza od zera,
+          poprawki, pomoc przy przysięgach i koordynacja z innymi wykonawcami. Dlatego
+          ceny w Polsce wahają się zwykle od około półtora do kilku tysięcy złotych,
+          zależnie od zakresu i doświadczenia celebranta.
+        </p>
+        <p>Tak wyglądają moje pakiety ślubne:</p>
+        <div class="table-responsive">
+          <table class="table article-table">
+            <thead>
+              <tr><th scope="col">Pakiet</th><th scope="col">Cena</th><th scope="col">Co obejmuje</th></tr>
+            </thead>
+            <tbody>
+              <% weddingPrices.forEach(function (p) { %>
+                <tr>
+                  <td><%= p.name %><% if (p.duration) { %><br /><span class="text-muted-soft small"><%= p.duration %></span><% } %></td>
+                  <td class="text-nowrap"><strong><%= p.price %></strong></td>
+                  <td><%= p.features.map(function (f, i) { return i === 0 ? f : f.charAt(0).toLowerCase() + f.slice(1); }).join(', ') %></td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Co wpływa na cenę ślubu humanistycznego?</h2>
+        <ul>
+          <li><strong>Zakres personalizacji.</strong> Ceremonia „stylizowana na cywilną” ma gotową, klasyczną strukturę. Ceremonia personalizowana to scenariusz pisany od zera na podstawie Waszej historii – stąd różnica w cenie.</li>
+          <li><strong>Język.</strong> Ceremonia dwujęzyczna (np. polski i angielski) to praktycznie dwa scenariusze, które muszą się płynnie przeplatać – dlatego kosztuje więcej.</li>
+          <li><strong>Rytuały.</strong> Symboliczne gesty, takie jak mieszanie piasków czy handfasting, są w pakiecie personalizowanym; płacicie jedynie za ewentualne rekwizyty, jeśli nie macie własnych.</li>
+          <li><strong>Odległość.</strong> Dojazd do 30 km od Gdańska jest w cenie. Dalej liczę koszt według ustawowej stawki kilometrowej, a przy wyjazdach powyżej ok. 150 km proszę o skromny nocleg.</li>
+          <li><strong>Termin.</strong> Soboty w szczycie sezonu rezerwują się najszybciej – warto zapytać o termin z wyprzedzeniem.</li>
+        </ul>
+
+        <h2>Koszty dodatkowe, o których łatwo zapomnieć</h2>
+        <h3>Oprawa muzyczna</h3>
+        <p>
+          Muzyka na żywo podczas ceremonii (skrzypce, gitara, pianino, wokal, kwartet
+          smyczkowy, harfa) to koszt od około 1500 zł. Możecie też skorzystać z nagrań
+          puszczanych przez DJ-a – wtedy koszt jest zwykle wliczony w jego usługę.
+        </p>
+        <h3>Nagłośnienie</h3>
+        <p>
+          Przy ceremonii w plenerze mikrofon to konieczność – inaczej goście z dalszych
+          rzędów nie usłyszą przysięgi. Najczęściej korzystamy ze sprzętu DJ-a, zespołu lub
+          obiektu, więc nie generuje to dodatkowych kosztów. Jeśli go nie macie, pomogę
+          zorganizować wynajem.
+        </p>
+        <h3>Miejsce i aranżacja</h3>
+        <p>
+          Wiele obiektów weselnych ma strefę ceremonii w cenie lub za niewielką dopłatą.
+          Do budżetu warto doliczyć krzesła lub ławki, łuk czy dekoracje oraz plan B
+          na deszcz (namiot, taras, sala).
+        </p>
+
+        <h2>A co z formalnościami? Koszty ślubu cywilnego</h2>
+        <p>
+          Ślub humanistyczny w Polsce nie wywołuje skutków prawnych. Jeśli zależy Wam na
+          formalnym małżeństwie, potrzebny jest też ślub cywilny. Najprostsze rozwiązanie
+          to krótka wizyta w Urzędzie Stanu Cywilnego przed ceremonią – tak zwany
+          „ślub cywilny w trampkach”.
+        </p>
+        <ul>
+          <li><strong>Ślub w urzędzie:</strong> płacicie opłatę skarbową za sporządzenie aktu małżeństwa (obecnie 84 zł).</li>
+          <li><strong>Ślub cywilny poza urzędem</strong> (np. w miejscu wesela, w tym samym dniu co ceremonia humanistyczna): do opłaty skarbowej dochodzi dodatkowa opłata za zawarcie małżeństwa poza USC (obecnie 1000 zł) i potrzebna jest zgoda kierownika urzędu.</li>
+        </ul>
+        <p class="text-muted-soft small">
+          Stawki opłat urzędowych mogą się zmienić – aktualne potwierdźcie w swoim Urzędzie Stanu Cywilnego.
+        </p>
+
+        <h2>Na czym nie warto oszczędzać</h2>
+        <p>
+          Ceremonia trwa kilkadziesiąt minut, ale to ten moment goście pamiętają najdłużej.
+          Wybierając celebranta, zwróćcie uwagę nie tylko na cenę, ale też na to, czy:
+        </p>
+        <ul>
+          <li>scenariusz jest pisany od zera, a nie składany z gotowych fragmentów,</li>
+          <li>dostaniecie realną pomoc przy przysiędze, a nie tylko „wzór”,</li>
+          <li>celebrant ma plan na sytuacje losowe – zastępstwo w razie choroby,</li>
+          <li>umowa jasno opisuje, co jest w cenie, a co jest dodatkowo płatne.</li>
+        </ul>
+
+        <div class="price-note mt-4">
+          <h2 class="mb-2" style="font-size: 1.35rem;">Policzmy to dla Waszej ceremonii</h2>
+          <p class="mb-3">
+            Napiszcie, gdzie i kiedy planujecie ślub – przygotuję wycenę z dojazdem
+            i odpowiem, czy termin jest wolny. Pierwsza rozmowa jest bezpłatna i do niczego
+            nie zobowiązuje.
+          </p>
+          <a href="/kontakt" class="btn btn-primary">Poproś o wycenę</a>
+          <a href="/cennik" class="btn btn-outline-clay ms-2">Zobacz cennik</a>
+        </div>
+
+        <p class="mt-5 mb-0">
+          Przeczytajcie też:
+          <% site.guides.filter(function (g) { return g.slug !== guide.slug; }).forEach(function (g) { %>
+            <a href="<%= g.path %>"><%= g.linkLabel %></a>
+          <% }); %>
+          · <a href="/ceremonie-slubne">Ślub humanistyczny – jak wygląda ceremonia</a>
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<%- include('../../partials/cta') %>

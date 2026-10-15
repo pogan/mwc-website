@@ -1,19 +1,44 @@
 <%
   /*
-   * Google tag (gtag.js) – wspólny dla GA4 i Google Ads.
+   * Google tag (gtag.js) – wspólny dla GA4 i Google Ads, z Consent Mode v2.
    * Ładuje się tylko, gdy w konfiguracji (data/site.js ← .env) ustawiono
    * przynajmniej jeden identyfikator. Skrypt inline dostaje nonce z CSP.
+   *
+   * Tryb podstawowy (basic): zgody są domyślnie odrzucone, a sam gtag.js
+   * pobiera dopiero public/js/consent.js po kliknięciu „Akceptuję” w pasku
+   * cookies. Zdarzenia wywołane wcześniej (np. konwersja na stronie
+   * podziękowania) czekają w dataLayer i wysyłają się dopiero po zgodzie.
    */
   var a = site.analytics;
 %>
 <% if (a && a.enabled) { %>
-  <% var gtagBootId = a.ga4Id || a.googleAdsId; %>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gtagBootId %>"></script>
   <script nonce="<%= cspNonce %>">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
+    });
+    gtag('set', 'ads_data_redaction', true);
     gtag('js', new Date());
-    <% if (a.ga4Id) { %>gtag('config', '<%= a.ga4Id %>');<% } %>
+
+    /* Identyfikator, którym consent.js ładuje gtag.js po wyrażeniu zgody. */
+    window.MM_GTAG_ID = '<%= a.ga4Id || a.googleAdsId %>';
+
+    /* Bez parametrów fbclid/igshid z Facebooka i Instagrama – inaczej każde wejście
+       z social mediów jest w raportach GA4 osobną „stroną docelową”. gclid zostaje,
+       bo Google Ads potrzebuje go do przypisania konwersji. */
+    var mmPageLocation = (function () {
+      try {
+        var u = new URL(window.location.href);
+        ['fbclid', 'igshid', 'mibextid'].forEach(function (p) { u.searchParams.delete(p); });
+        return u.toString();
+      } catch (e) { return window.location.href; }
+    })();
+
+    <% if (a.ga4Id) { %>gtag('config', '<%= a.ga4Id %>', { page_location: mmPageLocation });<% } %>
     <% if (a.googleAdsId) { %>gtag('config', '<%= a.googleAdsId %>');<% } %>
 
     /* Etykieta konwersji Google Ads dla kliknięcia w telefon (używana w /js/main.js). */
@@ -36,6 +61,7 @@
       <% } %>
     };
   </script>
+  <script src="/js/consent.js" defer></script>
 
   <% if (typeof trackLead !== 'undefined' && trackLead) { %>
     <script nonce="<%= cspNonce %>">

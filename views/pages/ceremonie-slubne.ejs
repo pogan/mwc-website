@@ -125,6 +125,18 @@
           <li>Transport do 30 km od Gdańska w cenie</li>
           <li>Współpraca ze sprawdzonymi muzykami i wykonawcami</li>
         </ul>
+        <p class="mt-3 mb-0">
+          Ceremonia w Trójmieście:
+          <% site.locations.forEach(function (l, i) { %>
+            <a href="<%= l.path %>"><%= l.city %></a><%= i < site.locations.length - 1 ? ' · ' : '' %>
+          <% }); %>
+        </p>
+        <p class="mb-0">
+          Poradnik:
+          <% site.guides.forEach(function (g, i) { %>
+            <a href="<%= g.path %>"><%= g.linkLabel.toLowerCase() %></a><%= i < site.guides.length - 1 ? ' · ' : '' %>
+          <% }); %>
+        </p>
       </div>
     </div>
   </div>

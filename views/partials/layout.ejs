@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="<%= typeof lang !== 'undefined' && lang ? lang : 'pl' %>">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +22,7 @@
   <meta property="og:description" content="<%= typeof description !== 'undefined' ? description : brand.tagline %>" />
   <meta property="og:url" content="<%= canonicalUrl %>" />
   <meta property="og:image" content="<%= site.url %><%= ogImage %>" />
-  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:locale" content="<%= typeof lang !== 'undefined' && lang === 'en' ? 'en_GB' : 'pl_PL' %>" />
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
@@ -64,16 +64,42 @@
     }).replace(/</g, '\\u003c') %>
   </script>
 
-  <% var breadcrumbItem = nav.find(function (n) { return n.path === currentPath && n.path !== '/'; }); %>
-  <% if (breadcrumbItem) { %>
+  <%
+    // Okruszki: jawnie przekazane przez trasę (strony lokalne, poradniki) albo z pozycji menu.
+    var crumbs = (typeof breadcrumbs !== 'undefined' && breadcrumbs) ? breadcrumbs : null;
+    if (!crumbs) {
+      var breadcrumbItem = nav.find(function (n) { return n.path === currentPath && n.path !== '/'; });
+      if (breadcrumbItem) crumbs = [{ name: breadcrumbItem.label, path: breadcrumbItem.path }];
+    }
+  %>
+  <% if (crumbs) { %>
     <script type="application/ld+json">
       <%- JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Start', item: site.url + '/' },
-          { '@type': 'ListItem', position: 2, name: breadcrumbItem.label, item: canonicalUrl }
-        ]
+        itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Start', item: site.url + '/' }].concat(
+          crumbs.map(function (c, i) {
+            return { '@type': 'ListItem', position: i + 2, name: c.name, item: site.url + c.path };
+          })
+        )
+      }).replace(/</g, '\\u003c') %>
+    </script>
+  <% } %>
+
+  <% if (typeof articleSchema !== 'undefined' && articleSchema) { %>
+    <script type="application/ld+json">
+      <%- JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: articleSchema.heading,
+        description: articleSchema.description,
+        image: site.url + articleSchema.ogImage,
+        datePublished: articleSchema.published,
+        dateModified: articleSchema.updated,
+        author: { '@id': site.url + '/o-mnie#person' },
+        publisher: { '@id': site.url + '/#business' },
+        mainEntityOfPage: canonicalUrl,
+        inLanguage: 'pl-PL'
       }).replace(/</g, '\\u003c') %>
     </script>
   <% } %>
@@ -87,7 +113,7 @@
         name: serviceSchema.name,
         description: serviceSchema.description,
         provider: { '@id': site.url + '/#business' },
-        areaServed: contact.areaServedList,
+        areaServed: serviceSchema.areaServed || contact.areaServedList,
         url: canonicalUrl
       }).replace(/</g, '\\u003c') %>
     </script>
@@ -137,6 +163,8 @@
   </main>
 
   <%- include('footer') %>
+
+  <%- include('cookie-banner') %>
 
   <!-- Bootstrap JS -->
   <script

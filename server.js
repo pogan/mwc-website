@@ -15,6 +15,9 @@ const site = require('./data/site');
 const { processContactForm } = require('./lib/contactForm');
 
 const app = express();
+
+// Data wejścia w życie polityki prywatności – zmieniajcie przy każdej zmianie jej treści.
+const PRIVACY_POLICY_DATE = '2026-10-16';
 const PORT = process.env.PORT || 3000;
 
 /* ----------------------------- Konfiguracja ----------------------------- */
@@ -85,6 +88,9 @@ app.use((req, res, next) => {
   res.locals.faqSchema = false;
   res.locals.noindex = false; // strony wykluczone z indeksowania (np. podziękowanie)
   res.locals.trackLead = false; // wyzwól konwersję "wysłany formularz" w Google tag
+  res.locals.lang = 'pl';
+  res.locals.breadcrumbs = null; // [{ name, path }] – nadpisuje okruszki z menu (patrz layout)
+  res.locals.articleSchema = null; // poradniki: dane do Article w JSON-LD
   next();
 });
 
@@ -188,9 +194,10 @@ app.get('/o-mnie', (req, res) => {
 
 app.get('/cennik', (req, res) => {
   res.render('pages/cennik', {
-    title: 'Cennik Ceremonii Humanistycznych – Gdańsk i cała Polska | Milena Marczykowska',
+    // Tytuł pod zapytania „ślub humanistyczny cennik / cena” – z bieżącym sezonem.
+    title: `Ślub humanistyczny – cennik ${site.year}/${site.year + 1} | Milena Marczykowska, Gdańsk`,
     description:
-      'Cennik ceremonii humanistycznych Mileny Marczykowskiej – pakiety personalizowane i dwujęzyczne, oprawa muzyczna oraz warunki dojazdu. Gdańsk, Trójmiasto i cała Polska.',
+      'Ile kosztuje ślub humanistyczny? Ceremonie od 1800 zł, personalizowana 2600 zł, dwujęzyczne, przywitanie dziecka, pożegnania i odnowienie przysięgi. Muzyka i dojazd – wszystkie ceny w jednym miejscu.',
     ogImage: '/images/wedding-rustic.jpg'
   });
 });
@@ -211,6 +218,81 @@ app.get('/kontakt', (req, res) => {
     description:
       'Skontaktuj się z Mileną Marczykowską. Zapraszam na spotkanie osobiste lub online, aby porozmawiać o Waszej wyjątkowej ceremonii. Gdańsk, Trójmiasto i cała Polska.',
     ogImage: '/images/wedding-arch.jpg'
+  });
+});
+
+/* --------------------- Strony lokalne, poradniki, EN --------------------- */
+
+site.locations.forEach((loc) => {
+  app.get(loc.path, (req, res) => {
+    res.render('pages/lokalizacja', {
+      title: loc.title,
+      description: loc.description,
+      ogImage: loc.ogImage,
+      loc,
+      breadcrumbs: [
+        { name: 'Ceremonie ślubne', path: '/ceremonie-slubne' },
+        { name: `Ślub humanistyczny ${loc.city}`, path: loc.path }
+      ],
+      serviceSchema: {
+        name: `Ślub humanistyczny ${loc.city}`,
+        description: loc.description,
+        areaServed: loc.city
+      }
+    });
+  });
+});
+
+const POLISH_DATE = new Intl.DateTimeFormat('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
+const formatDate = (iso) => POLISH_DATE.format(new Date(`${iso}T12:00:00Z`));
+
+app.get('/poradnik', (req, res) => {
+  res.render('pages/poradnik/index', {
+    title: 'Poradnik – ślub humanistyczny krok po kroku | Milena Marczykowska',
+    description:
+      'Poradniki celebrantki: ile kosztuje ślub humanistyczny, jak napisać przysięgę ślubną i jak przygotować ceremonię humanistyczną.',
+    ogImage: '/images/wedding-vows.jpg',
+    breadcrumbs: [{ name: 'Poradnik', path: '/poradnik' }]
+  });
+});
+
+site.guides.forEach((guide) => {
+  app.get(guide.path, (req, res) => {
+    res.render(`pages/poradnik/${guide.slug}`, {
+      title: guide.title,
+      description: guide.description,
+      ogImage: guide.ogImage,
+      guide: { ...guide, updatedLabel: formatDate(guide.updated) },
+      breadcrumbs: [
+        { name: 'Poradnik', path: '/poradnik' },
+        { name: guide.heading, path: guide.path }
+      ],
+      articleSchema: guide
+    });
+  });
+});
+
+app.get('/en', (req, res) => {
+  res.render('pages/en', {
+    lang: 'en',
+    title: 'Humanist Wedding Celebrant in Gdańsk, Poland – Bilingual Ceremonies | Milena Marczykowska',
+    description:
+      'English-speaking humanist wedding celebrant in Gdańsk, Sopot and Gdynia. Personal, bilingual English–Polish wedding ceremonies anywhere in Poland. Prices and how it works.',
+    ogImage: '/images/wedding-beach.jpg',
+    serviceSchema: {
+      name: 'Bilingual humanist wedding ceremony',
+      description:
+        'Personal humanist wedding ceremonies in English and Polish, written around the couple’s story.'
+    }
+  });
+});
+
+app.get('/polityka-prywatnosci', (req, res) => {
+  res.render('pages/polityka-prywatnosci', {
+    title: 'Polityka prywatności | Milena Marczykowska Ceremonie Humanistyczne',
+    description: 'Jakie dane osobowe przetwarzam, w jakim celu, jak długo i jakie macie prawa. Informacje o plikach cookies.',
+    ogImage: '/images/wedding-candles.jpg',
+    policyDate: formatDate(PRIVACY_POLICY_DATE)
   });
 });
 
@@ -266,7 +348,16 @@ app.get('/sitemap.xml', (req, res) => {
   const today = new Date().toISOString().slice(0, 10);
   // '/' i '/kontakt' są ukryte w menu (patrz data/site.js), ale mają zostać w sitemapie.
   const navPaths = site.nav.map((item) => item.path);
-  const paths = ['/', ...navPaths, '/kontakt'].filter((p, i, arr) => arr.indexOf(p) === i);
+  const paths = [
+    '/',
+    ...navPaths,
+    '/kontakt',
+    ...site.locations.map((l) => l.path),
+    '/poradnik',
+    ...site.guides.map((g) => g.path),
+    '/en',
+    '/polityka-prywatnosci'
+  ].filter((p, i, arr) => arr.indexOf(p) === i);
   const urls = paths
     .map((path) => {
       const priority = path === '/' ? '1.0' : site.services.some((s) => s.path === path) ? '0.8' : '0.5';

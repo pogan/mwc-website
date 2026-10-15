@@ -1,0 +1,112 @@
+<%- include('../partials/page-hero', {
+  heroImage: '/images/wedding-candles.webp',
+  heroKicker: 'Informacje prawne',
+  heroTitle: 'Polityka prywatności',
+  heroSubtitle: 'Jakie dane zbieram, po co i jakie macie prawa.'
+}) %>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 article-body" data-reveal>
+        <p class="text-muted-soft">Obowiązuje od: <%= policyDate %></p>
+
+        <h2 id="administrator">1. Kto jest administratorem danych</h2>
+        <p>
+          Administratorem Waszych danych osobowych jest <strong><%= brand.name %></strong>,
+          prowadząca działalność pod marką <%= brand.short %> (dalej: „ja”).
+          We wszystkich sprawach dotyczących danych możecie pisać na adres
+          <a href="mailto:<%= contact.email %>"><%= contact.email %></a> lub dzwonić pod numer
+          <a href="tel:<%= contact.phoneHref %>"><%= contact.phoneDisplay %></a>.
+        </p>
+
+        <h2 id="formularz">2. Formularz kontaktowy, e-mail i telefon</h2>
+        <p>
+          Gdy wysyłacie formularz na stronie <a href="/kontakt">Kontakt</a>, piszecie e-mail
+          lub dzwonicie, przetwarzam dane, które sami podajecie: imię, adres e-mail, numer
+          telefonu (opcjonalnie), rodzaj uroczystości i treść wiadomości.
+        </p>
+        <ul>
+          <li><strong>Cel:</strong> odpowiedź na zapytanie, przygotowanie oferty i – jeśli się zdecydujecie – zawarcie i wykonanie umowy.</li>
+          <li><strong>Podstawa prawna:</strong> działania przed zawarciem umowy na Wasze żądanie i wykonanie umowy (art. 6 ust. 1 lit. b RODO), a w zakresie korespondencji, która nie prowadzi do umowy – mój prawnie uzasadniony interes, czyli odpowiadanie na wiadomości (art. 6 ust. 1 lit. f RODO).</li>
+          <li><strong>Jak długo:</strong> korespondencję bez umowy przechowuję do 12 miesięcy od ostatniego kontaktu. Dane związane z umową – przez czas jej wykonania i okres przedawnienia roszczeń, a dokumenty rozliczeniowe – tak długo, jak wymagają tego przepisy podatkowe.</li>
+          <li>Podanie danych jest dobrowolne, ale bez adresu e-mail lub telefonu nie będę mogła odpowiedzieć.</li>
+        </ul>
+
+        <h2 id="cookies">3. Pliki cookies i narzędzia analityczne</h2>
+        <p>
+          Strona działa bez plików cookies. Wyjątek to sytuacja, w której wyrazicie zgodę
+          w pasku cookies – wtedy uruchamiam:
+        </p>
+        <ul>
+          <li>
+            <strong>Google Analytics 4</strong> – statystyki odwiedzin: które podstrony są czytane,
+            skąd przychodzą odwiedzający, z jakich urządzeń. Pliki cookies <code>_ga</code> i
+            <code>_ga_*</code>, ważne do 2 lat.
+          </li>
+          <li>
+            <strong>Google Ads</strong> – pomiar, czy reklama w Google doprowadziła do kontaktu
+            (np. wysłania formularza lub kliknięcia w numer telefonu), oraz dopasowanie reklam.
+            Pliki cookies <code>_gcl_*</code>, ważne do 90 dni.
+          </li>
+        </ul>
+        <p>
+          Dostawcą obu narzędzi jest Google Ireland Ltd. Google otrzymuje m.in. adres odwiedzanej
+          strony, informacje o przeglądarce i urządzeniu, przybliżoną lokalizację oraz
+          identyfikatory z plików cookies. Dane mogą być przekazywane do USA – Google stosuje
+          standardowe klauzule umowne i uczestniczy w programie EU-U.S. Data Privacy Framework.
+        </p>
+        <ul>
+          <li><strong>Podstawa prawna:</strong> Wasza zgoda (art. 6 ust. 1 lit. a RODO oraz art. 399 ustawy – Prawo komunikacji elektronicznej).</li>
+          <li>
+            Bez zgody skrypty Google w ogóle się nie ładują. Zgodę możecie w każdej chwili wycofać
+            <% if (site.analytics && site.analytics.enabled) { %>przez link
+            <a href="#" data-cookie-settings>Ustawienia cookies</a> w stopce strony<% } else { %>w ustawieniach przeglądarki<% } %>
+            – wycofanie nie wpływa na zgodność z prawem tego, co działo się wcześniej.
+          </li>
+          <li>
+            Swój wybór (zgoda lub jej brak) zapamiętuję w pamięci przeglądarki (<code>localStorage</code>),
+            żeby pasek nie pojawiał się przy każdej wizycie.
+          </li>
+        </ul>
+
+        <h2 id="odbiorcy">4. Komu przekazuję dane</h2>
+        <ul>
+          <li>Dostawcy serwera i poczty, na których działa strona i formularz (OVH sp. z o.o.).</li>
+          <li>Dostawcy skrzynki e-mail, na którą trafiają wiadomości z formularza (Google Ireland Ltd., usługa Gmail).</li>
+          <li>Google Ireland Ltd. – Google Analytics i Google Ads, wyłącznie po wyrażeniu zgody.</li>
+          <li>W razie choroby lub zdarzenia losowego – zaufanemu celebrantowi, który poprowadzi Waszą ceremonię w zastępstwie, w zakresie potrzebnym do jej przeprowadzenia.</li>
+        </ul>
+        <p>Nie sprzedaję danych i nie przekazuję ich w celach marketingowych.</p>
+
+        <h2 id="social">5. Facebook i Instagram</h2>
+        <p>
+          Strona zawiera zwykłe linki do moich profili na Facebooku i Instagramie – nie osadzam
+          wtyczek, które przesyłałyby Wasze dane do Meta podczas przeglądania strony. Po przejściu
+          na profil obowiązują zasady prywatności Meta Platforms Ireland Ltd.
+        </p>
+
+        <h2 id="prawa">6. Wasze prawa</h2>
+        <p>Macie prawo do:</p>
+        <ul>
+          <li>dostępu do swoich danych i otrzymania ich kopii,</li>
+          <li>sprostowania danych,</li>
+          <li>usunięcia danych lub ograniczenia ich przetwarzania,</li>
+          <li>przeniesienia danych,</li>
+          <li>sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie,</li>
+          <li>wycofania zgody w dowolnym momencie,</li>
+          <li>wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa, <a href="https://uodo.gov.pl" rel="noopener" target="_blank">uodo.gov.pl</a>).</li>
+        </ul>
+        <p>
+          Aby skorzystać z praw, napiszcie na <a href="mailto:<%= contact.email %>"><%= contact.email %></a>.
+          Nie podejmuję decyzji w sposób zautomatyzowany ani nie profiluję w rozumieniu RODO.
+        </p>
+
+        <h2 id="zmiany">7. Zmiany polityki</h2>
+        <p>
+          Jeśli zmienię sposób przetwarzania danych, zaktualizuję tę stronę i datę na górze.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

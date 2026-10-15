@@ -1,0 +1,139 @@
+<%
+  var weddingPrices = site.pricing.find(function (g) { return g.category === 'Ceremonie ślubne'; }).items;
+  var bilingualPersonal = weddingPrices.find(function (p) { return /personalizowana – dwujęzyczna/.test(p.name); });
+  var bilingualCivil = weddingPrices.find(function (p) { return /cywilną – dwujęzyczna/.test(p.name); });
+%>
+<%- include('../partials/page-hero', {
+  heroImage: '/images/wedding-beach.webp',
+  heroKicker: 'Humanist wedding celebrant · Gdańsk, Poland',
+  heroTitle: 'Bilingual wedding ceremonies in Poland',
+  heroSubtitle: 'A personal, English–Polish ceremony built around your story – by the sea, in a garden or anywhere you choose.'
+}) %>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6" data-reveal>
+        <p class="kicker">Hello, I'm Milena</p>
+        <h2 class="section-title">Your wedding, in both of your languages</h2>
+        <p class="lead-soft">
+          I'm a humanist wedding celebrant based in Gdańsk, working across the Tricity
+          (Gdańsk, Sopot, Gdynia) and the rest of Poland. I've worked in the wedding
+          industry since 2017.
+        </p>
+        <p>
+          Many of my couples come from two countries. A standard registry-office ceremony
+          in Poland is short, formal and in Polish only – half of your guests may not
+          understand a word. A humanist ceremony is different: we write it from scratch,
+          around your story, and I lead it fluently in English and Polish so that every
+          guest feels included.
+        </p>
+        <p>
+          There are no fixed formulas. You choose the place, the time, the music and the
+          rituals – I write the script, help you with your vows and make sure the day
+          runs smoothly.
+        </p>
+      </div>
+      <div class="col-lg-6" data-reveal data-reveal-delay="1">
+        <div class="split-figure">
+          <img src="/images/wedding-vows.webp" width="1079" height="720" alt="Couple reading their wedding vows during a humanist ceremony" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream-2">
+  <div class="container">
+    <div class="text-center mb-5" data-reveal>
+      <p class="kicker">What's included</p>
+      <h2 class="section-title">How we'll work together</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-reveal>
+        <div class="process-step">
+          <span class="process-step__num">01</span>
+          <h3 class="process-step__title">Free first call</h3>
+          <p>We meet online or in person in the Tricity, get to know each other and talk about your plans – no obligation.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-reveal data-reveal-delay="1">
+        <div class="process-step">
+          <span class="process-step__num">02</span>
+          <h3 class="process-step__title">A script written for you</h3>
+          <p>Based on questionnaires and conversations, I write a ceremony that tells your story – with natural switches between English and Polish, not word-for-word translation.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-reveal data-reveal-delay="2">
+        <div class="process-step">
+          <span class="process-step__num">03</span>
+          <h3 class="process-step__title">Help with your vows</h3>
+          <p>You get my vow-writing guide, and I review your drafts separately so your vows match in length and tone – and stay a surprise.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-reveal data-reveal-delay="3">
+        <div class="process-step">
+          <span class="process-step__num">04</span>
+          <h3 class="process-step__title">On the day</h3>
+          <p>I coordinate with your musicians, DJ and venue, run a sound check and lead the ceremony – including a plan B for the Baltic weather.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6" data-reveal>
+        <p class="kicker">Good to know</p>
+        <h2 class="section-title">Is it legally binding?</h2>
+        <p>
+          A humanist ceremony in Poland is not legally binding on its own. Most couples
+          handle the legal part separately at a Polish registry office (Urząd Stanu
+          Cywilnego) – often a short, low-key appointment before or after the celebration –
+          and keep the humanist ceremony as the real, emotional moment with all their guests.
+        </p>
+        <p>
+          It is also possible to combine both on the same day at your venue, with the
+          registry office's consent. I'm happy to contact the registrar and plan the
+          ceremony so both parts flow naturally. Couples who are not Polish citizens
+          should check the document requirements with the registry office well in advance.
+        </p>
+      </div>
+      <div class="col-lg-6" data-reveal data-reveal-delay="1">
+        <div class="price-note">
+          <h2 class="mb-3" style="font-size: 1.5rem;">Prices</h2>
+          <ul>
+            <% if (bilingualPersonal) { %><li><strong><%= bilingualPersonal.price.replace(' zł', ' PLN') %></strong> – personalised bilingual ceremony (script written around your story, vow help, optional rituals, coordination with suppliers, wedding certificate).</li><% } %>
+            <% if (bilingualCivil) { %><li><strong><%= bilingualCivil.price.replace(' zł', ' PLN') %></strong> – bilingual ceremony in a classic, civil-style format (without a personal story or rituals, wedding certificate included).</li><% } %>
+            <li>Live music for the ceremony: from 1500 PLN.</li>
+            <li>Travel within 30 km of Gdańsk is included; further away, mileage at the statutory rate.</li>
+            <li>For venues more than ~150 km from the Tricity I ask for simple overnight accommodation.</li>
+          </ul>
+          <a href="/cennik" class="btn btn-outline-clay btn-sm mt-2" hreflang="pl">Full price list (in Polish)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-band__inner" data-reveal>
+      <p class="kicker kicker--light">Let's talk</p>
+      <h2 class="cta-band__title">Tell me about your wedding</h2>
+      <p class="cta-band__text">
+        Send me your date and location – I'll check availability and suggest a short call.
+        You can write in English.
+      </p>
+      <div class="cta-band__actions">
+        <a href="mailto:<%= contact.email %>?subject=Wedding%20ceremony%20enquiry" class="btn btn-primary btn-lg">Email: <%= contact.email %></a>
+        <a href="tel:<%= contact.phoneHref %>" class="btn btn-outline-light btn-lg">Call: +48 <%= contact.phoneDisplay %></a>
+      </div>
+      <p class="cta-band__text mt-3 mb-0" style="font-size: 0.9rem;">
+        Or use the <a href="/kontakt" style="color: inherit; text-decoration: underline;" hreflang="pl">contact form</a> (in Polish – English messages are welcome).
+      </p>
+    </div>
+  </div>
+</section>

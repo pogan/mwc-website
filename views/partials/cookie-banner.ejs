@@ -1,0 +1,17 @@
+<%# Pasek zgody na cookies – obsługa w public/js/consent.js. Renderowany tylko, gdy pomiar jest włączony. %>
+<% if (site.analytics && site.analytics.enabled) { %>
+<div id="cookie-banner" class="cookie-banner" role="region" aria-label="Zgoda na pliki cookies" hidden>
+  <div class="container cookie-banner__inner">
+    <p class="cookie-banner__text">
+      Za Twoją zgodą korzystam z Google Analytics i Google Ads, żeby wiedzieć, jak
+      korzystasz ze strony i które reklamy działają. Te narzędzia zapisują pliki cookies
+      i przekazują dane Google. Bez zgody strona działa tak samo.
+      Szczegóły w <a href="/polityka-prywatnosci#cookies">polityce prywatności</a>.
+    </p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn-outline-clay btn-sm" data-consent="denied">Odrzucam</button>
+      <button type="button" class="btn btn-primary btn-sm" data-consent="granted">Akceptuję</button>
+    </div>
+  </div>
+</div>
+<% } %>

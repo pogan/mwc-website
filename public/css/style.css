@@ -830,3 +830,56 @@ section { position: relative; }
   .service-card__excerpt { max-height: 120px; opacity: 1; }
   .frame-accent::before { display: none; }
 }
+
+/* ------------------------------ Pasek cookies ----------------------------- */
+
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1080;
+  background: var(--white);
+  border-top: 1px solid rgba(138, 90, 68, 0.2);
+  box-shadow: 0 -8px 30px rgba(60, 40, 30, 0.08);
+  padding: 1rem 0;
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-banner__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.cookie-banner__text {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.cookie-banner__actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .cookie-banner__inner { flex-direction: row; align-items: center; }
+}
+
+.footer-legal a { color: inherit; text-decoration: underline; }
+
+/* ------------------------- Poradniki i strony prawne ------------------------ */
+
+.article-body h2 {
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  margin: 2.5rem 0 1rem;
+}
+.article-body h3 {
+  font-size: 1.3rem;
+  margin: 1.8rem 0 0.7rem;
+}
+.article-body p,
+.article-body li { color: var(--ink-soft); }
+.article-body ul,
+.article-body ol { padding-left: 1.2rem; margin-bottom: 1.2rem; }
+.article-body li { margin-bottom: 0.45rem; }
+.article-table { background: var(--white); border-radius: var(--radius); overflow: hidden; font-size: 0.95rem; }
+.article-table th { background: var(--cream-2); font-weight: 500; }

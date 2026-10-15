@@ -1,13 +1,13 @@
 <footer class="site-footer">
   <div class="container">
     <div class="row gy-4">
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <p class="footer-brand">Milena Marczykowska</p>
         <p class="footer-role">Celebrantka ceremonii humanistycznych</p>
         <p class="footer-tagline"><%= brand.tagline %></p>
       </div>
 
-      <div class="col-lg-4 col-6">
+      <div class="col-lg-3 col-6">
         <h3 class="footer-title">Ceremonie</h3>
         <ul class="footer-links">
           <li><a href="/ceremonie-slubne">Ceremonie ślubne</a></li>
@@ -20,7 +20,20 @@
         </ul>
       </div>
 
-      <div class="col-lg-4 col-6">
+      <div class="col-lg-3 col-6">
+        <h3 class="footer-title">Trójmiasto i poradnik</h3>
+        <ul class="footer-links">
+          <% site.locations.forEach(function (l) { %>
+            <li><a href="<%= l.path %>">Ślub humanistyczny <%= l.city %></a></li>
+          <% }); %>
+          <% site.guides.forEach(function (g) { %>
+            <li><a href="<%= g.path %>"><%= g.linkLabel %></a></li>
+          <% }); %>
+          <li><a href="/en" hreflang="en" lang="en">English</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-6">
         <h3 class="footer-title">Kontakt</h3>
         <ul class="footer-links">
           <li><a href="tel:<%= contact.phoneHref %>">tel. <%= contact.phoneDisplay %></a></li>
@@ -40,6 +53,12 @@
 
     <div class="footer-bottom">
       <p>© <%= site.year %> <%= brand.short %>. Wszystkie prawa zastrzeżone.</p>
+      <p class="footer-legal">
+        <a href="/polityka-prywatnosci">Polityka prywatności</a>
+        <% if (site.analytics && site.analytics.enabled) { %>
+          · <a href="#" data-cookie-settings>Ustawienia cookies</a>
+        <% } %>
+      </p>
       <p class="footer-credit"><%= contact.instagramHandle %></p>
     </div>
   </div>

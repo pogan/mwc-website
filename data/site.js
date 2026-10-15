@@ -3,6 +3,9 @@
  * Dzięki temu nawigacja, oferta, cennik, FAQ i dane kontaktowe są w jednym miejscu.
  */
 
+const { locations } = require('./locations');
+const { guides } = require('./guides');
+
 const url = 'https://marczykowska.com';
 
 /**
@@ -485,5 +488,7 @@ module.exports = {
   faqCategories,
   faq,
   testimonials,
+  locations,
+  guides,
   year: new Date().getFullYear()
 };

@@ -1,0 +1,27 @@
+<%- include('../../partials/page-hero', {
+  heroImage: '/images/wedding-vows.webp',
+  heroKicker: 'Poradnik',
+  heroTitle: 'Poradnik ceremonii humanistycznych',
+  heroSubtitle: 'Praktyczne odpowiedzi na pytania, które zadajecie mi najczęściej.'
+}) %>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      <% site.guides.forEach(function (g, i) { %>
+        <div class="col-md-6 col-lg-5" data-reveal data-reveal-delay="<%= (i % 2) + 1 %>">
+          <a href="<%= g.path %>" class="service-card">
+            <div class="service-card__img" style="background-image: url('<%= g.heroImage %>')"></div>
+            <div class="service-card__body">
+              <h2 class="service-card__title"><%= g.heading %></h2>
+              <p class="service-card__excerpt"><%= g.excerpt %></p>
+              <span class="service-card__link">Czytaj poradnik</span>
+            </div>
+          </a>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<%- include('../../partials/cta') %>
