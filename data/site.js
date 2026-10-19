@@ -27,7 +27,7 @@ analytics.enabled = Boolean(analytics.ga4Id || analytics.googleAdsId);
 const contact = {
   phoneDisplay: '510 769 900',
   phoneHref: '+48510769900',
-  email: 'marczykowska@gmail.com',
+  email: 'milena@marczykowska.com',
   city: 'Gdańsk i całe Trójmiasto',
   serviceArea: 'Pomorze i cała Polska',
   /** Miejscowości/regiony do areaServed w danych strukturalnych i lokalnego SEO. */
