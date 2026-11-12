@@ -19,6 +19,8 @@ const app = express();
 // Data wejścia w życie polityki prywatności – zmieniajcie przy każdej zmianie jej treści.
 const PRIVACY_POLICY_DATE = '2026-10-16';
 const PORT = process.env.PORT || 3000;
+// Domyślnie tylko localhost (ruch z zewnątrz przez nginx); w kontenerze podglądu HOST=0.0.0.0.
+const HOST = process.env.HOST || '127.0.0.1';
 
 /* ----------------------------- Konfiguracja ----------------------------- */
 
@@ -388,7 +390,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
   console.log(`✦ Milena Marczykowska Ceremonie – serwer działa na http://localhost:${PORT}`);
 });
 
