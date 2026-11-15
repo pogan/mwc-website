@@ -960,3 +960,12 @@ section { position: relative; }
 .article-body li { margin-bottom: 0.45rem; }
 .article-table { background: var(--white); border-radius: var(--radius); overflow: hidden; font-size: 1rem; }
 .article-table th { background: var(--cream-2); font-weight: 500; }
+
+/* .g-5 daje rzędom ujemny margines 1,5rem - na telefonie większy niż wcięcie kontenera
+   (0,75rem), przez co strona była o ~12 px szersza niż ekran i dało się ją przesunąć w bok. */
+@media (max-width: 575.98px) {
+  .g-5,
+  .gx-5 {
+    --bs-gutter-x: 1.5rem;
+  }
+}
