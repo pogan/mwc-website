@@ -34,8 +34,9 @@
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  /* Zamykanie menu mobilnego po kliknięciu w link */
-  var navLinks = document.querySelectorAll('#mainNav .nav-link');
+  /* Zamykanie menu mobilnego po kliknięciu w link (także w podmenu). Przycisk rozwijający
+     podmenu („Ceremonie humanistyczne”) nie zamyka menu - ma tylko pokazać podmenu. */
+  var navLinks = document.querySelectorAll('#mainNav .nav-link:not(.nav-dropdown-toggle), #mainNav .dropdown-item');
   var collapseEl = document.getElementById('mainNav');
   navLinks.forEach(function (link) {
     link.addEventListener('click', function () {
