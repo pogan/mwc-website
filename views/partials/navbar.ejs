@@ -22,14 +22,39 @@
 
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto align-items-xl-center">
-          <% nav.forEach(function (item) { %>
-            <li class="nav-item">
-              <a
-                class="nav-link <%= currentPath === item.path ? 'active' : '' %>"
-                href="<%= item.path %>"
-                <%= currentPath === item.path ? 'aria-current="page"' : '' %>
-              ><%= item.label %></a>
-            </li>
+          <% nav.forEach(function (item, i) { %>
+            <% if (item.children) { %>
+              <% var childActive = item.children.some(function (c) { return currentPath === c.path; }); %>
+              <li class="nav-item dropdown">
+                <button
+                  type="button"
+                  class="nav-link nav-dropdown-toggle <%= childActive ? 'active' : '' %>"
+                  id="navDropdown<%= i %>"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                ><%= item.label %><span class="nav-caret" aria-hidden="true"></span></button>
+                <ul class="dropdown-menu nav-dropdown-menu" aria-labelledby="navDropdown<%= i %>">
+                  <% item.children.forEach(function (child) { %>
+                    <li>
+                      <a
+                        class="dropdown-item <%= currentPath === child.path ? 'active' : '' %>"
+                        href="<%= child.path %>"
+                        <%- currentPath === child.path ? 'aria-current="page"' : '' %>
+                      ><%= child.label %></a>
+                    </li>
+                  <% }); %>
+                </ul>
+              </li>
+            <% } else { %>
+              <% var isActive = currentPath === item.path || (item.path !== '/' && currentPath.indexOf(item.path + '/') === 0); %>
+              <li class="nav-item">
+                <a
+                  class="nav-link <%= isActive ? 'active' : '' %>"
+                  href="<%= item.path %>"
+                  <%- currentPath === item.path ? 'aria-current="page"' : '' %>
+                ><%= item.label %></a>
+              </li>
+            <% } %>
           <% }); %>
           <li class="nav-item ms-xl-3 mt-2 mt-xl-0">
             <a class="btn btn-primary btn-sm px-3" href="/kontakt">Zapytaj o termin</a>

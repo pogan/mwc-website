@@ -44,19 +44,31 @@ const brand = {
   tagline: 'Wasza historia, opowiedziana tak, jak Wam odpowiada.'
 };
 
-/** Pozycje głównego menu (kolejność ma znaczenie). */
+/**
+ * Pozycje głównego menu (kolejność ma znaczenie). Pozycja z `children` to rozwijane
+ * podmenu (Bootstrap dropdown) - sama nie ma adresu.
+ */
 const nav = [
   // { path: '/', label: 'Start' },
-  { path: '/ceremonie-slubne', label: 'Ceremonie ślubne' },
-  { path: '/pary-lgbt', label: 'Pary LGBT+' },
-  { path: '/przywitanie-dziecka', label: 'Przywitanie dziecka' },
-  { path: '/ceremonie-pozegnania', label: 'Ceremonie pożegnania' },
-  { path: '/odnowienie-przysiegi', label: 'Odnowienie przysięgi' },
+  {
+    label: 'Ceremonie humanistyczne',
+    children: [
+      { path: '/ceremonie-slubne', label: 'Ceremonie ślubne' },
+      { path: '/pary-lgbt', label: 'Pary LGBT+' },
+      { path: '/przywitanie-dziecka', label: 'Przywitanie dziecka' },
+      { path: '/ceremonie-pozegnania', label: 'Ceremonie pożegnania' },
+      { path: '/odnowienie-przysiegi', label: 'Odnowienie przysięgi' }
+    ]
+  },
   { path: '/o-mnie', label: 'O mnie' },
   { path: '/cennik', label: 'Cennik' },
+  { path: '/poradnik', label: 'Poradniki' },
   { path: '/faq', label: 'FAQ' }
   // { path: '/kontakt', label: 'Kontakt' }
 ];
+
+/** Wszystkie adresy z menu, także z podmenu (np. do sitemapy). */
+const navPaths = nav.flatMap((item) => (item.children ? item.children.map((c) => c.path) : [item.path]));
 
 /** Skrótowa oferta pokazywana na stronie głównej. */
 const services = [
@@ -481,6 +493,7 @@ module.exports = {
   brand,
   contact,
   nav,
+  navPaths,
   services,
   process,
   pricing,
