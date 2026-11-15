@@ -269,6 +269,18 @@ section { position: relative; }
   --bs-dropdown-item-padding-y: 0.5rem;
   padding: 0.35rem 0;
 }
+/* Komputer (szerokie menu + mysz): podmenu otwiera się po najechaniu i przy fokusie z klawiatury.
+   Na dotyku zostaje otwieranie kliknięciem (Bootstrap). Brak odstępu między przyciskiem a podmenu,
+   żeby kursor nie „gubił” menu po drodze. */
+@media (min-width: 1200px) and (hover: hover) {
+  .navbar-nav .dropdown > .nav-dropdown-menu { top: 100%; left: 0; margin-top: 0; }
+  .navbar-nav .dropdown:hover > .nav-dropdown-menu,
+  .navbar-nav .dropdown:focus-within > .nav-dropdown-menu { display: block; }
+  .navbar-nav .dropdown:hover > .nav-dropdown-toggle,
+  .navbar-nav .dropdown:focus-within > .nav-dropdown-toggle { color: var(--clay-text); }
+  .navbar-nav .dropdown:hover .nav-caret,
+  .navbar-nav .dropdown:focus-within .nav-caret { transform: translateY(0.1em) rotate(-135deg); }
+}
 @media (max-width: 1199.98px) {
   /* W rozwiniętym menu mobilnym podmenu to wcięta lista, bez ramki. */
   .nav-dropdown-menu { border: 0; background: transparent; padding: 0 0 0.4rem 0.8rem; }
@@ -960,6 +972,15 @@ section { position: relative; }
 .article-body li { margin-bottom: 0.45rem; }
 .article-table { background: var(--white); border-radius: var(--radius); overflow: hidden; font-size: 1rem; }
 .article-table th { background: var(--cream-2); font-weight: 500; }
+
+/* .g-5 daje rzędom ujemny margines 1,5rem - na telefonie większy niż wcięcie kontenera
+   (0,75rem), przez co strona była o ~12 px szersza niż ekran i dało się ją przesunąć w bok. */
+@media (max-width: 575.98px) {
+  .g-5,
+  .gx-5 {
+    --bs-gutter-x: 1.5rem;
+  }
+}
 
 /* .g-5 daje rzędom ujemny margines 1,5rem - na telefonie większy niż wcięcie kontenera
    (0,75rem), przez co strona była o ~12 px szersza niż ekran i dało się ją przesunąć w bok. */
