@@ -27,12 +27,12 @@ const guides = [
     heading: 'Jak napisać przysięgę ślubną?',
     linkLabel: 'Jak napisać przysięgę ślubną',
     description:
-      'Jak napisać osobistą przysięgę ślubną krok po kroku: od czego zacząć, jaka długość, prosta struktura, przykładowe zdania i jak przeczytać ją bez stresu. Poradnik celebrantki.',
-    excerpt: 'Prosta struktura, długość, przykładowe zdania i sposób na tremę – krok po kroku.',
+      'Jak napisać osobistą przysięgę ślubną krok po kroku: prosta struktura, długość bez sztywnych limitów, pytania pomocnicze i jak przeczytać ją bez stresu. Poradnik celebrantki.',
+    excerpt: 'Prosta struktura, pytania pomocnicze, długość bez sztywnych limitów i sposób na tremę – krok po kroku.',
     heroImage: '/images/wedding-vows.webp',
     ogImage: '/images/wedding-vows.jpg',
     published: '2026-10-16',
-    updated: '2026-10-16'
+    updated: '2026-11-15'
   }
 ];
 
