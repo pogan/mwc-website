@@ -236,7 +236,57 @@ section { position: relative; }
 .navbar-nav .nav-link:hover::after,
 .navbar-nav .nav-link.active::after { transform: scaleX(1); }
 
-/* Menu: 8 pozycji + przycisk – na xl ciaśniej, na xxl szerszy kontener i większa czcionka */
+/* Rozwijane „Ceremonie humanistyczne”: przycisk wygląda jak link menu, strzałka w dół
+   (obrót przy otwarciu). Bootstrapowy trójkąt .dropdown-toggle::after nie jest używany,
+   bo ::after linków menu to podkreślenie. */
+.navbar-nav .nav-dropdown-toggle {
+  background: none;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.nav-caret {
+  width: 0.45em;
+  height: 0.45em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-0.15em) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.nav-dropdown-toggle[aria-expanded="true"] .nav-caret { transform: translateY(0.1em) rotate(-135deg); }
+.nav-dropdown-toggle[aria-expanded="true"] { color: var(--clay-text); }
+.nav-dropdown-menu {
+  --bs-dropdown-bg: var(--cream);
+  --bs-dropdown-border-color: var(--line);
+  --bs-dropdown-border-radius: 0;
+  --bs-dropdown-link-color: var(--ink);
+  --bs-dropdown-link-hover-color: var(--clay-text);
+  --bs-dropdown-link-hover-bg: var(--sand);
+  --bs-dropdown-link-active-color: var(--clay-text);
+  --bs-dropdown-link-active-bg: var(--sand);
+  --bs-dropdown-font-size: 0.95rem;
+  --bs-dropdown-item-padding-y: 0.5rem;
+  padding: 0.35rem 0;
+}
+/* Komputer (szerokie menu + mysz): podmenu otwiera się po najechaniu i przy fokusie z klawiatury.
+   Na dotyku zostaje otwieranie kliknięciem (Bootstrap). Brak odstępu między przyciskiem a podmenu,
+   żeby kursor nie „gubił” menu po drodze. */
+@media (min-width: 1200px) and (hover: hover) {
+  .navbar-nav .dropdown > .nav-dropdown-menu { top: 100%; left: 0; margin-top: 0; }
+  .navbar-nav .dropdown:hover > .nav-dropdown-menu,
+  .navbar-nav .dropdown:focus-within > .nav-dropdown-menu { display: block; }
+  .navbar-nav .dropdown:hover > .nav-dropdown-toggle,
+  .navbar-nav .dropdown:focus-within > .nav-dropdown-toggle { color: var(--clay-text); }
+  .navbar-nav .dropdown:hover .nav-caret,
+  .navbar-nav .dropdown:focus-within .nav-caret { transform: translateY(0.1em) rotate(-135deg); }
+}
+@media (max-width: 1199.98px) {
+  /* W rozwiniętym menu mobilnym podmenu to wcięta lista, bez ramki. */
+  .nav-dropdown-menu { border: 0; background: transparent; padding: 0 0 0.4rem 0.8rem; }
+}
+
+/* Menu: 5 pozycji (w tym rozwijana) + przycisk – na xl ciaśniej, na xxl szerszy kontener i większa czcionka */
 .navbar .btn { white-space: nowrap; }
 @media (min-width: 1200px) {
   .navbar-nav .nav-link { padding-left: 0.3rem; padding-right: 0.3rem; }
@@ -922,3 +972,12 @@ section { position: relative; }
 .article-body li { margin-bottom: 0.45rem; }
 .article-table { background: var(--white); border-radius: var(--radius); overflow: hidden; font-size: 1rem; }
 .article-table th { background: var(--cream-2); font-weight: 500; }
+
+/* .g-5 daje rzędom ujemny margines 1,5rem - na telefonie większy niż wcięcie kontenera
+   (0,75rem), przez co strona była o ~12 px szersza niż ekran i dało się ją przesunąć w bok. */
+@media (max-width: 575.98px) {
+  .g-5,
+  .gx-5 {
+    --bs-gutter-x: 1.5rem;
+  }
+}

@@ -349,13 +349,11 @@ app.post('/kontakt', async (req, res) => {
 app.get('/sitemap.xml', (req, res) => {
   const today = new Date().toISOString().slice(0, 10);
   // '/' i '/kontakt' są ukryte w menu (patrz data/site.js), ale mają zostać w sitemapie.
-  const navPaths = site.nav.map((item) => item.path);
   const paths = [
     '/',
-    ...navPaths,
+    ...site.navPaths,
     '/kontakt',
     ...site.locations.map((l) => l.path),
-    '/poradnik',
     ...site.guides.map((g) => g.path),
     '/en',
     '/polityka-prywatnosci'
