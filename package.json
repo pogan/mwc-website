@@ -26,6 +26,6 @@
     "express-ejs-layouts": "^2.5.1",
     "helmet": "^8.0.0",
     "nodemailer": "^9.0.5",
-    "vamude-kit": "https://github.com/pogan/vamude-kit/archive/0aebb5abb89b084bb11a59aaf0d6384abf1c3b8e.tar.gz"
+    "vamude-kit": "https://github.com/pogan/vamude-kit/archive/refs/tags/v1.0.0.tar.gz"
   }
 }
