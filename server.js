@@ -24,7 +24,7 @@ app.locals.appVersion = version;
 const stats = createStats({ file: process.env.STATS_DB || path.join(__dirname, 'data', 'stats.sqlite') });
 
 // Data wejścia w życie polityki prywatności – zmieniajcie przy każdej zmianie jej treści.
-const PRIVACY_POLICY_DATE = '2026-10-16';
+const PRIVACY_POLICY_DATE = '2026-11-16';
 const PORT = process.env.PORT || 3000;
 // Domyślnie tylko localhost (ruch z zewnątrz przez nginx); w kontenerze podglądu HOST=0.0.0.0.
 const HOST = process.env.HOST || '127.0.0.1';
