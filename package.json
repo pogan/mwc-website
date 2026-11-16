@@ -6,7 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "test": "node --test test/*.test.js"
   },
   "keywords": [
     "celebrantka",
@@ -24,6 +25,10 @@
     "express": "^4.21.2",
     "express-ejs-layouts": "^2.5.1",
     "helmet": "^8.0.0",
-    "nodemailer": "^9.0.5"
+    "nodemailer": "^9.0.5",
+    "vamude-kit": "https://github.com/pogan/vamude-kit/archive/refs/tags/v1.0.0.tar.gz"
+  },
+  "allowScripts": {
+    "better-sqlite3": true
   }
 }

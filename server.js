@@ -10,20 +10,29 @@ const path = require('path');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const helmet = require('helmet');
+const { readVersion, healthz, createStats } = require('vamude-kit');
 
 const site = require('./data/site');
 const { processContactForm } = require('./lib/contactForm');
 
 const app = express();
 
+const version = readVersion({ root: __dirname });
+app.locals.appVersion = version;
+
+// Statystyki odwiedzin (vamude-kit): panel /stats, hasło STATS_PASSWORD z .env.
+const stats = createStats({ file: process.env.STATS_DB || path.join(__dirname, 'data', 'stats.sqlite') });
+
 // Data wejścia w życie polityki prywatności – zmieniajcie przy każdej zmianie jej treści.
-const PRIVACY_POLICY_DATE = '2026-10-16';
+const PRIVACY_POLICY_DATE = '2026-11-16';
 const PORT = process.env.PORT || 3000;
 // Domyślnie tylko localhost (ruch z zewnątrz przez nginx); w kontenerze podglądu HOST=0.0.0.0.
 const HOST = process.env.HOST || '127.0.0.1';
 
 /* ----------------------------- Konfiguracja ----------------------------- */
 
+// Ruch przychodzi przez nginx (prod) albo Caddy (podgląd); req.ip = adres odwiedzającego.
+app.set('trust proxy', 1);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
@@ -72,6 +81,10 @@ app.use(
     crossOriginEmbedderPolicy: false
   })
 );
+
+app.get('/healthz', healthz({ version, checks: { stats: () => stats.db.prepare('SELECT 1').get() } }));
+app.use(stats.middleware);
+app.use(stats.panel);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: '7d' }));
@@ -388,8 +401,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, HOST, () => {
-  console.log(`✦ Milena Marczykowska Ceremonie – serwer działa na http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, HOST, () => {
+    console.log(`✦ Milena Marczykowska Ceremonie ${version.label} – serwer działa na http://${HOST}:${PORT}`);
+  });
+}
 
 module.exports = app;
