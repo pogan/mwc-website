@@ -52,7 +52,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© <%= site.year %> <%= brand.short %>. Wszystkie prawa zastrzeżone.</p>
+      <p>© <%= site.year %> <%= brand.short %>. Wszystkie prawa zastrzeżone. <span class="footer-version" title="Wersja strony"><%= appVersion.label %></span></p>
       <p class="footer-legal">
         <a href="/polityka-prywatnosci">Polityka prywatności</a>
         <% if (site.analytics && site.analytics.enabled) { %>
