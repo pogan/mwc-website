@@ -854,6 +854,7 @@ section { position: relative; }
   color: rgba(255, 255, 255, 0.72);
 }
 .footer-bottom p { margin: 0; }
+.footer-version { margin-left: 0.5rem; font-size: 0.75rem; opacity: 0.6; white-space: nowrap; }
 
 /* -------------------------- Animacje reveal ----------------------------- */
 
