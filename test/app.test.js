@@ -6,7 +6,8 @@ const path = require('path');
 
 // Baza statystyk testów w katalogu tymczasowym.
 process.env.STATS_DB = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'mwc-')), 'stats.sqlite');
-process.env.STATS_PASSWORD = 'haslo-testowe';
+process.env.ADMIN_EMAILS = 'admin@example.com';
+process.env.GOOGLE_CLIENT_ID = 'test.apps.googleusercontent.com';
 const app = require('../server');
 
 const BROWSER = {
@@ -39,12 +40,26 @@ test('/healthz w formacie vamude-kit', async () => {
   assert.equal(body.app, 'mwc-website');
 });
 
-test('statystyki: odsłona strony liczona, panel za hasłem', async () => {
-  await fetch(`${base}/cennik`, { headers: BROWSER });
+test('panel /kierownik: logowanie Google, statystyki tylko dla admina', async () => {
+  const login = await fetch(`${base}/kierownik`);
+  assert.equal(login.status, 200);
+  assert.match(await login.text(), /data-client_id="test\.apps\.googleusercontent\.com"/);
+  const stats = await fetch(`${base}/kierownik/stats`, { redirect: 'manual' });
+  assert.equal(stats.status, 303);
+  assert.equal(stats.headers.get('location'), '/kierownik?next=%2Fkierownik%2Fstats');
+  assert.equal((await fetch(`${base}/kierownik/stats.json`)).status, 401);
+  assert.equal((await fetch(`${base}/stats`)).status, 404);
+});
+
+test('podgląd: PREVIEW_LOGIN daje wejście do statystyk bez Google', async () => {
+  process.env.PREVIEW_LOGIN = 'true';
+  await fetch(`${base}/cennik`, { headers: { 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 'accept-language': 'pl' } });
   await new Promise((r) => setTimeout(r, 20));
-  assert.equal((await fetch(`${base}/stats.json`)).status, 401);
-  const res = await fetch(`${base}/stats.json`, { headers: { authorization: 'Bearer haslo-testowe' } });
-  assert.equal(res.status, 200);
-  const s = await res.json();
-  assert.ok(s.pages.some((p) => p.name === '/cennik'));
+  const res = await fetch(`${base}/kierownik/podglad`, { method: 'POST', redirect: 'manual' });
+  assert.equal(res.status, 303);
+  const cookie = res.headers.get('set-cookie').split(';')[0];
+  const json = await fetch(`${base}/kierownik/stats.json`, { headers: { cookie } });
+  assert.equal(json.status, 200);
+  assert.ok((await json.json()).pages.some((p) => p.name === '/cennik'));
+  delete process.env.PREVIEW_LOGIN;
 });
