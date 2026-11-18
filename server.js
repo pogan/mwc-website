@@ -10,7 +10,7 @@ const path = require('path');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const helmet = require('helmet');
-const { readVersion, healthz, createStats } = require('vamude-kit');
+const { readVersion, healthz, createStats, createAdmin } = require('vamude-kit');
 
 const site = require('./data/site');
 const { processContactForm } = require('./lib/contactForm');
@@ -20,8 +20,10 @@ const app = express();
 const version = readVersion({ root: __dirname });
 app.locals.appVersion = version;
 
-// Statystyki odwiedzin (vamude-kit): panel /stats, hasło STATS_PASSWORD z .env.
+// Panel administratora /kierownik (logowanie Google, ADMIN_EMAILS) i statystyki
+// odwiedzin pod /kierownik/stats (vamude-kit).
 const stats = createStats({ file: process.env.STATS_DB || path.join(__dirname, 'data', 'stats.sqlite') });
+const admin = createAdmin({ stats });
 
 // Data wejścia w życie polityki prywatności – zmieniajcie przy każdej zmianie jej treści.
 const PRIVACY_POLICY_DATE = '2026-11-16';
@@ -83,8 +85,10 @@ app.use(
 );
 
 app.get('/healthz', healthz({ version, checks: { stats: () => stats.db.prepare('SELECT 1').get() } }));
+app.use(admin.middleware);
 app.use(stats.middleware);
 app.use(stats.panel);
+app.use(admin.router);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: '7d' }));
